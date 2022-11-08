@@ -188,6 +188,7 @@ export default {
     "@nuxtjs/axios",
     // https://go.nuxtjs.dev/pwa
     "@nuxtjs/pwa",
+    "@nuxtjs/markdownit",
   ],
   markdownit: {
     injected: true,
@@ -202,10 +203,97 @@ export default {
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
+  // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
+    meta: {
+      title: "D & N Tour Travel - Car Rental",
+      author: "D & N",
+      icon: true,
+      canonical: "https://d-n-tour.vercel.app/",
+      description:
+        "D & N Tour Travel Dan Rental Mobil. Melayani Antar Jempun Bandung - Jakarta Bandara Soekarno Hatta, Nikmati perjalanan yang cepat dan pelayanan yang gesit dari kami D & N Tour.",
+      keywords:
+        "Layanan Antar Jemput Bandung - Jakarta (Bandara Soekarno Hatta), D & N Tour Travel",
+      ogUrl: "https://d-n-tour.vercel.app/",
+      ogType: "website",
+      ogSiteName: "D & N Tour Travel - Car Rental",
+      ogTitle: "D & N Tour Travel - Car Rental",
+      ogImage: "/icon.png",
+      ogImageWidth: "600",
+      ogImageHeight: "400",
+    },
     manifest: {
       lang: "en",
+      name: "D & N Tour Travel - Car Rental",
+      short_name: "D & N Tour",
+      description:
+        "D & N Tour Travel Dan Rental Mobil. Melayani Antar Jempun Bandung - Jakarta Bandara Soekarno Hatta, Nikmati perjalanan yang cepat dan pelayanan yang gesit dari kami D & N Tour.",
+      start_url: "/",
+      lang: "en",
+      display: "standalone",
+      theme_color: "#000",
+      background_color: "#000",
+      icons: [
+        {
+          src: "/icon-48x48.png",
+          sizes: "48x48",
+          type: "image/png",
+          purpose: "maskable any",
+        },
+        {
+          src: "/icon-72x72.png",
+          sizes: "72x72",
+          type: "image/png",
+          purpose: "maskable any",
+        },
+        {
+          src: "/icon-96x96.png",
+          sizes: "96x96",
+          type: "image/png",
+          purpose: "maskable any",
+        },
+        {
+          src: "/icon-128x128.png",
+          sizes: "128x128",
+          type: "image/png",
+          purpose: "maskable any",
+        },
+        {
+          src: "/icon-144x144.png",
+          sizes: "144x144",
+          type: "image/png",
+          purpose: "maskable any",
+        },
+        {
+          src: "/icon-152x152.png",
+          sizes: "152x152",
+          type: "image/png",
+          purpose: "maskable any",
+        },
+        {
+          src: "/icon-192x192.png",
+          sizes: "192x192",
+          type: "image/png",
+          purpose: "maskable any",
+        },
+        {
+          src: "/icon-384x384.png",
+          sizes: "384x384",
+          type: "image/png",
+          purpose: "maskable any",
+        },
+        {
+          src: "/icon-512x512.png",
+          sizes: "512x512",
+          type: "image/png",
+          purpose: "maskable any",
+        },
+      ],
     },
+  },
+  robots: {
+    UserAgent: "*",
+    Disallow: "/",
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

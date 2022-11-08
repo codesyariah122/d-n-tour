@@ -9,7 +9,10 @@
             <div class="col-xl-2 col-lg-2 col-md-1">
               <div class="logo">
                 <a href="index.html"
-                  ><img :src="require('~/assets/img/logo/dnlogo.png')" alt=""
+                  ><img
+                    :src="require('~/assets/img/logo/dnlogo.png')"
+                    alt=""
+                    :style="`${$device.isDesktop ? 'width: 90px;' : ''}`"
                 /></a>
               </div>
             </div>
