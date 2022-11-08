@@ -17,9 +17,20 @@ export default {
       "js sizes customelements history pointerevents postmessage webgl websockets cssanimations csscolumns csscolumns-width csscolumns-span csscolumns-fill csscolumns-gap csscolumns-rule csscolumns-rulecolor csscolumns-rulestyle csscolumns-rulewidth no-csscolumns-breakbefore no-csscolumns-breakafter no-csscolumns-breakinside flexbox picture srcset webworkers"
     );
     this.activeScroll();
+    this.mobileMenu();
   },
 
   methods: {
+    mobileMenu() {
+      let menu = $("ul#navigation");
+      if (menu.length) {
+        menu.slicknav({
+          prependTo: ".mobile_menu",
+          closedSymbol: "+",
+          openedSymbol: "-",
+        });
+      }
+    },
     activeScroll() {
       $(window).on("scroll", function () {
         var scroll = $(window).scrollTop();

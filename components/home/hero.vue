@@ -12,7 +12,11 @@
                 <div class="slide-content">
                   <h1
                     v-if="item.id !== 3 && item.id !== 4"
-                    :style="`${$device.isDesktop ? 'margin-top: -30rem;' : ''}`"
+                    :style="`${
+                      $device.isDesktop
+                        ? 'margin-top: -30rem;'
+                        : 'margin-top: -25rem;'
+                    }`"
                   >
                     {{ item.heading }}
                   </h1>
@@ -28,13 +32,21 @@
             $device.isDesktop && item.id === 5
               ? 'margin-top: -27rem;'
               : 'margin-top: -35rem;'
-          }`"
+          } ${$device.isMobile ? 'margin-top: -5rem;' : ''}`"
           class="slider-caption2"
         >
           <div class="container">
             <div class="row">
               <div class="col-xl-4 col-lg-4 col-md-7 col-sm-8">
-                <div class="slide-content2" v-html="item.content"></div>
+                <div
+                  class="slide-content2"
+                  v-html="item.content"
+                  :style="`${
+                    $device.isMobile && item.id === 5
+                      ? 'margin-top: 35rem;'
+                      : ''
+                  }`"
+                ></div>
               </div>
             </div>
           </div>
