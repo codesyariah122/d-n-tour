@@ -15,12 +15,19 @@
             </div>
             <div class="col-xl-9 col-lg-10">
               <div class="main-menu black-menu menu-bg-white d-none d-lg-block">
-                <div class="hamburger hamburger--collapse">
+                <div
+                  @click="hamburgerMenu"
+                  :class="`hamburger hamburger--collapse ${
+                    isActive ? 'is-active' : ''
+                  }`"
+                >
                   <div class="hamburger-box">
                     <div class="hamburger-inner"></div>
                   </div>
                 </div>
-                <nav class="hamburger-menu">
+                <nav
+                  :class="`hamburger-menu ${menuShow ? 'nav-menu-show' : ''}`"
+                >
                   <ul id="navigation">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
@@ -50,3 +57,20 @@
     <!-- Header End -->
   </header>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      isActive: null,
+      menuShow: null,
+    };
+  },
+  methods: {
+    hamburgerMenu() {
+      this.isActive = !this.isActive;
+      this.menuShow = !this.menuShow;
+    },
+  },
+};
+</script>

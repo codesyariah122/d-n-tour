@@ -224,17 +224,17 @@ p {
 
 /* line 35, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_common.scss */
 .bg-img-1 {
-  background-image: url(../img/slider/slider-img-1.jpg);
+  background-image: url(/assets/img/slider/slider-img-1.jpg);
 }
 
 /* line 38, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_common.scss */
 .bg-img-2 {
-  background-image: url(../img/background-img/bg-img-2.jpg);
+  background-image: url(/assets/img/background-img/bg-img-2.jpg);
 }
 
 /* line 41, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_common.scss */
 .cta-bg-1 {
-  background-image: url(../img/background-img/bg-img-3.jpg);
+  background-image: url(/assets/img/background-img/bg-img-3.jpg);
 }
 
 /* line 46, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_common.scss */
@@ -3696,7 +3696,6 @@ nav.nav-menu-show {
 
 /* line 53, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_h1-hero.scss */
 .slider-area.slider-area2 {
-  background-image: url(../img/hero/h2_hero.png);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -4168,7 +4167,7 @@ nav.nav-menu-show {
   align-items: center;
   width: 50%;
   padding-left: 19%;
-  background-image: url(../img/gallery/section_bg03.jpg);
+  background-image: url(/assets/img/gallery/section_bg03.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background: #071112;
@@ -4333,7 +4332,7 @@ nav.nav-menu-show {
 /* line 119, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_all_startups.scss */
 .all-starups-area .starups-img {
   width: 50%;
-  background-image: url(../img/gallery/startup_bg.png);
+  background-image: url(/assets/img/gallery/startup_bg.png);
   background-size: 100%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -6742,17 +6741,17 @@ nav.nav-menu-show {
 
 /* line 1, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_bradcam.scss */
 .breadcam_bg {
-  background-image: url(../img/banner/bradcam.png);
+  background-image: url(/assets/img/banner/bradcam.png);
 }
 
 /* line 4, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_bradcam.scss */
 .breadcam_bg_1 {
-  background-image: url(../img/banner/bradcam2.png);
+  background-image: url(/assets/img/banner/bradcam2.png);
 }
 
 /* line 7, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_bradcam.scss */
 .breadcam_bg_2 {
-  background-image: url(../img/banner/bradcam3.png);
+  background-image: url(/assets/img/banner/bradcam3.png);
 }
 
 /* line 10, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_bradcam.scss */
@@ -7934,7 +7933,7 @@ del {
 
 /* line 766, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_elements.scss */
 .primary-checkbox input:checked + label {
-  background: url(../img/elements/primary-check.png) no-repeat center center/cover;
+  background: url(/assets/img/elements/primary-check.png) no-repeat center center/cover;
   border: none;
 }
 
@@ -7976,7 +7975,7 @@ del {
 
 /* line 803, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_elements.scss */
 .confirm-checkbox input:checked + label {
-  background: url(../img/elements/success-check.png) no-repeat center center/cover;
+  background: url(/assets/img/elements/success-check.png) no-repeat center center/cover;
   border: none;
 }
 
@@ -8024,7 +8023,7 @@ del {
 
 /* line 844, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_elements.scss */
 .disabled-checkbox input:checked + label {
-  background: url(../img/elements/disabled-check.png) no-repeat center center/cover;
+  background: url(/assets/img/elements/disabled-check.png) no-repeat center center/cover;
   border: none;
 }
 
@@ -8066,7 +8065,7 @@ del {
 
 /* line 881, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_elements.scss */
 .primary-radio input:checked + label {
-  background: url(../img/elements/primary-radio.png) no-repeat center center/cover;
+  background: url(/assets/img/elements/primary-radio.png) no-repeat center center/cover;
   border: none;
 }
 
@@ -8108,7 +8107,7 @@ del {
 
 /* line 918, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_elements.scss */
 .confirm-radio input:checked + label {
-  background: url(../img/elements/success-radio.png) no-repeat center center/cover;
+  background: url(/assets/img/elements/success-radio.png) no-repeat center center/cover;
   border: none;
 }
 
@@ -8156,7 +8155,7 @@ del {
 
 /* line 959, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_elements.scss */
 .disabled-radio input:checked + label {
-  background: url(../img/elements/disabled-radio.png) no-repeat center center/cover;
+  background: url(/assets/img/elements/disabled-radio.png) no-repeat center center/cover;
   border: none;
 }
 
@@ -8309,5 +8308,3 @@ del {
 .switch-wrap {
   margin-bottom: 10px;
 }
-
-/*# sourceMappingURL=style.css.map */

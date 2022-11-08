@@ -3,22 +3,34 @@
     <div class="slider-item-active">
       <div v-for="item in sliders" :key="item.id" class="slider-item">
         <div
-          :class="`slider-bg${item.id} slider-height hero-overly slider-bg1 d-flex align-items-center`"
+          :class="`slider-bg${item.id} slider-height hero-overly slider-bg${item.id} d-flex align-items-center`"
           :style="`background-image: url(${item.bg});`"
         >
           <div class="container">
             <div class="row">
               <div class="col-xl-9 col-lg-10">
                 <div class="slide-content">
-                  <h1>{{ item.heading }}</h1>
-                  <img :src="item.assets" alt="" />
+                  <h1
+                    v-if="item.id !== 3 && item.id !== 4"
+                    :style="`${$device.isDesktop ? 'margin-top: -30rem;' : ''}`"
+                  >
+                    {{ item.heading }}
+                  </h1>
+                  <!-- <img :src="item.assets" alt="" /> -->
                 </div>
               </div>
             </div>
           </div>
         </div>
         <!-- Footer Content -->
-        <div class="slider-caption2">
+        <div
+          :style="`${
+            $device.isDesktop && item.id === 5
+              ? 'margin-top: -27rem;'
+              : 'margin-top: -35rem;'
+          }`"
+          class="slider-caption2"
+        >
           <div class="container">
             <div class="row">
               <div class="col-xl-4 col-lg-4 col-md-7 col-sm-8">
@@ -46,86 +58,120 @@ export default {
       sliders: [
         {
           id: 1,
+          heading: "D & N Tour",
+          bg: require("~/assets/img/hero/hero4.png"),
+          assets: require("~/assets/img/icon/signature.png"),
+          content: `
+              <h4>
+                  <dd>01</dd>
+                  <span>D & N Rental Car</span>
+              </h4>
+              <p>
+                Dengan armada yang selalu siap dan selalu terakomodasi dalam memenuhi perjalanan Anda maupun Keluarga.
+              </p>
+          `,
+          thumb: require("~/assets/img/hero/hero-dot4.png"),
+        },
+
+        {
+          id: 2,
           heading: "New Journey",
           bg: require("~/assets/img/hero/hero1.png"),
           assets: require("~/assets/img/icon/signature.png"),
           content: `
               <h4>
-                <dd>01</dd>
-                <span>Travel pro</span>
+                <dd>02</dd>
+                <span>D & N Tour Travel</span>
               </h4>
               <p>
-                Etiam tristique, metus pretium rutrum elementumv, risus tortor.
+                Menjadi partner handal bagi Anda yang mengejar waktu tempuh.
               </p>
           `,
           thumb: require("~/assets/img/hero/hero-dot1.png"),
         },
         {
-          id: 2,
-          heading: "Photography",
+          id: 3,
+          heading: "New Trip",
           bg: require("~/assets/img/hero/hero2.png"),
           assets: require("~/assets/img/icon/signature.png"),
           content: `
               <h4>
-                <dd>02</dd>
-                <span>Travel pro</span>
+                <dd>03</dd>
+                <span>Discover the Colorful Your Trip</span>
               </h4>
               <p>
-                Etiam tristique, metus pretium rutrum elementumv, risus tortor.
+                Tidak perlu lagi cemas akan estimasi perjalanan Anda untuk mengejar waktu keberangkatan pesawat  <br /> Bandung - Jakarta Ke bandara dengan jarak tempuh yang bisa di andalkan .
               </p>
           `,
           thumb: require("~/assets/img/hero/hero-dot2.png"),
         },
         {
-          id: 3,
-          heading: "Photography",
+          id: 4,
+          heading: "New Story",
           bg: require("~/assets/img/hero/hero3.png"),
           assets: require("~/assets/img/icon/signature.png"),
           content: `
               <h4>
-                  <dd>03</dd>
-                  <span>Travel pro</span>
+                  <dd>04</dd>
+                  <span>Enjoy Your Travel Time</span>
               </h4>
               <p>
-                Etiam tristique, metus pretium rutrum elementumv, risus tortor.
+                D & N Tour Travel - Selain menyediakan antar jemput Bandung - Jakarta (Bandara Soekarno Hatta), Kami pun menyediakan pelayanan penyewaan armada mobil yang siap anda pesan melalui layanan paket yang kami sediakan. <br/> Bagi Anda dan Keluarga Anda yang membutuhkan armada untuk perjalanan keluar kota kami sediakan hanya di D & N Tour.
               </p>
           `,
           thumb: require("~/assets/img/hero/hero-dot3.png"),
         },
         {
-          id: 4,
-          heading: "Photography",
-          bg: require("~/assets/img/hero/hero4.png"),
-          assets: require("~/assets/img/icon/signature.png"),
-          content: `
-              <h4>
-                  <dd>03</dd>
-                  <span>Travel pro</span>
-              </h4>
-              <p>
-                Etiam tristique, metus pretium rutrum elementumv, risus tortor.
-              </p>
-          `,
-          thumb: require("~/assets/img/hero/hero-dot4.png"),
-        },
-        {
           id: 5,
-          heading: "Photography",
+          heading: "New History",
           bg: require("~/assets/img/hero/hero5.png"),
           assets: require("~/assets/img/icon/signature.png"),
           content: `
               <h4>
-                  <dd>03</dd>
-                  <span>Travel pro</span>
+                  <dd>05</dd>
+                  <span>D & N Rental Tour - Travel Pro</span>
               </h4>
               <p>
-                Etiam tristique, metus pretium rutrum elementumv, risus tortor.
+                Menjadi bagian dari perjalanan Anda dan Keluarga Anda, kami selalu mengutamakan ketepatan, kenyamanan dan keselamatan Anda dan Keluarga.
               </p>
           `,
           thumb: require("~/assets/img/hero/hero-dot5.png"),
         },
       ],
     };
+  },
+  mounted() {
+    this.activeSlick();
+  },
+  methods: {
+    activeSlick() {
+      // index-2
+      $(".slider-item-active").slick({
+        slidesToShow: 1,
+        loop: true,
+        infinite: true,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        asNavFor: ".slider-nav",
+      });
+      $(".slider-nav").slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        loop: true,
+        arrows: false,
+        infinite: true,
+        asNavFor: ".slider-item-active",
+        dots: false,
+        prevArrow:
+          '<button type="button" class="slick-prev"><i class="fas fa-chevron-left"></i></button>',
+        nextArrow:
+          '<button type="button" class="slick-next"><i class="fas fa-chevron-right"></i></button>',
+        centerMode: true,
+        focusOnSelect: true,
+        centerPadding: 0,
+      });
+    },
   },
 };
 </script>

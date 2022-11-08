@@ -4,10 +4,12 @@ export default {
 
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
+  mode: "spa",
+  body: true,
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "new-d-n-tour-static",
+    title: "D & N Travel | Car Rent",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -94,103 +96,79 @@ export default {
     ],
     script: [
       {
-        src: "/assets/js/vendor/modernizr-3.5.0.min.js",
+        src: "./assets/js/vendor/modernizr-3.5.0.min.js",
         body: true,
       },
       {
-        src: "/assets/js/vendor/jquery-1.12.4.min.js",
+        src: "./assets/js/vendor/jquery-1.12.4.min.js",
         body: true,
       },
       {
-        src: "/assets/js/popper.min.js",
+        src: "./assets/js/popper.min.js",
         body: true,
       },
       {
-        src: "/assets/js/bootstrap.min.js",
+        src: "./assets/js/bootstrap.min.js",
         body: true,
       },
       {
-        src: "/assets/js/jquery.slicknav.min.js",
+        src: "./assets/js/jquery.slicknav.min.js",
         body: true,
       },
       {
-        src: "/assets/js/owl.carousel.min.js",
+        src: "./assets/js/owl.carousel.min.js",
         body: true,
       },
       {
-        src: "/assets/js/slick.min.js",
+        src: "./assets/js/slick.min.js",
         body: true,
       },
       {
-        src: "/assets/js/wow.min.js",
+        src: "./assets/js/wow.min.js",
         body: true,
       },
       {
-        src: "/assets/js/animated.headline.js",
+        src: "./assets/js/animated.headline.js",
         body: true,
       },
       {
-        src: "/assets/js/jquery.magnific-popup.js",
+        src: "./assets/js/jquery.magnific-popup.js",
         body: true,
       },
       {
-        src: "/assets/js/gijgo.min.js",
+        src: "./assets/js/gijgo.min.js",
         body: true,
       },
       {
-        src: "/assets/js/jquery.nice-select.min.js",
+        src: "./assets/js/jquery.nice-select.min.js",
         body: true,
       },
       {
-        src: "/assets/js/jquery.sticky.js",
+        src: "./assets/js/jquery.sticky.js",
         body: true,
       },
       {
-        src: "/assets/js/jquery.barfiller.js",
+        src: "./assets/js/jquery.barfiller.js",
         body: true,
       },
       {
-        src: "/assets/js/jquery.counterup.min.js",
+        src: "./assets/js/jquery.counterup.min.js",
         body: true,
       },
       {
-        src: "/assets/js/waypoints.min.js",
+        src: "./assets/js/waypoints.min.js",
         body: true,
       },
       {
-        src: "/assets/js/jquery.countdown.min.js",
+        src: "./assets/js/jquery.countdown.min.js",
         body: true,
       },
       {
-        src: "/assets/js/hover-direction-snake.min.js",
+        src: "./assets/js/hover-direction-snake.min.js",
         body: true,
       },
       {
-        src: "/assets/js/contact.js",
-        body: true,
-      },
-      {
-        src: "/assets/js/jquery.form.js",
-        body: true,
-      },
-      {
-        src: "/assets/js/jquery.validate.min.js",
-        body: true,
-      },
-      {
-        src: "/assets/js/mail-script.js",
-        body: true,
-      },
-      {
-        src: "/assets/js/jquery.ajaxchimp.min.js",
-        body: true,
-      },
-      {
-        src: "/assets/js/plugins.js",
-        body: true,
-      },
-      {
-        src: "/assets/js/main.js",
+        src: "./assets/js/main.js",
         body: true,
       },
     ],
@@ -206,7 +184,7 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [],
+  buildModules: ["@nuxtjs/dotenv", "@nuxtjs/device", "@nuxtjs/moment"],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -215,7 +193,12 @@ export default {
     // https://go.nuxtjs.dev/pwa
     "@nuxtjs/pwa",
   ],
-
+  markdownit: {
+    injected: true,
+  },
+  device: {
+    refreshOnResize: true,
+  },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
