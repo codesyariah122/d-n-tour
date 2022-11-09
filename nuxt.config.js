@@ -214,7 +214,8 @@ export default {
         "D & N Tour Travel Dan Rental Mobil. Melayani Antar Jempun Bandung - Jakarta Bandara Soekarno Hatta, Nikmati perjalanan yang cepat dan pelayanan yang gesit dari kami D & N Tour.",
       keywords:
         "Layanan Antar Jemput Bandung - Jakarta (Bandara Soekarno Hatta), D & N Tour Travel",
-      ogUrl: "https://d-n-tour.vercel.app/",
+      ogUrl:
+        "D & N Tour Travel Dan Rental Mobil. Melayani Antar Jempun Bandung - Jakarta Bandara Soekarno Hatta, Nikmati perjalanan yang cepat dan pelayanan yang gesit dari kami D & N Tour.",
       ogType: "website",
       ogSiteName: "D & N Tour Travel - Car Rental",
       ogTitle: "D & N Tour Travel - Car Rental",
