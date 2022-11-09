@@ -2,6 +2,7 @@
   <main>
     <client-only>
       <home-hero />
+      <home-gallery />
     </client-only>
   </main>
 </template>

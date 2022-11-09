@@ -3,21 +3,14 @@
     <div class="slider-item-active">
       <div v-for="item in sliders" :key="item.id" class="slider-item">
         <div
-          :class="`slider-bg${item.id} slider-height hero-overly slider-bg${item.id} d-flex align-items-center`"
+          :class="`slider-bg1 slider-height hero-overly slider-bg1 d-flex align-items-center`"
           :style="`background-image: url(${item.bg});`"
         >
           <div class="container">
             <div class="row">
               <div class="col-xl-9 col-lg-10">
                 <div class="slide-content">
-                  <h1
-                    v-if="item.id !== 3 && item.id !== 4"
-                    :style="`${
-                      $device.isDesktop
-                        ? 'margin-top: -30rem;'
-                        : 'margin-top: -25rem;'
-                    }`"
-                  >
+                  <h1>
                     {{ item.heading }}
                   </h1>
                   <!-- <img :src="item.assets" alt="" /> -->
@@ -27,26 +20,11 @@
           </div>
         </div>
         <!-- Footer Content -->
-        <div
-          :style="`${
-            $device.isDesktop && item.id === 5
-              ? 'margin-top: -27rem;'
-              : 'margin-top: -35rem;'
-          } ${$device.isMobile ? 'margin-top: -5rem;' : ''}`"
-          class="slider-caption2"
-        >
+        <div class="slider-caption2">
           <div class="container">
             <div class="row">
               <div class="col-xl-4 col-lg-4 col-md-7 col-sm-8">
-                <div
-                  class="slide-content2"
-                  v-html="item.content"
-                  :style="`${
-                    $device.isMobile && item.id === 5
-                      ? 'margin-top: 35rem;'
-                      : ''
-                  }`"
-                ></div>
+                <div class="slide-content2" v-html="item.content"></div>
               </div>
             </div>
           </div>
@@ -119,7 +97,7 @@ export default {
         },
         {
           id: 4,
-          heading: "New Story",
+          heading: "Save Your Time",
           bg: require("~/assets/img/hero/hero3.png"),
           assets: require("~/assets/img/icon/signature.png"),
           content: `
@@ -128,7 +106,7 @@ export default {
                   <span>Enjoy Your Travel Time</span>
               </h4>
               <p>
-                D & N Tour Travel - Selain menyediakan antar jemput Bandung - Jakarta (Bandara Soekarno Hatta), Kami pun menyediakan pelayanan penyewaan armada mobil yang siap anda pesan melalui layanan paket yang kami sediakan. <br/> Bagi Anda dan Keluarga Anda yang membutuhkan armada untuk perjalanan keluar kota kami sediakan hanya di D & N Tour.
+                D & N Tour Travel - Car Rent. Dengan armada yang selalu siap dan selalu terakomodasi dalam memenuhi perjalanan Anda maupun Keluarga.
               </p>
           `,
           thumb: require("~/assets/img/hero/hero-dot3.png"),

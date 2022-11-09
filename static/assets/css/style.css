@@ -3710,28 +3710,24 @@ nav.nav-menu-show {
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
-  /* line 58, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_h1-hero.scss */
   .slider-area.slider-area2 .hero__caption2 h2 {
     font-size: 50px;
   }
 }
 
 @media (max-width: 575px) {
-  /* line 58, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_h1-hero.scss */
   .slider-area.slider-area2 .hero__caption2 h2 {
     font-size: 35px;
   }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-  /* line 74, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_h1-hero.scss */
   .slider-area .slide-content {
     margin-top: -142px;
   }
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px) {
-  /* line 74, C:/Users/HP/Desktop/Augst-HTML/297.Photography/Agriculture_Template/assets/scss/_h1-hero.scss */
   .slider-area .slide-content {
     margin-top: -142px;
   }
