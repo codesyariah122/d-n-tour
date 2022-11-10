@@ -21,7 +21,7 @@
   }
 
   .info {
-    margin-top: 5rem !important;
+    margin-top: 5rem;
     .info-kontak {
     }
     .info-button {
@@ -115,7 +115,7 @@
                     </button>
                   </div>
                 </div>
-                <div v-else class="row justify-content-center info mt-5">
+                <div v-else class="row justify-content-center info">
                   <div class="col-sm-12 info-kontak">
                     <div class="d-flex">
                       <div class="col-3">
