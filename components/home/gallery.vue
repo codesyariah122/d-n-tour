@@ -16,8 +16,48 @@
   }
   .img {
     z-index: 3;
-    margin-left: -0.1rem;
-    margin-top: 0.1rem;
+    margin-left: -0.7rem;
+    margin-top: 0.8rem;
+  }
+
+  .info {
+    .info-kontak {
+    }
+    .info-button {
+    }
+  }
+}
+@media (min-width: 992px) {
+  .box-call {
+    margin-bottom: 5rem;
+    .box {
+      box-sizing: content-box;
+      border: solid grey 1px;
+      border-radius: 13px;
+      border-style: dashed;
+      height: 40vh;
+      width: 250px;
+      background-color: rgb(245, 72, 72);
+      z-index: -1;
+      position: absolute;
+      margin-top: -1rem;
+      margin-left: 1.5rem;
+    }
+    .img {
+      z-index: 3;
+      margin-left: -0.1rem;
+      margin-top: 0.1rem;
+    }
+
+    .info {
+      .info-kontak {
+        margin-top: 0.3rem;
+      }
+      .info-button {
+        margin-top: -1rem;
+        margin-left: -1rem;
+      }
+    }
   }
 }
 </style>
@@ -36,7 +76,10 @@
                 />
               </div>
               <div class="col-lg-12 col-sm-12 mt-5 mb-5">
-                <div class="row justify-content-start info">
+                <div
+                  v-if="$device.isDesktop"
+                  class="row justify-content-start info"
+                >
                   <div class="col-1 mt-2">
                     <h1>
                       <i
@@ -44,22 +87,63 @@
                       ></i>
                     </h1>
                   </div>
-                  <div class="col-4">
+                  <div class="col-4 col-sm-10 info-kontak">
                     <h4
                       class="font-weight-normal"
                       style="font-family: 'Courier New', Courier, monospace"
                     >
                       D & N Tour Travel
                     </h4>
-                    <h3
+                    <h4
                       class="font-weight-bold"
                       style="font-family: 'Courier New', Courier, monospace"
                     >
                       +62 831 6553 9138
-                    </h3>
+                    </h4>
                   </div>
-                  <div class="col-6">
-                    <button class="btn btn-danger btn-rounded">
+                  <div class="col-6 col-sm-10 info-button">
+                    <button
+                      @click="bookOrder"
+                      class="btn btn-danger btn-rounded btn-sm"
+                    >
+                      <i
+                        class="fas fa-bookmark fa-fw fa-lg"
+                        style="font-size: 23px"
+                      ></i>
+                      Book Now
+                    </button>
+                  </div>
+                </div>
+                <div v-else class="row justify-content-center info mt-5">
+                  <div class="col-sm-12 info-kontak">
+                    <div class="d-flex">
+                      <div class="col-3">
+                        <i
+                          style="font-size: 51px"
+                          class="fas fa-phone-square-alt fa-fw fa-lg text-danger"
+                        ></i>
+                      </div>
+                      <div class="col-12" style="margin-left: -1rem">
+                        <h3
+                          class="font-weight-normal"
+                          style="font-family: 'Courier New', Courier, monospace"
+                        >
+                          D & N Tour Travel
+                        </h3>
+                        <h3
+                          class="font-weight-bold"
+                          style="font-family: 'Courier New', Courier, monospace"
+                        >
+                          +62 831 6553 9138
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 info-button mt-5">
+                    <button
+                      @click="bookOrder"
+                      class="btn btn-danger btn-rounded btn-sm btn-block"
+                    >
                       <i
                         class="fas fa-bookmark fa-fw fa-lg"
                         style="font-size: 23px"
@@ -160,6 +244,9 @@ export default {
           },
         });
       }
+    },
+    bookOrder() {
+      this.$emit("book-order");
     },
   },
 };

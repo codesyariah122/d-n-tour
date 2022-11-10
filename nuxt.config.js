@@ -174,7 +174,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [{ src: "~/plugins/crisp", mode: "client", ssr: false }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -195,6 +195,11 @@ export default {
   },
   device: {
     refreshOnResize: true,
+  },
+  moment: {
+    timezone: true,
+    defaultTimezone: "Asias/Jakarta",
+    locales: ["id"],
   },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {

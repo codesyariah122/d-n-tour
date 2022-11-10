@@ -14,6 +14,15 @@ export default {
       ucapan: "",
     };
   },
+  head() {
+    return {
+      script: [
+        {
+          src: "https://d2mpatx37cqexb.cloudfront.net/delightchat-whatsapp-widget/embeds/embed.min.js",
+        },
+      ],
+    };
+  },
   mounted() {
     // document.body.setAttribute("style", "overflow: hidden");
     let root = document.getElementsByTagName("html")[0];
@@ -51,43 +60,23 @@ export default {
       });
     },
     WidgetChat() {
-      let url =
-        "https://wati-integration-service.clare.ai/ShopifyWidget/shopifyWidget.js?82740";
-      let s = document.createElement("script");
-      s.type = "text/javascript";
-      s.async = true;
-      s.src = url;
-      let cta_text = this.$device.isDesktop ? "Admin D & N City Tour" : "";
-      let options = {
-        enabled: true,
-        chatButtonSetting: {
-          backgroundColor: "#25D366",
-          ctaText: "",
-          borderRadius: "25",
-          marginLeft: "20",
-          marginBottom: "20",
-          marginRight: "50",
-          position: "left",
-        },
-        brandSetting: {
-          brandName: "D & N Tour Travel",
-          brandSubTitle: "City Tour And Drop Bandara Soetta",
-          brandImg: require("~/assets/img/logo/d&n.jpg"),
-          welcomeText: `Halo, ${this.ucapan} Kak, Ada yang bisa kami bantu.`,
-          messageText:
-            "Hai, D & N Tour Travel saya ingin pesan layanan city tour dan antar jemput Bandung - Jakarta (Bandara Soetta), bisa bantu saya memilih harga terbaik dari D & N Tour.  {{page_link}}",
-          backgroundColor: "#25D366",
-          ctaText: "Start Chat",
-          borderRadius: "25",
-          autoShow: false,
-          phoneNumber: "6283165539138",
-        },
+      let wa_btnSetting = {
+        btnColor: "#16BE45",
+        ctaText: "Talk To Us",
+        cornerRadius: 40,
+        marginBottom: 20,
+        marginLeft: 20,
+        marginRight: 20,
+        btnPosition: "left",
+        whatsAppNumber: "6283165539138",
+        welcomeMessage:
+          "Hai, D & N Tour Travel saya ingin pesan layanan city tour dan antar jemput Bandung - Jakarta (Bandara Soetta), bisa bantu saya memilih harga terbaik dari D & N Tour.",
+        zIndex: 999999,
+        btnColorScheme: "light",
       };
-      s.onload = function () {
-        CreateWhatsappChatWidget(options);
+      window.onload = () => {
+        _waEmbed(wa_btnSetting);
       };
-      let x = document.getElementsByTagName("script")[0];
-      x.parentNode.insertBefore(s, x);
     },
     timeCheck() {
       let h = this.$moment().hour(),
