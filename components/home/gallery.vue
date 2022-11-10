@@ -87,7 +87,7 @@
                       ></i>
                     </h1>
                   </div>
-                  <div class="col-4 col-sm-10 info-kontak">
+                  <div class="col-4 info-kontak">
                     <h4
                       class="font-weight-normal"
                       style="font-family: 'Courier New', Courier, monospace"
@@ -101,7 +101,7 @@
                       +62 831 6553 9138
                     </h4>
                   </div>
-                  <div class="col-6 col-sm-10 info-button">
+                  <div class="col-6 info-button">
                     <button
                       @click="bookOrder"
                       class="btn btn-danger btn-rounded btn-sm"
