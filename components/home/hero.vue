@@ -20,7 +20,11 @@
           </div>
         </div>
         <!-- Footer Content -->
-        <div class="slider-caption2">
+        <div
+          :class="`slider-caption2 ${
+            $device.isMobile && item.id === 5 ? 'mt-3' : ''
+          }`"
+        >
           <div class="container">
             <div class="row">
               <div class="col-xl-4 col-lg-4 col-md-7 col-sm-8">
@@ -49,15 +53,17 @@ export default {
         {
           id: 1,
           heading: "D & N Tour",
-          bg: require("~/assets/img/hero/hero4.png"),
+          bg: this.$device.isDesktop
+            ? require("~/assets/img/hero/hero4.png")
+            : require("~/assets/img/hero/mobile/slide8.png"),
           assets: require("~/assets/img/icon/signature.png"),
           content: `
               <h4>
                   <dd>01</dd>
-                  <span>D & N Rental Car</span>
+                  <span>D & N Travel</span>
               </h4>
               <p>
-                Dengan armada yang selalu siap dan selalu terakomodasi dalam memenuhi perjalanan Anda maupun Keluarga.
+                Antar jemput Bandung - Jakarta (Bandara Soekarno Hatta).
               </p>
           `,
           thumb: require("~/assets/img/hero/hero-dot4.png"),
@@ -114,7 +120,9 @@ export default {
         {
           id: 5,
           heading: "New History",
-          bg: require("~/assets/img/hero/hero5.png"),
+          bg: this.$device.isDesktop
+            ? require("~/assets/img/hero/hero5.png")
+            : require("~/assets/img/hero/mobile/slide11.png"),
           assets: require("~/assets/img/icon/signature.png"),
           content: `
               <h4>

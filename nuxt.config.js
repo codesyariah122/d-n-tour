@@ -5,7 +5,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "D & N Travel | Car Rent",
+    title: "D & N Tour Travel",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -206,7 +206,7 @@ export default {
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     meta: {
-      title: "D & N Tour Travel - Car Rental",
+      title: "D & N Tour Travel",
       author: "D & N",
       icon: true,
       canonical: "https://d-n-tour.vercel.app/",
@@ -217,15 +217,15 @@ export default {
       ogUrl:
         "D & N Tour Travel Dan Rental Mobil. Melayani Antar Jempun Bandung - Jakarta Bandara Soekarno Hatta, Nikmati perjalanan yang cepat dan pelayanan yang gesit dari kami D & N Tour.",
       ogType: "website",
-      ogSiteName: "D & N Tour Travel - Car Rental",
-      ogTitle: "D & N Tour Travel - Car Rental",
+      ogSiteName: "D & N Tour Travel",
+      ogTitle: "D & N Tour Travel",
       ogImage: "/icon.png",
       ogImageWidth: "600",
       ogImageHeight: "400",
     },
     manifest: {
       lang: "en",
-      name: "D & N Tour Travel - Car Rental",
+      name: "D & N Tour Travel",
       short_name: "D & N Tour",
       description:
         "D & N Tour Travel Dan Rental Mobil. Melayani Antar Jempun Bandung - Jakarta Bandara Soekarno Hatta, Nikmati perjalanan yang cepat dan pelayanan yang gesit dari kami D & N Tour.",

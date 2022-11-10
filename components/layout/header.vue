@@ -12,7 +12,7 @@
                   ><img
                     :src="require('~/assets/img/logo/dnlogo.png')"
                     alt=""
-                    :style="`${$device.isDesktop ? 'width: 90px;' : ''}`"
+                    :style="`${$device.isDesktop ? 'width: 70px;' : ''}`"
                 /></a>
               </div>
             </div>

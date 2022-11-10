@@ -1,19 +1,84 @@
+<style lang="scss" scoped>
+.box-call {
+  margin-bottom: 5rem;
+  .box {
+    box-sizing: content-box;
+    border: solid grey 1px;
+    border-radius: 13px;
+    border-style: dashed;
+    height: 40vh;
+    width: 250px;
+    background-color: rgb(245, 72, 72);
+    z-index: -1;
+    position: absolute;
+    margin-top: -1rem;
+    margin-left: 1.5rem;
+  }
+  .img {
+    z-index: 3;
+    margin-left: -0.1rem;
+    margin-top: 0.1rem;
+  }
+}
+</style>
 <template>
   <div class="gallery-area section-padding40">
     <div class="container">
       <div class="row justify-content-between align-items-center">
         <div class="col-lg-6">
           <div class="section-tittle mb-50">
-            <h2>With my camera, I capture daily life</h2>
+            <div class="row justify-content-start box-call">
+              <div class="col box"></div>
+              <div class="col img">
+                <img
+                  :src="require('~/assets/img/gallery/calls/new-avanza.png')"
+                  alt=""
+                />
+              </div>
+              <div class="col-lg-12 col-sm-12 mt-5 mb-5">
+                <div class="row justify-content-start info">
+                  <div class="col-1 mt-2">
+                    <h1>
+                      <i
+                        class="fas fa-phone-square-alt fa-fw fa-lg text-danger"
+                      ></i>
+                    </h1>
+                  </div>
+                  <div class="col-4">
+                    <h4
+                      class="font-weight-normal"
+                      style="font-family: 'Courier New', Courier, monospace"
+                    >
+                      D & N Tour Travel
+                    </h4>
+                    <h3
+                      class="font-weight-bold"
+                      style="font-family: 'Courier New', Courier, monospace"
+                    >
+                      +62 831 6553 9138
+                    </h3>
+                  </div>
+                  <div class="col-6">
+                    <button class="btn btn-danger btn-rounded">
+                      <i
+                        class="fas fa-bookmark fa-fw fa-lg"
+                        style="font-size: 23px"
+                      ></i>
+                      Book Now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div class="col-lg-6">
           <div class="section-tittle mb-60">
+            <h2>D & N Tour Travel</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse varius enim in eros elementum tristique. Duis cursus,
-              mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam
-              libero vitae erat. Aenean faucibus nibh et justo cursu.
+              D & N Tour Travel - menyediakan jasa layanan antar jemput terbaik
+              untuk perjalanan Bandung - Jakarta (Bandara) dan Bandung city
+              tour.
             </p>
           </div>
         </div>
@@ -59,22 +124,22 @@ export default {
         {
           id: 1,
           heading: "Travelshots",
-          asset: require("~/assets/img/gallery/gallery1.png"),
+          asset: require("~/assets/img/gallery/new/galeri1.jpeg"),
         },
         {
           id: 2,
           heading: "Experimental",
-          asset: require("~/assets/img/gallery/gallery2.png"),
+          asset: require("~/assets/img/gallery/new/galeri2.jpeg"),
         },
         {
           id: 3,
           heading: `Father's Day`,
-          asset: require("~/assets/img/gallery/gallery3.png"),
+          asset: require("~/assets/img/gallery/new/galeri3.jpeg"),
         },
         {
           id: 4,
           heading: `Curious Cats`,
-          asset: require("~/assets/img/gallery/gallery4.png"),
+          asset: require("~/assets/img/gallery/new/galeri4.jpeg"),
         },
       ],
     };
