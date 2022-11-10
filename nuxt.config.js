@@ -216,11 +216,11 @@ export default {
       icon: true,
       canonical: "https://d-n-tour.vercel.app/",
       description:
-        "D & N Tour Travel Dan Rental Mobil. Melayani Antar Jempun Bandung - Jakarta Bandara Soekarno Hatta, Nikmati perjalanan yang cepat dan pelayanan yang gesit dari kami D & N Tour.",
+        "D & N Tour Travel Dan City Tour. Melayani Antar Jempun Bandung - Jakarta Bandara Soekarno Hatta, Nikmati perjalanan yang cepat dan pelayanan yang gesit dari kami D & N Tour.",
       keywords:
         "Layanan Antar Jemput Bandung - Jakarta (Bandara Soekarno Hatta), D & N Tour Travel",
       ogUrl:
-        "D & N Tour Travel Dan Rental Mobil. Melayani Antar Jempun Bandung - Jakarta Bandara Soekarno Hatta, Nikmati perjalanan yang cepat dan pelayanan yang gesit dari kami D & N Tour.",
+        "D & N Tour Travel Dan City Tour. Melayani Antar Jempun Bandung - Jakarta Bandara Soekarno Hatta, Nikmati perjalanan yang cepat dan pelayanan yang gesit dari kami D & N Tour.",
       ogType: "website",
       ogSiteName: "D & N Tour Travel",
       ogTitle: "D & N Tour Travel",
@@ -233,7 +233,7 @@ export default {
       name: "D & N Tour Travel",
       short_name: "D & N Tour",
       description:
-        "D & N Tour Travel Dan Rental Mobil. Melayani Antar Jempun Bandung - Jakarta Bandara Soekarno Hatta, Nikmati perjalanan yang cepat dan pelayanan yang gesit dari kami D & N Tour.",
+        "D & N Tour Travel Dan City Tour. Melayani Antar Jempun Bandung - Jakarta Bandara Soekarno Hatta, Nikmati perjalanan yang cepat dan pelayanan yang gesit dari kami D & N Tour.",
       start_url: "/",
       lang: "en",
       display: "standalone",
