@@ -21,7 +21,7 @@
   }
 
   .info {
-    margin-top: 6rem;
+    margin-top: 7rem;
     .info-kontak {
     }
     .info-button {
