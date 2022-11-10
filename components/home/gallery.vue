@@ -21,7 +21,7 @@
   }
 
   .info {
-    margin-top: 5rem;
+    margin-top: 6rem;
     .info-kontak {
     }
     .info-button {
@@ -51,8 +51,8 @@
     }
 
     .info {
+      margin-top: 0.3rem;
       .info-kontak {
-        margin-top: 0.3rem;
       }
       .info-button {
         margin-top: -1rem;
@@ -76,7 +76,7 @@
                   alt=""
                 />
               </div>
-              <div class="col-lg-12 col-sm-12 mt-5 mb-5">
+              <div class="col-lg-12 col-sm-12 mt-2 mb-5">
                 <div
                   v-if="$device.isDesktop"
                   class="row justify-content-start info"
