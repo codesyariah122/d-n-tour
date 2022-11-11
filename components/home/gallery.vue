@@ -61,8 +61,11 @@
       .info-kontak {
       }
       .info-button {
-        margin-top: -1rem;
+        margin-top: -0.1rem;
         margin-left: -1rem;
+        button {
+          width: 230px;
+        }
       }
     }
   }

@@ -8,7 +8,10 @@
         >
           <div class="container">
             <div class="row">
-              <div class="col-xl-9 col-lg-10">
+              <div
+                :style="`${$device.isDesktop ? 'margin-top: -10rem;' : ''}`"
+                class="col-xl-9 col-lg-10"
+              >
                 <div
                   :style="`${
                     $device.isMobile &&
@@ -25,7 +28,11 @@
                   }`"
                 >
                   <h1>
-                    {{ item.heading }}
+                    {{
+                      item.id !== 3 && item.id !== 4 && item.id !== 5
+                        ? item.heading
+                        : ""
+                    }}
                   </h1>
                   <!-- <img :src="item.assets" alt="" /> -->
                 </div>
@@ -35,9 +42,10 @@
         </div>
         <!-- Footer Content -->
         <div
-          :class="`slider-caption2 ${
-            $device.isMobile && item.id === 5 ? 'mt-3' : ''
+          :style="`${
+            $device.isDesktop ? 'margin-top: -35rem;margin-bottom: 20rem;' : ''
           }`"
+          class="slider-caption2"
         >
           <div class="container">
             <div class="row">
@@ -66,7 +74,7 @@ export default {
       sliders: [
         {
           id: 1,
-          heading: "D & N",
+          heading: "New Journey",
           bg: this.$device.isDesktop
             ? require("~/assets/img/hero/hero4.png")
             : require("~/assets/img/hero/mobile/slide8.png"),
@@ -85,7 +93,7 @@ export default {
 
         {
           id: 2,
-          heading: "New Journey",
+          heading: "New Trip",
           bg: require("~/assets/img/hero/hero1.png"),
           assets: require("~/assets/img/icon/signature.png"),
           content: `
