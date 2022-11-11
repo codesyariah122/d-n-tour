@@ -1,13 +1,14 @@
 <style lang="scss" scoped>
 .box-call {
   margin-bottom: 5rem;
+  overflow: hidden;
   .box {
     box-sizing: content-box;
     border: solid grey 1px;
     border-radius: 13px;
     border-style: dashed;
-    height: 40vh;
-    width: 250px;
+    height: 30vh;
+    width: 200px;
     background-color: rgb(245, 72, 72);
     z-index: -1;
     position: absolute;
@@ -16,15 +17,20 @@
   }
   .img {
     z-index: 3;
-    margin-left: -0.7rem;
+    margin-left: -5rem;
     margin-top: 0.8rem;
   }
 
   .info {
-    margin-top: 7rem;
+    margin-top: 1rem;
     .info-kontak {
     }
     .info-button {
+      button {
+        width: 300px;
+        height: 40px;
+        padding: 7px;
+      }
     }
   }
 }
@@ -66,7 +72,7 @@
   <div class="gallery-area section-padding40">
     <div class="container">
       <div class="row justify-content-between align-items-center">
-        <div class="col-lg-6">
+        <div class="col-lg-6 col-sm-12">
           <div class="section-tittle mb-50">
             <div class="row justify-content-start box-call">
               <div class="col box"></div>
@@ -117,14 +123,14 @@
                 </div>
                 <div v-else class="row justify-content-center info">
                   <div class="col-sm-12 info-kontak">
-                    <div class="d-flex">
+                    <div class="d-flex mt-3">
                       <div class="col-3">
                         <i
-                          style="font-size: 51px"
+                          style="font-size: 37px; margin-top: 1rem"
                           class="fas fa-phone-square-alt fa-fw fa-lg text-danger"
                         ></i>
                       </div>
-                      <div class="col-12" style="margin-left: -1rem">
+                      <div class="col-12" style="margin-left: -2rem">
                         <h3
                           class="font-weight-normal"
                           style="font-family: 'Courier New', Courier, monospace"

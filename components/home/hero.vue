@@ -9,7 +9,21 @@
           <div class="container">
             <div class="row">
               <div class="col-xl-9 col-lg-10">
-                <div class="slide-content">
+                <div
+                  :style="`${
+                    $device.isMobile &&
+                    item.id !== 3 &&
+                    item.id !== 4 &&
+                    item.id !== 5
+                      ? 'margin-top: -8rem;'
+                      : 'margin-top: -21rem;'
+                  }`"
+                  :class="`${
+                    $device.isMobile
+                      ? 'slide-content text-center'
+                      : 'slide-content'
+                  }`"
+                >
                   <h1>
                     {{ item.heading }}
                   </h1>
@@ -52,7 +66,7 @@ export default {
       sliders: [
         {
           id: 1,
-          heading: "D & N Tour",
+          heading: "D & N",
           bg: this.$device.isDesktop
             ? require("~/assets/img/hero/hero4.png")
             : require("~/assets/img/hero/mobile/slide8.png"),
@@ -60,7 +74,7 @@ export default {
           content: `
               <h4>
                   <dd>01</dd>
-                  <span>D & N Travel</span>
+                  <span>D & N Tour Travel</span>
               </h4>
               <p>
                 Antar jemput Bandung - Jakarta (Bandara Soekarno Hatta).
@@ -93,7 +107,7 @@ export default {
           content: `
               <h4>
                 <dd>03</dd>
-                <span>Discover the Colorful Your Trip</span>
+                <span>Colorful Your Trip</span>
               </h4>
               <p>
                 Tidak perlu lagi cemas akan estimasi perjalanan Anda untuk mengejar waktu keberangkatan pesawat  <br /> Bandung - Jakarta Ke bandara dengan jarak tempuh yang bisa di andalkan .
@@ -127,7 +141,7 @@ export default {
           content: `
               <h4>
                   <dd>05</dd>
-                  <span>D & N Rental Tour - Travel Pro</span>
+                  <span>D & N Tour - Travel Pro</span>
               </h4>
               <p>
                 Menjadi bagian dari perjalanan Anda dan Keluarga Anda, kami selalu mengutamakan ketepatan, kenyamanan dan keselamatan Anda dan Keluarga.
