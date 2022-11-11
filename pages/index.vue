@@ -3,6 +3,7 @@
     <client-only>
       <home-hero />
       <home-gallery @book-order="bookNow" />
+      <home-startups />
     </client-only>
   </main>
 </template>

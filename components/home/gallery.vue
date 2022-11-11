@@ -222,7 +222,7 @@ export default {
         },
         {
           id: 2,
-          heading: "Experimental",
+          heading: "Family Time",
           asset: require("~/assets/img/gallery/new/galeri2.jpeg"),
         },
         {
@@ -234,6 +234,16 @@ export default {
           id: 4,
           heading: `Curious Cats`,
           asset: require("~/assets/img/gallery/new/galeri4.jpeg"),
+        },
+        {
+          id: 5,
+          heading: `Colorful Time`,
+          asset: require("~/assets/img/hero/new/slide7.jpg"),
+        },
+        {
+          id: 6,
+          heading: `Good Service`,
+          asset: require("~/assets/img/hero/new/slide10.jpg"),
         },
       ],
     };
