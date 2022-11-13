@@ -1,0 +1,168 @@
+<template>
+  <section class="ftco-section ftco-no-pt bg-light">
+    <div class="container">
+      <div class="row no-gutters">
+        <div class="col-md-12 featured-top">
+          <div class="row no-gutters">
+            <div class="col-md-4 d-flex align-items-center">
+              <form
+                @submit.prevent="pickUp"
+                class="request-form ftco-animate bg-primary"
+              >
+                <h2>Make your trip</h2>
+                <div class="form-group">
+                  <label for="" class="label">Pick-up location</label>
+                  <input
+                    v-model="input.your_city"
+                    type="text"
+                    class="form-control"
+                    placeholder="City, Airport, Station, etc"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="" class="label">Drop-off location</label>
+                  <input
+                    v-model="input.destination"
+                    type="text"
+                    class="form-control"
+                    placeholder="City, Airport, Station, etc"
+                  />
+                </div>
+                <div class="d-flex">
+                  <div class="form-group mr-2">
+                    <label for="" class="label">Pick-up date</label>
+                    <input
+                      v-model="input.pickup_date"
+                      type="date"
+                      class="form-control"
+                      placeholder="Date"
+                    />
+                  </div>
+                  <div class="form-group ml-2">
+                    <label for="" class="label">Drop-off date</label>
+                    <input
+                      v-model="input.dropoff_date"
+                      type="date"
+                      class="form-control"
+                      placeholder="Date"
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="" class="label">Pick-up time</label>
+                  <input
+                    v-model="input.pickup_time"
+                    type="time"
+                    class="form-control"
+                    placeholder="Time"
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    type="submit"
+                    value="Pilih Tanggal"
+                    class="btn btn-secondary py-3 px-4"
+                  />
+                </div>
+              </form>
+            </div>
+            <div class="col-md-8 d-flex align-items-center">
+              <div class="services-wrap rounded-right w-100">
+                <h3 class="heading-section mb-4">
+                  Pilihan Terbaik Bagi Perjalanan Anda
+                </h3>
+                <div class="row d-flex mb-4">
+                  <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                    <div class="services w-100 text-center">
+                      <div
+                        class="icon d-flex align-items-center justify-content-center"
+                      >
+                        <span class="flaticon-route"></span>
+                      </div>
+                      <div class="text w-100">
+                        <h3 class="heading mb-2">
+                          Choose Your Pickup Location
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                    <div class="services w-100 text-center">
+                      <div
+                        class="icon d-flex align-items-center justify-content-center"
+                      >
+                        <span class="flaticon-handshake"></span>
+                      </div>
+                      <div class="text w-100">
+                        <h3 class="heading mb-2">Select the Best Deal</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                    <div class="services w-100 text-center">
+                      <div
+                        class="icon d-flex align-items-center justify-content-center"
+                      >
+                        <span class="flaticon-transportation"></span>
+                      </div>
+                      <div class="text w-100">
+                        <h3 class="heading mb-2">
+                          Reserve Your Destionation Trip
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row justify-content-center mt-5">
+                  <a @click="booking" class="btn btn-primary btn-rounded">
+                    <i
+                      class="icon-bookmark color-white"
+                      size="large"
+                      aria-hidden="true"
+                    ></i>
+                    Booking Sekarang
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      input: {
+        your_city: null,
+        destination: null,
+        pickup_date: this.$moment().format("LL"),
+        dropoff_date: this.$moment().format("LL"),
+        pickup_time: this.$moment().hours(),
+      },
+    };
+  },
+  mounted() {
+    AOS.init({
+      duration: 800,
+      easing: "slide",
+    });
+  },
+
+  methods: {
+    booking() {
+      this.$emit("booking-now");
+    },
+    pickUp() {
+      const data = this.input;
+      console.log(this.input);
+      const contextWa = `https://wa.me/15551234567?text=Hallo,Admin%20D&N%20Tour,%20saya%20ingin%20memesan%20penjemputan%20untuk%20tanggal%20berikut%20kota%20penjemputan%20:%20${this.input.your_city}%20,%20destinasi%20:%20${this.input.destination}%20,%20tanggal%20penjemputan%20:%20${this.input.pickup_date},%20jam%20:%20${this.input.pickup_time}`;
+      window.open(contextWa);
+      console.log(contextWa);
+    },
+  },
+};
+</script>

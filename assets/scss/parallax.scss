@@ -1,0 +1,18 @@
+@import "_variable.scss";
+@import "_mixins.scss";
+
+.parallax {
+  @include parallax_mobile;
+}
+@media only screen and (max-device-width: 812px) {
+  .parallax {
+    background-attachment: scroll;
+  }
+  @include parallax_overlay;
+}
+@media (min-width: 992px) {
+  .parallax {
+    @include parallax_desktop;
+  }
+  @include parallax_overlay;
+}
