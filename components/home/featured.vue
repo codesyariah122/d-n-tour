@@ -1,7 +1,7 @@
 <style lang="scss" scoped>
 @import "~/assets/scss/card-price.scss";
 </style>
-
+<!-- featured components home -->
 <template>
   <section class="ftco-section ftco-featured ftco-no-pt bg-light" id="pricing">
     <div class="container">
