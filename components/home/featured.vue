@@ -96,8 +96,8 @@
               <div
                 :style="`${
                   $device.isMobile
-                    ? 'margin: 0.5rem;'
-                    : 'margin: 0.5rem;padding: 5rem;'
+                    ? 'margin: 0.7rem;'
+                    : 'margin: 0.5rem;padding: 5rem;width: 500px;'
                 }`"
                 class="card__collection clear-fix"
               >
