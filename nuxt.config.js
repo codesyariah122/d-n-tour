@@ -2,6 +2,8 @@ export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
+  mode: "spa",
+  ssr: false,
   loading: {
     color: "#01d28e",
     height: "11px",
