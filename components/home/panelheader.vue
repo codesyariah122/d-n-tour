@@ -157,11 +157,18 @@ export default {
       this.$emit("booking-now");
     },
     pickUp() {
+      console.log(Object.keys(this.input).length);
+      if (Object.keys(this.input).length === 0) {
+        alert("harap isi kolom input pemesanan");
+      }
       const data = this.input;
       console.log(this.input);
-      const contextWa = `https://wa.me/15551234567?text=Hallo,Admin%20D&N%20Tour,%20saya%20ingin%20memesan%20penjemputan%20untuk%20tanggal%20berikut%20kota%20penjemputan%20:%20${this.input.your_city}%20,%20destinasi%20:%20${this.input.destination}%20,%20tanggal%20penjemputan%20:%20${this.input.pickup_date},%20jam%20:%20${this.input.pickup_time}`;
-      window.open(contextWa);
-      console.log(contextWa);
+      const url = "https://wa.me/6283165539138?text=";
+      const contextWa = `Hallo,Admin D&N Tour, saya ingin memesan penjemputan untuk tanggal berikut kota penjemputan : ${this.input.your_city} , destinasi : ${this.input.destination} , tanggal penjemputan : ${this.input.pickup_date}, jam : ${this.input.pickup_time}`;
+
+      window.open(`${url}${encodeURIComponent(contextWa)}`);
+
+      console.log(encodeURIComponent(contextWa));
     },
   },
 };
