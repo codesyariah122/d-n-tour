@@ -38,14 +38,14 @@
               <div
                 :style="`${
                   $device.isMobile
-                    ? 'margin: 0.5rem;'
-                    : 'margin: 0.5rem;padding: 5rem;'
+                    ? 'margin: 0;padding: 3rem;width:100vw;'
+                    : 'margin-top:2rem;margin: 0;left:10%;padding: 5rem;width: 30vw;overflow-x:hidden;'
                 }`"
                 class="card__collection clear-fix"
               >
                 <div
                   :style="`${
-                    $device.isMobile ? 'margin: 1.3rem;' : 'margin: 1.3rem;'
+                    $device.isMobile ? 'margin: -1rem;' : 'margin: -3rem;'
                   }`"
                   class="cards cards--three"
                 >
@@ -96,14 +96,14 @@
               <div
                 :style="`${
                   $device.isMobile
-                    ? 'margin: 0.7rem;'
-                    : 'margin: 0.5rem;padding: 5rem;width: 500px;'
+                    ? 'margin: 0;padding: 3rem;width:100vw;'
+                    : 'margin-top:2rem;margin: 0;left:10%;padding: 5rem;width: 30vw;overflow-x:hidden;'
                 }`"
                 class="card__collection clear-fix"
               >
                 <div
                   :style="`${
-                    $device.isMobile ? 'margin: 1.3rem;' : 'margin: 1.3rem;'
+                    $device.isMobile ? 'margin: -1rem;' : 'margin: -3rem;'
                   }`"
                   class="cards cards--two"
                 >
