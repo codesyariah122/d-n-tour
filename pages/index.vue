@@ -12,7 +12,6 @@
     />
     <home-introhome />
     <home-blog />
-    <home-counter />
     <home-contact />
   </div>
 </template>
