@@ -1,1 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap");
+html,
+body {
+  overflow-x: hidden;
+}
+@media only screen and (max-width: 480px) {
+  html {
+    width: 100vw;
+    overflow-x: hidden;
+  }
+}
