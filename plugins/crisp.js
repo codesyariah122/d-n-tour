@@ -2,7 +2,7 @@ export default () => {
   // const path = window.location.pathname.split('/')
 
   window.$crisp = [];
-  window.CRISP_WEBSITE_ID = process.env.NUXT_ENV_CRISP_ID;
+  window.CRISP_WEBSITE_ID = process.env.NUXT_ENV_APP_CRISP_ID;
   // var ask = prompt("Username anda : ")
 
   // console.log(`Halo ${ask}, apa kabarnya ? `)

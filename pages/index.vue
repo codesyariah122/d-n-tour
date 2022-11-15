@@ -1,7 +1,7 @@
 <template>
   <div>
     <home-hero />
-    <home-panelheader @booking-now="bookNow" />
+    <home-panelheader @booking-now="bookNow" :categories="categories" />
     <home-about />
     <home-services />
     <home-featured
@@ -67,6 +67,9 @@ export default {
       localStorage.setItem("book-now", JSON.stringify(book));
     },
     whatsappButton() {
+      const contextWa = encodeURIComponent(
+        "Hello,D & N Tour saya ingin memesan paket perjalanan dari D & N Tour, bisa infokan saya harga terbaik dari D & N Tour."
+      );
       let url =
         "https://wati-integration-service.clare.ai/ShopifyWidget/shopifyWidget.js?56694";
       let s = document.createElement("script");
@@ -92,8 +95,7 @@ export default {
             "https://cdn.chec.io/merchants/48448/assets/Hpxov95uMpsnws7A%7C251502925_702961521138930_5381377419890411286_n.jpg",
           welcomeText:
             "Hi kak ! Jalan jalan yuk.\n Ada paket trip menarik dari kami, mau tau lebih banyak... yuk cari tau disini.",
-          messageText:
-            "Hello,D & N Tour saya ingin memesan paket perjalanan dari D & N Tour, bisa infokan saya harga terbaik dari D & N Tour. {{page_link}}",
+          messageText: contextWa,
           backgroundColor: "#01d28e",
           ctaText: "Start Chat",
           borderRadius: "25",

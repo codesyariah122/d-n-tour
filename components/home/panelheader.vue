@@ -13,6 +13,7 @@
                 <div class="form-group">
                   <label for="" class="label">Pick-up location</label>
                   <input
+                    required
                     v-model="input.your_city"
                     type="text"
                     class="form-control"
@@ -22,16 +23,36 @@
                 <div class="form-group">
                   <label for="" class="label">Drop-off location</label>
                   <input
+                    required
                     v-model="input.destination"
                     type="text"
                     class="form-control"
                     placeholder="City, Airport, Station, etc"
                   />
                 </div>
+                <div class="form-group">
+                  <label for="paket" class="label">Pilih Paket Trip</label>
+                  <select
+                    id="paket"
+                    class="custom-select"
+                    required
+                    @change="changePackage($event)"
+                  >
+                    <option value="">Pilih Paket Trip</option>
+                    <option
+                      v-for="(item, idx) in input.package"
+                      :value="item"
+                      :key="idx"
+                    >
+                      {{ item }}
+                    </option>
+                  </select>
+                </div>
                 <div class="d-flex">
                   <div class="form-group mr-2">
                     <label for="" class="label">Pick-up date</label>
                     <input
+                      required
                       v-model="input.pickup_date"
                       type="date"
                       class="form-control"
@@ -41,6 +62,7 @@
                   <div class="form-group ml-2">
                     <label for="" class="label">Drop-off date</label>
                     <input
+                      required
                       v-model="input.dropoff_date"
                       type="date"
                       class="form-control"
@@ -51,6 +73,7 @@
                 <div class="form-group">
                   <label for="" class="label">Pick-up time</label>
                   <input
+                    required
                     v-model="input.pickup_time"
                     type="time"
                     class="form-control"
@@ -134,11 +157,14 @@
 
 <script>
 export default {
+  props: ["categories"],
   data() {
     return {
       input: {
         your_city: null,
         destination: null,
+        package: [],
+        change: null,
         pickup_date: this.$moment().format("LL"),
         dropoff_date: this.$moment().format("LL"),
         pickup_time: this.$moment().hours(),
@@ -150,11 +176,20 @@ export default {
       duration: 800,
       easing: "slide",
     });
+    this.activePackage();
   },
 
   methods: {
     booking() {
       this.$emit("booking-now");
+    },
+    changePackage(e) {
+      console.log(e.target.value);
+      this.input.change = e.target.value;
+    },
+    activePackage() {
+      let packages = this.categories.map((d) => d);
+      this.input.package = packages.map((d) => d.name);
     },
     pickUp() {
       console.log(Object.keys(this.input).length);
@@ -164,7 +199,7 @@ export default {
       const data = this.input;
       console.log(this.input);
       const url = "https://wa.me/6283165539138?text=";
-      const contextWa = `Hallo,Admin D&N Tour, saya ingin memesan penjemputan untuk tanggal berikut kota penjemputan : ${this.input.your_city} , destinasi : ${this.input.destination} , tanggal penjemputan : ${this.input.pickup_date}, jam : ${this.input.pickup_time}`;
+      const contextWa = `Hallo,Admin D&N Tour, saya ingin memesan paket trip D & N Tour, berikut data lengkap saya \n -kota penjemputan : ${this.input.your_city} , \n -paket trip : ${this.input.change}, \n -destinasi : ${this.input.destination} ,\n -tanggal penjemputan : ${this.input.pickup_date}, \n -jam : ${this.input.pickup_time}`;
 
       window.open(`${url}${encodeURIComponent(contextWa)}`);
 
