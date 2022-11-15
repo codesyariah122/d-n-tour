@@ -1,5 +1,8 @@
 <template>
-  <section class="ftco-section ftco-no-pt bg-light">
+  <section
+    :style="`${$device.isMobile ? 'margin-left: -1rem;' : ''}`"
+    class="ftco-section ftco-no-pt bg-light"
+  >
     <div class="container">
       <div class="row no-gutters">
         <div class="col-md-12 featured-top">

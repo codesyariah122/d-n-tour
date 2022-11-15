@@ -42,14 +42,16 @@
               <div
                 :style="`${
                   $device.isMobile
-                    ? 'margin: .5rem;padding: 2rem;width:95vw;'
+                    ? 'margin: 0;padding: 1rem;width:100%;'
                     : 'margin-top:2rem;margin: 0;left:10%;padding: 5rem;width: 30vw;overflow-x:hidden;'
                 }`"
                 class="card__collection clear-fix"
               >
                 <div
                   :style="`${
-                    $device.isMobile ? 'margin: -.5rem;' : 'margin: -3rem;'
+                    $device.isMobile
+                      ? 'margin: 0;width: 100%;'
+                      : 'margin: -3rem;'
                   }`"
                   class="cards cards--three"
                 >
@@ -104,14 +106,16 @@
               <div
                 :style="`${
                   $device.isMobile
-                    ? 'margin: .5rem;padding: 2rem;width:95vw;'
+                    ? 'margin: 0;padding: 1rem;width:100%;'
                     : 'margin-top:2rem;margin: 0;left:10%;padding: 5rem;width: 30vw;overflow-x:hidden;'
                 }`"
                 class="card__collection clear-fix"
               >
                 <div
                   :style="`${
-                    $device.isMobile ? 'margin: -.5rem;' : 'margin: -3rem;'
+                    $device.isMobile
+                      ? 'margin: 0;width:100%;'
+                      : 'margin: -3rem;'
                   }`"
                   class="cards cards--three"
                 >
@@ -162,14 +166,16 @@
               <div
                 :style="`${
                   $device.isMobile
-                    ? 'margin: .5rem;padding: 2rem;width:95vw;'
+                    ? 'margin: 0;padding: 1rem;width:100%;'
                     : 'margin-top:2rem;margin: 0;left:10%;padding: 5rem;width: 30vw;overflow-x:hidden;'
                 }`"
                 class="card__collection clear-fix"
               >
                 <div
                   :style="`${
-                    $device.isMobile ? 'margin: -.5rem;' : 'margin: -3rem;'
+                    $device.isMobile
+                      ? 'margin: 0;width:100%;'
+                      : 'margin: -3rem;'
                   }`"
                   class="cards cards--two"
                 >
