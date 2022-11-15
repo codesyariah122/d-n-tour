@@ -51,7 +51,7 @@
                   :style="`${
                     $device.isMobile
                       ? 'margin: 0;width: 100%;left:0;right:0;margin-bottom: .5rem;'
-                      : 'margin: -3rem;'
+                      : 'margin: -2.5rem;'
                   }`"
                   class="cards cards--three"
                 >
@@ -115,7 +115,7 @@
                   :style="`${
                     $device.isMobile
                       ? 'margin: 0;width: 100%;left:0;right:0;margin-bottom: .5rem;'
-                      : 'margin: -3rem;'
+                      : 'margin: -2.5;'
                   }`"
                   class="cards cards--three"
                 >
@@ -175,7 +175,7 @@
                   :style="`${
                     $device.isMobile
                       ? 'margin: 0;width: 100%;left:0;right:0;margin-bottom: .5rem;'
-                      : 'margin: -3rem;'
+                      : 'margin: -2.5rem;'
                   }`"
                   class="cards cards--two"
                 >
@@ -210,11 +210,7 @@
 export default {
   props: ["privateDropTrips", "regulerDropTrips", "cityTours", "categories"],
 
-  mounted() {
-    console.log(this.privateDropTripCategory);
-    console.log(this.cityTourCategory);
-    console.log(this.regulerDropTrips);
-  },
+  mounted() {},
 
   computed: {
     privateDropTripCategory() {

@@ -12,6 +12,7 @@
     />
     <home-introhome />
     <home-blog />
+    <home-counter />
     <home-contact />
   </div>
 </template>
@@ -89,7 +90,7 @@ export default {
           borderRadius: "25",
           marginLeft: "0",
           marginBottom: "80",
-          marginRight: "30",
+          marginRight: "35",
           position: "right",
         },
         brandSetting: {

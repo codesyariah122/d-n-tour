@@ -85,7 +85,9 @@
                 <li>
                   <a href="#"
                     ><span class="icon icon-envelope"></span
-                    ><span class="text">Derrysettiawan@gmail.com</span></a
+                    ><span class="text"
+                      >&nbsp;&nbsp;Derrysettiawan@gmail.com</span
+                    ></a
                   >
                 </li>
               </ul>

@@ -65,10 +65,10 @@
             <a href="#pricing" class="nav-link">Pricing</a>
           </li>
           <li :class="`nav-item ${isActive ? 'active' : ''}`">
-            <a href="blog.html" class="nav-link">Blog</a>
+            <a href="#blog" class="nav-link">Blog</a>
           </li>
           <li :class="`nav-item ${isActive ? 'active' : ''}`">
-            <a href="contact.html" class="nav-link">Contact</a>
+            <a href="#contact" class="nav-link">Contact</a>
           </li>
         </ul>
       </div>

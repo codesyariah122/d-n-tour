@@ -143,10 +143,12 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: "~/plugins/crisp", mode: "client", ssr: false },
-    { src: "~/plugins/owl-carouse", ssr: false },
+    { src: "~/plugins/owl-carousel", ssr: false },
     { src: "~/plugins/contentful" },
     { src: "~/plugins/hero-banner" },
     { src: "~/plugins/commerce" },
+    // { src: "~/plugins/emailservice" },
+    { src: "~/plugins/sweetalert" },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
