@@ -5,7 +5,8 @@
     <home-about />
     <home-services />
     <home-featured
-      :dropTrips="dropTrips"
+      :privateDropTrips="privateDropTrips"
+      :regulerDropTrips="regulerDropTrips"
       :cityTours="cityTours"
       :categories="categories"
     />
@@ -21,8 +22,11 @@ export default {
   layout: "default",
 
   async asyncData({ $commerce }) {
-    const { data: dropTrips } = await $commerce.products.list({
-      category_slug: ["drop-trip"],
+    const { data: privateDropTrips } = await $commerce.products.list({
+      category_slug: ["private-drop-trip"],
+    });
+    const { data: regulerDropTrips } = await $commerce.products.list({
+      category_slug: ["reguler-door-to-door"],
     });
     const { data: cityTours } = await $commerce.products.list({
       category_slug: ["city-tour"],
@@ -30,7 +34,8 @@ export default {
     const { data: categories } = await $commerce.categories.list();
 
     return {
-      dropTrips,
+      privateDropTrips,
+      regulerDropTrips,
       categories,
       cityTours,
     };
@@ -80,11 +85,11 @@ export default {
         enabled: true,
         chatButtonSetting: {
           backgroundColor: "#01d28e",
-          ctaText: "Talk With Us",
+          ctaText: "",
           borderRadius: "25",
           marginLeft: "0",
-          marginBottom: "50",
-          marginRight: "50",
+          marginBottom: "80",
+          marginRight: "37",
           position: "right",
         },
         brandSetting: {
