@@ -89,7 +89,7 @@ export default {
           borderRadius: "25",
           marginLeft: "0",
           marginBottom: "80",
-          marginRight: "35",
+          marginRight: "20",
           position: "right",
         },
         brandSetting: {
