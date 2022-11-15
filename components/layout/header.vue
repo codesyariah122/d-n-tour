@@ -4,7 +4,7 @@
     id="ftco-navbar"
   >
     <div class="container">
-      <a class="navbar-brand" href="index.html"
+      <a class="navbar-brand" href="/"
         ><img
           v-if="scrolling"
           :src="require('~/assets/images/default/new-brand-logo-black.png')"
