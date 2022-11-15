@@ -42,14 +42,14 @@
               <div
                 :style="`${
                   $device.isMobile
-                    ? 'margin: 0;padding: 3rem;width:100vw;'
+                    ? 'margin: .5rem;padding: 2rem;width:95vw;'
                     : 'margin-top:2rem;margin: 0;left:10%;padding: 5rem;width: 30vw;overflow-x:hidden;'
                 }`"
                 class="card__collection clear-fix"
               >
                 <div
                   :style="`${
-                    $device.isMobile ? 'margin: -1rem;' : 'margin: -3rem;'
+                    $device.isMobile ? 'margin: -.5rem;' : 'margin: -3rem;'
                   }`"
                   class="cards cards--three"
                 >
@@ -104,14 +104,14 @@
               <div
                 :style="`${
                   $device.isMobile
-                    ? 'margin: 0;padding: 3rem;width:100vw;'
+                    ? 'margin: .5rem;padding: 2rem;width:95vw;'
                     : 'margin-top:2rem;margin: 0;left:10%;padding: 5rem;width: 30vw;overflow-x:hidden;'
                 }`"
                 class="card__collection clear-fix"
               >
                 <div
                   :style="`${
-                    $device.isMobile ? 'margin: -1rem;' : 'margin: -3rem;'
+                    $device.isMobile ? 'margin: -.5rem;' : 'margin: -3rem;'
                   }`"
                   class="cards cards--three"
                 >
@@ -162,14 +162,14 @@
               <div
                 :style="`${
                   $device.isMobile
-                    ? 'margin: 0;padding: 3rem;width:100vw;'
+                    ? 'margin: .5rem;padding: 2rem;width:95vw;'
                     : 'margin-top:2rem;margin: 0;left:10%;padding: 5rem;width: 30vw;overflow-x:hidden;'
                 }`"
                 class="card__collection clear-fix"
               >
                 <div
                   :style="`${
-                    $device.isMobile ? 'margin: -1rem;' : 'margin: -3rem;'
+                    $device.isMobile ? 'margin: -.5rem;' : 'margin: -3rem;'
                   }`"
                   class="cards cards--two"
                 >

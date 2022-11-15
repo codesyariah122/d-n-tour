@@ -16,8 +16,8 @@
             <div class="text w-100">
               <h3 class="heading mb-2">Wedding Ceremony</h3>
               <p>
-                A small river named Duden flows by their place and supplies it
-                with the necessary regelialia.
+                D & N Tour Travel menyediakan beragam jenis mobil untuk
+                penggunaan mobil pernikahan dengan pelayanan professional.
               </p>
             </div>
           </div>
