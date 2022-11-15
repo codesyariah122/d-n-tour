@@ -85,7 +85,7 @@ export default {
           marginLeft: "0",
           marginBottom: "50",
           marginRight: "50",
-          position: "left",
+          position: "right",
         },
         brandSetting: {
           brandName: "D & N Tour Travel",
