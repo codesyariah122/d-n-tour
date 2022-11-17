@@ -14,7 +14,7 @@
               >
                 <h2>Make your trip</h2>
                 <div class="form-group">
-                  <label for="" class="label">Pick-up location</label>
+                  <label for="" class="label">Lokasi Penjemputan</label>
                   <input
                     required
                     v-model="input.your_city"
@@ -24,7 +24,7 @@
                   />
                 </div>
                 <div class="form-group">
-                  <label for="" class="label">Drop-off location</label>
+                  <label for="" class="label">Tujuan Destinasi</label>
                   <input
                     required
                     v-model="input.destination"
@@ -53,7 +53,7 @@
                 </div>
                 <div class="d-flex">
                   <div class="form-group mr-2">
-                    <label for="" class="label">Pick-up date</label>
+                    <label for="" class="label">Tanggal Keberangkatan</label>
                     <input
                       required
                       v-model="input.pickup_date"
@@ -63,7 +63,7 @@
                     />
                   </div>
                   <div class="form-group ml-2">
-                    <label for="" class="label">Drop-off date</label>
+                    <label for="" class="label">Tanggal Kembali</label>
                     <input
                       required
                       v-model="input.dropoff_date"
@@ -74,7 +74,7 @@
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="" class="label">Pick-up time</label>
+                  <label for="" class="label">Waktu Penjemputan</label>
                   <input
                     required
                     v-model="input.pickup_time"
