@@ -12,7 +12,10 @@
         >
           <div class="heading-section heading-section-white pl-md-5">
             <span class="subheading">{{ about.title }} us</span>
-            <h2 class="mb-4">Welcome to {{ about.captionHead }}</h2>
+            <h2 class="mb-4">
+              Welcome to <br v-if="$device.isMobile" />
+              {{ about.captionHead }}
+            </h2>
             <div v-html="$md.render(about.contentWeb)"></div>
           </div>
         </div>

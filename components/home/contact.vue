@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row d-flex mb-5 contact-info">
         <div class="col-md-4">
-          <div class="row mb-5">
+          <div class="row">
             <div class="col-md-12">
               <div class="border w-100 p-4 rounded mb-2 d-flex">
                 <div class="icon mr-3">
