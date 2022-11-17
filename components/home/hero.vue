@@ -22,7 +22,23 @@
             </h1>
             <p style="font-size: 18px">{{ hero.slogan }}</p>
             <a
+              v-if="$device.isDesktop"
               :href="hero.linkVideo"
+              class="icon-wrap popup-vimeo d-flex align-items-center mt-4 justify-content-center"
+            >
+              <div
+                class="icon d-flex align-items-center justify-content-center"
+              >
+                <span class="ion-ios-play"></span>
+              </div>
+              <div class="heading-title ml-5">
+                <span>{{ hero.blockquoteText }}</span>
+              </div>
+            </a>
+            <a
+              v-else
+              :href="hero.linkVideoEmbed"
+              style="cursor: pointer"
               class="icon-wrap popup-vimeo d-flex align-items-center mt-4 justify-content-center"
             >
               <div
@@ -44,21 +60,33 @@
 <script>
 export default {
   mounted() {
-    console.log(this.hero);
+    // console.log(this.hero);
     this.heroAnimate();
     this.popupVideo();
+    this.popupVideoMobile();
   },
 
   methods: {
+    popupVideoMobile() {
+      $(".popup-youtube, .popup-vimeo").magnificPopup({
+        disableOn: false,
+        type: "iframe",
+        mainClass: "mfp-fade",
+        removalDelay: 160,
+        preloader: true,
+        fixedBgPos: false,
+        fixedContentPos: false,
+      });
+    },
     popupVideo() {
       $(".popup-youtube, .popup-vimeo").magnificPopup({
         disableOn: 700,
         type: "iframe",
         mainClass: "mfp-fade",
         removalDelay: 160,
-        preloader: false,
-
-        fixedContentPos: false,
+        preloader: true,
+        fixedBgPos: true,
+        fixedContentPos: true,
       });
     },
     heroAnimate() {

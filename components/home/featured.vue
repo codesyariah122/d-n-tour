@@ -43,7 +43,7 @@
                 :style="`${
                   $device.isMobile
                     ? 'margin: 0;padding: .3rem;left:0;width:100%;'
-                    : 'margin-top:2rem;margin: 0;left:10%;padding: 5rem;width: 30vw;overflow-x:hidden;'
+                    : 'margin-top:2rem;margin: 0;left:10%;padding: 7rem;width: 35vw;overflow-x:hidden;'
                 }`"
                 class="card__collection clear-fix"
               >
@@ -107,7 +107,7 @@
                 :style="`${
                   $device.isMobile
                     ? 'margin: 0;padding: .3rem;left:0;width:100%;'
-                    : 'margin-top:2rem;margin: 0;left:10%;padding: 5rem;width: 30vw;overflow-x:hidden;'
+                    : 'margin-top:2rem;margin: 0;left:10%;padding: 5rem;width: 35vw;overflow-x:hidden;'
                 }`"
                 class="card__collection clear-fix"
               >
@@ -167,7 +167,7 @@
                 :style="`${
                   $device.isMobile
                     ? 'margin: 0;padding: .3rem;left:0;width:100%;'
-                    : 'margin-top:2rem;margin: 0;left:10%;padding: 5rem;width: 30vw;overflow-x:hidden;'
+                    : 'margin-top:2rem;margin: 0;left:10%;padding: 7rem;width: 35vw;overflow-x:hidden;'
                 }`"
                 class="card__collection clear-fix"
               >

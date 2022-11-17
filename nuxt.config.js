@@ -146,6 +146,7 @@ export default {
     { src: "~/plugins/owl-carousel", ssr: false },
     { src: "~/plugins/contentful" },
     { src: "~/plugins/hero-banner" },
+    { src: "~/plugins/blog" },
     { src: "~/plugins/commerce" },
     // { src: "~/plugins/emailservice" },
     { src: "~/plugins/sweetalert" },
