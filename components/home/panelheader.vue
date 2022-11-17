@@ -1,6 +1,6 @@
 <template>
   <section
-    :style="`${$device.isMobile ? 'margin-left: -.7rem;' : ''}`"
+    :style="`${$device.isMobile ? 'margin-left: -.7rem;margin-top:5rem;' : ''}`"
     class="ftco-section ftco-no-pt bg-light"
   >
     <div class="container">
