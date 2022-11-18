@@ -70,10 +70,10 @@ export default {
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
-      {
-        rel: "canonical",
-        href: "https://dntour.vercel.app",
-      },
+      // {
+      //   rel: "canonical",
+      //   href: "https://dntour.vercel.app",
+      // },
       {
         rel: "stylesheet",
         type: "text/css",
