@@ -56,6 +56,9 @@
             <a href="#home" class="nav-link">Home</a>
           </li>
           <li :class="`nav-item ${isActive ? 'active' : ''}`">
+            <a href="#testimoni" class="nav-link">Testimoni</a>
+          </li>
+          <li :class="`nav-item ${isActive ? 'active' : ''}`">
             <a href="#about" class="nav-link">About</a>
           </li>
           <li :class="`nav-item ${isActive ? 'active' : ''}`">

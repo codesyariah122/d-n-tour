@@ -41,16 +41,7 @@ export default {
         type: "text/css",
         href: "/assets/css/animate.css",
       },
-      {
-        rel: "stylesheet",
-        type: "text/css",
-        href: "/assets/css/owl.carousel.min.css",
-      },
-      {
-        rel: "stylesheet",
-        type: "text/css",
-        href: "/assets/css/owl.theme.default.min.css",
-      },
+
       {
         rel: "stylesheet",
         type: "text/css",
@@ -147,6 +138,7 @@ export default {
     { src: "~/plugins/contentful" },
     { src: "~/plugins/hero-banner" },
     { src: "~/plugins/blog" },
+    { src: "~/plugins/testimoni" },
     { src: "~/plugins/commerce" },
     // { src: "~/plugins/emailservice" },
     { src: "~/plugins/sweetalert" },

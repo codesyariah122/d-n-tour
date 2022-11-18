@@ -4,6 +4,7 @@ export const state = () => ({
   hero: null,
   posts: null,
   allposts: null,
+  testimoni: null,
 });
 
 export const mutations = {
@@ -15,6 +16,9 @@ export const mutations = {
   },
   allPosts: (state, posts) => {
     state.allposts = posts;
+  },
+  allTestimoni: (state, testimoni) => {
+    state.testimoni = testimoni;
   },
 };
 
@@ -52,6 +56,19 @@ export const actions = {
         limit: 100,
       });
       if (response.items.length > 0) commit("allPosts", response.items);
+    } catch (err) {
+      console.error(err);
+    }
+  },
+  async getTestimoni({ commit }) {
+    try {
+      if (!client) return;
+      const response = await client.getEntries({
+        content_type: "testimoni",
+        order: "-sys.updatedAt",
+        limit: 10,
+      });
+      if (response.items.length > 0) commit("allTestimoni", response.items);
     } catch (err) {
       console.error(err);
     }

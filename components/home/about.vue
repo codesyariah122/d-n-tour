@@ -1,5 +1,11 @@
 <template>
-  <section class="ftco-section ftco-about" id="about">
+  <section
+    class="ftco-section ftco-about"
+    :style="`${
+      $device.isDesktop ? 'margin-left: -7rem; margin-top: 2rem;' : ''
+    }`"
+    id="about"
+  >
     <div class="container">
       <div class="row no-gutters">
         <div

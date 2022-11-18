@@ -15,7 +15,7 @@
         </div>
       </div>
 
-      <div class="row justify-content-start">
+      <div class="row justify-content-center">
         <div class="col-lg-12 col-sm-12 mt-5 text-center">
           <h4>
             {{
@@ -32,7 +32,7 @@
             }}
           </blockquote>
         </div>
-        <div class="col-lg-12 col-sm-12">
+        <div class="col-lg-12 col-sm-12 mt-5">
           <div class="row">
             <div
               v-for="item in privateDropTrips"
@@ -79,7 +79,7 @@
         </div>
       </div>
 
-      <div class="row justify-content-start">
+      <div class="row justify-content-center">
         <div class="col-lg-12 col-sm-12 mt-5 text-center">
           <h4>
             {{
@@ -96,7 +96,7 @@
             }}
           </blockquote>
         </div>
-        <div class="col-lg-12 col-sm-12">
+        <div class="col-lg-12 col-sm-12 mt-5">
           <div class="row">
             <div
               v-for="item in regulerDropTrips"
@@ -143,7 +143,7 @@
         </div>
       </div>
 
-      <div class="row justify-content-start" style="margin-top: 5rem">
+      <div class="row justify-content-center" style="margin-top: 5rem">
         <div class="col-lg-12 col-sm-12 mt-5 text-center">
           <h4>
             {{
@@ -156,7 +156,7 @@
             {{ cityTourCategory.description }}
           </blockquote>
         </div>
-        <div class="col-lg-12 col-sm-12">
+        <div class="col-lg-12 col-sm-12 mt-5">
           <div class="row">
             <div
               v-for="item in cityTours"
