@@ -386,6 +386,53 @@
 export default {
   name: "news-slug",
   layout: "default",
+  head() {
+    return {
+      title: `D & N Artikel - ${this.post.fields.title}`,
+      meta: [
+        { charset: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        {
+          hid: "description",
+          name: "description",
+          content: `${this.post.fields.title}`,
+        },
+        { name: "format-detection", content: "telephone=no" },
+        {
+          name: "keywords",
+          content: this.post.fields.title,
+        },
+        {
+          name: "keywords",
+          content: "D & N Tour Travel - Antar jemput Bandung Bandara Soetta",
+        },
+        {
+          property: "og:title",
+          content: "D & N Tour Travel - Artikel",
+        },
+        {
+          property: "og:description",
+          content: "D & N Tour Travel - Antar jemput Bandung Bandara Soetta",
+        },
+        {
+          property: "og:image",
+          content: this.post.fields.cover.fields.file.url,
+        },
+        {
+          property: "og:url",
+          content: `https://dntour.vercel.app/${this.post.fields.slug}`,
+        },
+        {
+          property: "og:image:width",
+          content: "499",
+        },
+        {
+          property: "og:image:height",
+          content: "500",
+        },
+      ],
+    };
+  },
   data() {
     return {
       slug: this.$route.params.slug,

@@ -102,7 +102,7 @@
             Copyright &copy; {{ $moment().year() }}
             All rights reserved | This template is made with
             <i class="icon-heart color-danger" aria-hidden="true"></i> by
-            <a href="https://d-n-tour.vercel.app" target="_blank">D & N</a>
+            <a href="https://d-n-tour.vercel.app" target="_blank">D & N</a> Team
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
           </p>
         </div>

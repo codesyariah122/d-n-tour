@@ -8,19 +8,64 @@ export default {
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "D & N Tour Travel",
+    title: "D & N Tour Travel - Travel Bandung - Jakarta(Bandara Soetta)",
     meta: [
       { charset: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      {
+        name: "viewport",
+        content: "width=device-width, initial-scale=1, shrink-to-fit=no",
+      },
       {
         hid: "description",
         name: "description",
         content: "Travel Bandung Bandara",
       },
       { name: "format-detection", content: "telephone=no" },
+      {
+        hid: "description",
+        name: "description",
+        content: "D & N Tour Travel - Travel Bandung - Jakarta(Bandara Soetta)",
+      },
+      { name: "format-detection", content: "telephone=no" },
+      {
+        name: "keywords",
+        content: "D & N Tour Travel | Solusi Perjalanan Anda",
+      },
+      {
+        name: "keywords",
+        content: "D & N Tour Travel - Antar jemput Bandung Bandara Soetta",
+      },
+      {
+        property: "og:title",
+        content: "D & N Tour Travel - Artikel",
+      },
+      {
+        property: "og:description",
+        content: "D & N Tour Travel - Antar jemput Bandung Bandara Soetta",
+      },
+      {
+        property: "og:image",
+        content: "/assets/img/parallax.jpg",
+      },
+      {
+        property: "og:url",
+        content: `https://dntour.vercel.app`,
+      },
+      {
+        property: "og:image:width",
+        content: "499",
+      },
+      {
+        property: "og:image:height",
+        content: "500",
+      },
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      {
+        rel: "canonical",
+        href: "https://dntour.vercel.app",
+      },
       {
         rel: "stylesheet",
         type: "text/css",

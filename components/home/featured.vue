@@ -3,11 +3,11 @@
 </style>
 <!-- featured components home -->
 <template>
-  <section class="ftco-section ftco-featured ftco-no-pt bg-light" id="pricing">
+  <section class="ftco-section" id="pricing">
     <div class="container">
-      <div class="row justify-content-center">
+      <div class="row justify-content-end">
         <div
-          class="col-md-12 heading-section text-center ftco-animate mb-2"
+          class="col-lg-12 heading-section text-center ftco-animate mb-2"
           style="margin-top: 3rem"
         >
           <span class="subheading">What we offer</span>
@@ -15,7 +15,7 @@
         </div>
       </div>
 
-      <div class="row justify-content-center">
+      <div class="row justify-content-start">
         <div class="col-lg-12 col-sm-12 mt-5 text-center">
           <h4>
             {{
@@ -79,7 +79,7 @@
         </div>
       </div>
 
-      <div class="row justify-content-center">
+      <div class="row justify-content-start">
         <div class="col-lg-12 col-sm-12 mt-5 text-center">
           <h4>
             {{
@@ -143,7 +143,7 @@
         </div>
       </div>
 
-      <div class="row justify-content-center" style="margin-top: 5rem">
+      <div class="row justify-content-start" style="margin-top: 5rem">
         <div class="col-lg-12 col-sm-12 mt-5 text-center">
           <h4>
             {{
