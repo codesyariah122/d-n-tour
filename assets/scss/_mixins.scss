@@ -1,9 +1,11 @@
 // parallax home
 @mixin parallax_mobile {
-  background-attachment: scroll;
+  background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;
-  height: 50vh;
+  background-size: 100% auto;
+  top: 15%;
+  height: 75vh;
   width: 100vw;
   position: fixed;
   margin-left: -15rem;

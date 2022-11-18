@@ -6,13 +6,15 @@
     class="parallax overlay mt-5"
     :style="`background-image: url(${parallax.data.bg});`"
   >
-    <div class="caption"></div>
+    <div class="caption">
+      {{ $device.isDesktop ? ParallaxImage : parallaxMobile }}
+    </div>
   </div>
 </template>
 
 <script>
 import ParallaxImage from "~/assets/images/home/parallax.jpg";
-import ParallaxMobile from "~/assets/images/home/parallax-mobile.png";
+import ParallaxMobile from "~/assets/images/home/parallax-mobile.jpg";
 
 export default {
   data() {
