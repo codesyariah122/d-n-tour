@@ -5,11 +5,7 @@
   <div
     class="parallax overlay mt-5"
     :style="`background-image: url(${parallax.data.bg});`"
-  >
-    <div class="caption">
-      {{ $device.isDesktop ? ParallaxImage : parallaxMobile }}
-    </div>
-  </div>
+  ></div>
 </template>
 
 <script>

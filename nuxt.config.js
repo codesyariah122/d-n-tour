@@ -21,52 +21,52 @@ export default {
         content: "Travel Bandung Bandara",
       },
       { name: "format-detection", content: "telephone=no" },
-      {
-        hid: "description",
-        name: "description",
-        content: "D & N Tour Travel - Travel Bandung - Jakarta(Bandara Soetta)",
-      },
-      { name: "format-detection", content: "telephone=no" },
-      {
-        hid: "keywords",
-        name: "keywords",
-        content: "D & N Tour Travel | Solusi Perjalanan Anda",
-      },
-      {
-        hid: "keywords",
-        name: "keywords",
-        content: "D & N Tour Travel - Antar jemput Bandung Bandara Soetta",
-      },
-      {
-        hid: "og:title",
-        property: "og:title",
-        content: "D & N Tour Travel - Artikel",
-      },
-      {
-        hid: "og:description",
-        property: "og:description",
-        content: "D & N Tour Travel - Antar jemput Bandung Bandara Soetta",
-      },
-      {
-        hid: "og:image",
-        property: "og:image",
-        content: "/assets/img/parallax.jpg",
-      },
-      {
-        hid: "og:url",
-        property: "og:url",
-        content: `https://dntour.vercel.app`,
-      },
-      {
-        hid: "og:image:width",
-        property: "og:image:width",
-        content: "499",
-      },
-      {
-        hid: "og:image:height",
-        property: "og:image:height",
-        content: "500",
-      },
+      // {
+      //   hid: "description",
+      //   name: "description",
+      //   content: "D & N Tour Travel - Travel Bandung - Jakarta(Bandara Soetta)",
+      // },
+      // { name: "format-detection", content: "telephone=no" },
+      // {
+      //   hid: "keywords",
+      //   name: "keywords",
+      //   content: "D & N Tour Travel | Solusi Perjalanan Anda",
+      // },
+      // {
+      //   hid: "keywords",
+      //   name: "keywords",
+      //   content: "D & N Tour Travel - Antar jemput Bandung Bandara Soetta",
+      // },
+      // {
+      //   hid: "og:title",
+      //   property: "og:title",
+      //   content: "D & N Tour Travel - Artikel",
+      // },
+      // {
+      //   hid: "og:description",
+      //   property: "og:description",
+      //   content: "D & N Tour Travel - Antar jemput Bandung Bandara Soetta",
+      // },
+      // {
+      //   hid: "og:image",
+      //   property: "og:image",
+      //   content: "/assets/img/parallax.jpg",
+      // },
+      // {
+      //   hid: "og:url",
+      //   property: "og:url",
+      //   content: `https://dntour.vercel.app`,
+      // },
+      // {
+      //   hid: "og:image:width",
+      //   property: "og:image:width",
+      //   content: "499",
+      // },
+      // {
+      //   hid: "og:image:height",
+      //   property: "og:image:height",
+      //   content: "500",
+      // },
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
