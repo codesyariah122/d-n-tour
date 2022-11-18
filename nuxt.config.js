@@ -6,6 +6,12 @@ export default {
     color: "#01d28e",
     height: "11px",
   },
+  generate: {
+    dir: "dist",
+    cache: {
+      ignore: ["docs"],
+    },
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: "D & N Tour Travel - Travel Bandung - Jakarta(Bandara Soetta)",
@@ -230,7 +236,49 @@ export default {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     baseURL: "/",
   },
-
+  workbox: {
+    workboxOptions: {
+      skipWaiting: true,
+    },
+    offline: true,
+    // offlineStrategy: 'NetworkFirst',
+    // offlinePage: null,
+    // offlineAssets: [],
+    runtimeCaching: [
+      {
+        urlPattern: "/assets/css/.*",
+        handler: "cacheFirst",
+        method: "GET",
+        strategyOptions: { cacheableResponse: { statuses: [0, 200] } },
+      },
+      {
+        urlPattern: "/assets/fonts/.*",
+        handler: "cacheFirst",
+        method: "GET",
+        strategyOptions: { cacheableResponse: { statuses: [0, 200] } },
+      },
+      {
+        urlPattern: "/assets/img/.*",
+        method: "GET",
+        strategyOptions: { cacheableResponse: { statuses: [0, 200] } },
+      },
+      {
+        urlPattern: "/assets/js/.*",
+        method: "GET",
+        strategyOptions: { cacheableResponse: { statuses: [0, 200] } },
+      },
+      {
+        urlPattern: "/assets/scss/.*",
+        method: "GET",
+        strategyOptions: { cacheableResponse: { statuses: [0, 200] } },
+      },
+      {
+        urlPattern: "/assets/vendor/.*",
+        method: "GET",
+        strategyOptions: { cacheableResponse: { statuses: [0, 200] } },
+      },
+    ],
+  },
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
