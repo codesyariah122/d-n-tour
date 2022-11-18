@@ -53,25 +53,60 @@
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
           <li :class="`nav-item ${isActive ? 'active' : ''}`">
-            <a href="#home" class="nav-link">Home</a>
+            <a
+              :href="`${$route.name === 'news-slug' ? '../#home' : '#home'}`"
+              class="nav-link"
+              >Home</a
+            >
           </li>
           <li :class="`nav-item ${isActive ? 'active' : ''}`">
-            <a href="#testimoni" class="nav-link">Testimoni</a>
+            <a
+              :href="`${
+                $route.name === 'news-slug' ? '../#testimoni' : '#testimoni'
+              }`"
+              class="nav-link"
+              >Testimoni</a
+            >
           </li>
           <li :class="`nav-item ${isActive ? 'active' : ''}`">
-            <a href="#about" class="nav-link">About</a>
+            <a
+              :href="`${$route.name === 'news-slug' ? '../#about' : '#about'}`"
+              class="nav-link"
+              >About</a
+            >
           </li>
           <li :class="`nav-item ${isActive ? 'active' : ''}`">
-            <a href="#services" class="nav-link">Services</a>
+            <a
+              :href="`${
+                $route.name === 'news-slug' ? '../#services' : '#services'
+              }`"
+              class="nav-link"
+              >Services</a
+            >
           </li>
           <li :class="`nav-item ${isActive ? 'active' : ''}`">
-            <a href="#pricing" class="nav-link">Pricing</a>
+            <a
+              :href="`${
+                $route.name === 'news-slug' ? '../#pricing' : '#pricing'
+              }`"
+              class="nav-link"
+              >Pricing</a
+            >
           </li>
-          <li :class="`nav-item ${isActive ? 'active' : ''}`">
+          <li
+            v-if="$route.name !== 'news-slug'"
+            :class="`nav-item ${isActive ? 'active' : ''}`"
+          >
             <a href="#blog" class="nav-link">Blog</a>
           </li>
           <li :class="`nav-item ${isActive ? 'active' : ''}`">
-            <a href="#contact" class="nav-link">Contact</a>
+            <a
+              :href="`${
+                $route.name === 'news-slug' ? '../#contact' : '#contact'
+              }`"
+              class="nav-link"
+              >Contact</a
+            >
           </li>
         </ul>
       </div>

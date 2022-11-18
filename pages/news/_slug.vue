@@ -13,14 +13,16 @@
           <div class="col-md-9 ftco-animate pb-5">
             <p class="breadcrumbs">
               <span class="mr-2"
-                ><a href="/">Home <i class="ion-ios-arrow-forward"></i></a
-              ></span>
-              <span class="mr-2"
+                ><a href="/"
+                  ><i class="ion-ios-arrow-forward"></i> Back To Home
+                </a></span
+              >
+              <!-- <span class="mr-2"
                 ><a href="#">Blog <i class="ion-ios-arrow-forward"></i></a
-              ></span>
-              <span>Blog Single <i class="ion-ios-arrow-forward"></i></span>
+              ></span> -->
+              <!-- <span>Blog Single <i class="ion-ios-arrow-forward"></i></span> -->
             </p>
-            <h1 class="mb-3 bread">Read our blog</h1>
+            <!-- <h1 class="mb-3 bread">Read our blog</h1> -->
           </div>
         </div>
       </div>
@@ -389,48 +391,56 @@ export default {
   head() {
     return {
       title: `D & N Artikel - ${this.post.fields.title}`,
-      // meta: [
-      //   { charset: "utf-8" },
-      //   { name: "viewport", content: "width=device-width, initial-scale=1" },
-      //   {
-      //     hid: "description",
-      //     name: "description",
-      //     content: `${this.post.fields.title}`,
-      //   },
-      //   { name: "format-detection", content: "telephone=no" },
-      //   {
-      //     name: "keywords",
-      //     content: this.post.fields.title,
-      //   },
-      //   {
-      //     name: "keywords",
-      //     content: "D & N Tour Travel - Antar jemput Bandung Bandara Soetta",
-      //   },
-      //   {
-      //     property: "og:title",
-      //     content: "D & N Tour Travel - Artikel",
-      //   },
-      //   {
-      //     property: "og:description",
-      //     content: "D & N Tour Travel - Antar jemput Bandung Bandara Soetta",
-      //   },
-      //   {
-      //     property: "og:image",
-      //     content: this.post.fields.cover.fields.file.url,
-      //   },
-      //   {
-      //     property: "og:url",
-      //     content: `https://dntour.vercel.app/${this.post.fields.slug}`,
-      //   },
-      //   {
-      //     property: "og:image:width",
-      //     content: "499",
-      //   },
-      //   {
-      //     property: "og:image:height",
-      //     content: "500",
-      //   },
-      // ],
+      meta: [
+        { charset: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        {
+          hid: "description",
+          name: "description",
+          content: `${this.post.fields.title}`,
+        },
+        { name: "format-detection", content: "telephone=no" },
+        {
+          hid: "keywords",
+          name: "keywords",
+          content: this.post.fields.title,
+        },
+        {
+          hid: "keywords",
+          name: "keywords",
+          content: "D & N Tour Travel - Antar jemput Bandung Bandara Soetta",
+        },
+        {
+          hid: "og:title",
+          property: "og:title",
+          content: "D & N Tour Travel - Artikel",
+        },
+        {
+          hid: "og:description",
+          property: "og:description",
+          content: "D & N Tour Travel - Antar jemput Bandung Bandara Soetta",
+        },
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: this.post.fields.cover.fields.file.url,
+        },
+        {
+          hid: "og:url",
+          property: "og:url",
+          content: `https://dntour.vercel.app/${this.post.fields.slug}`,
+        },
+        {
+          hid: "og:image:width",
+          property: "og:image:width",
+          content: "499",
+        },
+        {
+          hid: "og:image:height",
+          property: "og:image:height",
+          content: "500",
+        },
+      ],
     };
   },
   data() {
