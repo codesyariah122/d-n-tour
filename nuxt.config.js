@@ -241,13 +241,13 @@ export default {
       canonical: "https://d-n-tour.vercel.app/",
       description:
         "D & N Tour Travel Dan City Tour. Melayani Antar Jempun Bandung - Jakarta Bandara Soekarno Hatta, Nikmati perjalanan yang cepat dan pelayanan yang gesit dari kami D & N Tour.",
-      keywords: "Travel Bandung Bandara",
+      keywords: "D & N Tour Travel | Travel Bandung Bandara",
       ogUrl:
         "D & N Tour Travel Dan City Tour. Melayani Antar Jempun Bandung - Jakarta Bandara Soekarno Hatta, Nikmati perjalanan yang cepat dan pelayanan yang gesit dari kami D & N Tour.",
       ogType: "website",
       ogSiteName: "D & N Tour Travel",
       ogTitle: "D & N Tour Travel",
-      ogImage: "/icon.png",
+      ogImage: "/assets/img/parallax.jpg",
       ogImageWidth: "600",
       ogImageHeight: "400",
     },
