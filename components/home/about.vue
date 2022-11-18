@@ -2,7 +2,7 @@
   <section
     class="ftco-section ftco-about"
     :style="`${
-      $device.isDesktop ? 'margin-left: -7rem; margin-top: 2rem;' : ''
+      $device.isDesktop ? 'margin-left: -1rem; margin-top: 2rem;' : ''
     }`"
     id="about"
   >
