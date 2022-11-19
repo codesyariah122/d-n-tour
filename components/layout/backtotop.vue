@@ -5,7 +5,7 @@
   height: 50px;
   width: 50px;
   right: 30px;
-  bottom: 5%;
+  bottom: 25%;
   position: fixed;
   color: #fff;
   font-size: 20px;
@@ -20,8 +20,7 @@
   #scrollUp,
   #back-top {
     right: 16px;
-    bottom: 35%;
-    right: 35px;
+    bottom: 5%;
   }
 }
 
