@@ -19,8 +19,8 @@
 @media (max-width: 575px) {
   #scrollUp,
   #back-top {
-    right: 16px;
-    bottom: 10%;
+    right: 17px;
+    bottom: 17%;
     z-index: 99999;
   }
 }
