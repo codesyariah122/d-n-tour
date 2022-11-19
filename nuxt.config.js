@@ -257,8 +257,8 @@ export default {
       start_url: "/",
       lang: "en",
       display: "standalone",
-      theme_color: "#01d28e",
-      background_color: "#01d28e",
+      theme_color: "#000000",
+      background_color: "#000000",
       icons: [
         {
           src: "/icon-48x48.png",
