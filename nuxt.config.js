@@ -27,6 +27,52 @@ export default {
         content: "Travel Bandung Bandara",
       },
       { name: "format-detection", content: "telephone=no" },
+      {
+        hid: "description",
+        name: "description",
+        content: "D & N Tour Travel - Travel Bandung - Jakarta(Bandara Soetta)",
+      },
+      { name: "format-detection", content: "telephone=no" },
+      {
+        hid: "keywords",
+        name: "keywords",
+        content: "D & N Tour Travel | Solusi Perjalanan Anda",
+      },
+      {
+        hid: "keywords",
+        name: "keywords",
+        content: "D & N Tour Travel - Antar jemput Bandung Bandara Soetta",
+      },
+      {
+        hid: "og:title",
+        property: "og:title",
+        content: "D & N Tour Travel - Artikel",
+      },
+      {
+        hid: "og:description",
+        property: "og:description",
+        content: "D & N Tour Travel - Antar jemput Bandung Bandara Soetta",
+      },
+      {
+        hid: "og:image",
+        property: "og:image",
+        content: "/assets/img/parallax.jpg",
+      },
+      {
+        hid: "og:url",
+        property: "og:url",
+        content: `https://dntour.vercel.app`,
+      },
+      {
+        hid: "og:image:width",
+        property: "og:image:width",
+        content: "499",
+      },
+      {
+        hid: "og:image:height",
+        property: "og:image:height",
+        content: "500",
+      },
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
@@ -236,15 +282,14 @@ export default {
       title: "D & N Tour Travel",
       author: "D & N",
       icon: true,
-      canonical: "https://d-n-tour.vercel.app/",
+      canonical: "https://dntour.vercel.app",
       description: "Travel Bandung Bandara.",
       keywords: "D & N Tour Travel | Travel Bandung Bandara",
-      ogUrl:
-        "D & N Tour Travel Dan City Tour. Melayani Antar Jempun Bandung - Jakarta Bandara Soekarno Hatta, Nikmati perjalanan yang cepat dan pelayanan yang gesit dari kami D & N Tour.",
+      ogUrl: "https://dntour.vercel.app",
       ogType: "website",
       ogSiteName: "D & N Tour Travel",
       ogTitle: "D & N Tour Travel",
-      ogImage: "/icon.png",
+      ogImage: "https://dntour.vercel.app/assets/img/parallax.jpg",
       ogImageWidth: "600",
       ogImageHeight: "400",
     },
@@ -257,8 +302,8 @@ export default {
       start_url: "/",
       lang: "en",
       display: "standalone",
-      theme_color: "#000000",
-      background_color: "#000000",
+      theme_color: "#01d28e",
+      background_color: "#01d28e",
       icons: [
         {
           src: "/icon-48x48.png",
