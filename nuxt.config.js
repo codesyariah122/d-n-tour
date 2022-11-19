@@ -289,7 +289,7 @@ export default {
       ogType: "website",
       ogSiteName: "D & N Tour Travel",
       ogTitle: "D & N Tour Travel",
-      ogImage: "https://dntour.vercel.app/assets/img/parallax.jpg",
+      ogImage: "/icon.png",
       ogImageWidth: "600",
       ogImageHeight: "400",
     },
