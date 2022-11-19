@@ -22,6 +22,7 @@
               ></span> -->
               <!-- <span>Blog Single <i class="ion-ios-arrow-forward"></i></span> -->
             </p>
+            <!-- <h1 class="mb-3 bread">Read our blog</h1> -->
           </div>
         </div>
       </div>
@@ -390,56 +391,6 @@ export default {
   head() {
     return {
       title: `D & N | Artikel | ${this.post.fields.title}`,
-      meta: [
-        { charset: "utf-8" },
-        { name: "viewport", content: "width=device-width, initial-scale=1" },
-        {
-          hid: "description",
-          name: "description",
-          content: `${this.post.fields.title}`,
-        },
-        { name: "format-detection", content: "telephone=no" },
-        {
-          hid: "keywords",
-          name: "keywords",
-          content: this.post.fields.title,
-        },
-        {
-          hid: "keywords",
-          name: "keywords",
-          content: "D & N Tour Travel - Antar jemput Bandung Bandara Soetta",
-        },
-        {
-          hid: "og:title",
-          property: "og:title",
-          content: "D & N Tour Travel - Artikel",
-        },
-        {
-          hid: "og:description",
-          property: "og:description",
-          content: "D & N Tour Travel - Antar jemput Bandung Bandara Soetta",
-        },
-        {
-          hid: "og:image",
-          property: "og:image",
-          content: `https:${this.post.fields.cover.fields.file.url}`,
-        },
-        {
-          hid: "og:url",
-          property: "og:url",
-          content: `https://dntour.vercel.app/${this.post.fields.slug}`,
-        },
-        {
-          hid: "og:image:width",
-          property: "og:image:width",
-          content: "499",
-        },
-        {
-          hid: "og:image:height",
-          property: "og:image:height",
-          content: "500",
-        },
-      ],
     };
   },
   data() {
