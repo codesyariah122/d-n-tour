@@ -57,7 +57,7 @@
                 >
                   <img :src="item.image.url" class="img-responsive" alt="" />
                   <span class="cards--three__rect-1">
-                    <span class="shadow-1"> </span>
+                    <span class="shadow-1"></span>
                     <p>{{ item.name }}</p>
                     <p class="ml-1">
                       <b>{{ item.price.formatted_with_symbol }}</b>
@@ -66,7 +66,16 @@
                   <span class="cards--three__rect-2">
                     <span class="shadow-2"></span>
                   </span>
-                  <span class="cards--three__circle"></span>
+                  <span class="cards--three__circle">
+                    <center>
+                      <a
+                        :href="`/detail/${item.permalink}`"
+                        class="btn btn-success btn-lg mt-5"
+                      >
+                        Pesan Sekarang
+                      </a>
+                    </center>
+                  </span>
                   <ul class="cards--three__list">
                     <li><i class="fab fa-facebook-f"></i></li>
                     <li><i class="fab fa-twitter"></i></li>
@@ -130,7 +139,16 @@
                   <span class="cards--three__rect-2">
                     <span class="shadow-2"></span>
                   </span>
-                  <span class="cards--three__circle"></span>
+                  <span class="cards--three__circle">
+                    <center>
+                      <a
+                        :href="`/detail/${item.permalink}`"
+                        class="btn btn-success btn-lg mt-5"
+                      >
+                        Pesan Sekarang
+                      </a>
+                    </center>
+                  </span>
                   <ul class="cards--three__list">
                     <li><i class="fab fa-facebook-f"></i></li>
                     <li><i class="fab fa-twitter"></i></li>
@@ -184,11 +202,21 @@
                     class="img-responsive"
                     alt="Cards Image"
                   />
+
                   <span class="cards--two__rect"></span>
                   <span class="cards--two__tri"></span>
                   <p>
                     {{ item.name }} <br />
                     <b>{{ item.price.formatted_with_symbol }}</b>
+                    <br />
+                    <center>
+                      <a
+                        :href="`/detail/${item.permalink}`"
+                        class="btn btn-success btn-lg"
+                      >
+                        Pesan Sekarang
+                      </a>
+                    </center>
                   </p>
                   <ul class="cards__list">
                     <li><i class="fab fa-facebook-f"></i></li>
