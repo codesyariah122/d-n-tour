@@ -237,7 +237,7 @@ export default {
       ogType: "website",
       ogSiteName: "D & N Tour Travel",
       ogTitle: "D & N Tour Travel",
-      ogImage: "/icon.png",
+      ogImage: "/icon-pwa.png",
       ogImageWidth: "600",
       ogImageHeight: "400",
     },
