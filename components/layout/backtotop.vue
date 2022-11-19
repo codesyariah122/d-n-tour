@@ -21,6 +21,7 @@
   #back-top {
     right: 16px;
     bottom: 10%;
+    z-index: 99999;
   }
 }
 
