@@ -86,7 +86,7 @@
                 <div class="form-group">
                   <input
                     type="submit"
-                    value="Pilih Tanggal"
+                    value="Pesan Sekarang"
                     class="btn btn-secondary py-3 px-4"
                   />
                 </div>
