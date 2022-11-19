@@ -128,6 +128,10 @@ export default {
         src: "/assets/js/scrollax.min.js",
         body: true,
       },
+      {
+        src: "https://d2mpatx37cqexb.cloudfront.net/delightchat-whatsapp-widget/embeds/embed.min.js",
+        body: true,
+      },
     ],
   },
 

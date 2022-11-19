@@ -4,8 +4,8 @@
   background: #071112;
   height: 50px;
   width: 50px;
-  right: 15px;
-  bottom: 10px;
+  right: 30px;
+  bottom: 25%;
   position: fixed;
   color: #fff;
   font-size: 20px;

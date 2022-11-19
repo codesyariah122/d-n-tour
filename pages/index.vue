@@ -46,7 +46,8 @@ export default {
 
   mounted() {
     this.checkBook();
-    this.whatsappButton();
+    // this.whatsappButton();
+    this.newWhatsappButton();
   },
 
   methods: {
@@ -75,14 +76,16 @@ export default {
       localStorage.setItem("book-now", JSON.stringify(book));
     },
     whatsappButton() {
+      console.log("Ok");
       const contextWa = encodeURIComponent(
         "Hello,D & N Tour saya ingin memesan paket perjalanan dari D & N Tour, bisa infokan saya harga terbaik dari D & N Tour."
       );
       let url =
-        "https://wati-integration-service.clare.ai/ShopifyWidget/shopifyWidget.js?56694";
+        "https://wati-integration-service.clare.ai/ShopifyWidget/shopifyWidget.js?9167";
       let s = document.createElement("script");
       s.type = "text/javascript";
       s.async = true;
+      s.ssr = false;
       s.src = url;
       let options = {
         enabled: true,
@@ -107,7 +110,7 @@ export default {
           backgroundColor: "#01d28e",
           ctaText: "Start Chat",
           borderRadius: "25",
-          autoShow: false,
+          autoShow: true,
           phoneNumber: "6283165539138",
         },
       };
@@ -116,6 +119,28 @@ export default {
       };
       let x = document.getElementsByTagName("script")[0];
       x.parentNode.insertBefore(s, x);
+    },
+    newWhatsappButton() {
+      (function () {
+        var options = {
+          whatsapp: "6283165539138", // WhatsApp number
+          call_to_action: "Talk With Us", // Call to action
+          button_color: "#FF6550", // Color of button
+          position: "right", // Position may be 'right' or 'left'
+        };
+        var proto = "https:",
+          host = "getbutton.io",
+          url = proto + "//static." + host;
+        var s = document.createElement("script");
+        s.type = "text/javascript";
+        s.async = true;
+        s.src = url + "/widget-send-button/js/init.js";
+        s.onload = function () {
+          WhWidgetSendButton.init(host, proto, options);
+        };
+        var x = document.getElementsByTagName("script")[0];
+        x.parentNode.insertBefore(s, x);
+      })();
     },
   },
 };
