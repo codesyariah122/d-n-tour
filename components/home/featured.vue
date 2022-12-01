@@ -35,7 +35,7 @@
         <div class="col-lg-12 col-sm-12 mt-5">
           <div class="row">
             <div
-              v-for="item in privateDropTrips"
+              v-for="item in cityTours"
               :key="item.id"
               class="col-md-4 col-sm-12 card__column"
             >
@@ -53,32 +53,33 @@
                       ? 'margin: 0;width: 100%;left:0;right:0;margin-bottom: .5rem;'
                       : 'margin: -2.5rem;'
                   }`"
-                  class="cards cards--three"
+                  class="cards cards--two"
                 >
-                  <img :src="item.image.url" class="img-responsive" alt="" />
-                  <span class="cards--three__rect-1">
-                    <span class="shadow-1"></span>
-                    <p>{{ item.name }}</p>
-                    <p class="ml-1">
-                      <b>{{ item.price.formatted_with_symbol }}</b>
-                    </p>
-                  </span>
-                  <span class="cards--three__rect-2">
-                    <span class="shadow-2"></span>
-                  </span>
-                  <span class="cards--three__circle">
+                  <img
+                    :src="item.image.url"
+                    class="img-responsive"
+                    alt="Cards Image"
+                  />
+
+                  <span class="cards--two__rect"></span>
+                  <span class="cards--two__tri"></span>
+                  <p>
+                    {{ item.name }} <br />
+                    <b>{{ item.price.formatted_with_symbol }}</b>
+                    <br />
                     <center>
                       <a
                         :href="`/detail/${item.permalink}`"
-                        class="btn btn-success btn-lg mt-5"
+                        class="btn btn-success btn-lg"
                       >
                         Pesan Sekarang
                       </a>
                     </center>
-                  </span>
-                  <ul class="cards--three__list">
+                  </p>
+                  <ul class="cards__list">
                     <li><i class="fab fa-facebook-f"></i></li>
                     <li><i class="fab fa-twitter"></i></li>
+                    <li><i class="fab fa-instagram"></i></li>
                     <li><i class="fab fa-linkedin-in"></i></li>
                   </ul>
                 </div>
@@ -108,7 +109,7 @@
         <div class="col-lg-12 col-sm-12 mt-5">
           <div class="row">
             <div
-              v-for="item in regulerDropTrips"
+              v-for="item in cityTours"
               :key="item.id"
               class="col-md-4 col-sm-12 card__column"
             >
@@ -116,7 +117,7 @@
                 :style="`${
                   $device.isMobile
                     ? 'margin: 0;padding: .3rem;left:0;width:100%;'
-                    : 'margin-top:2rem;margin: 0;left:10%;padding: 5rem;width: 35vw;overflow-x:hidden;'
+                    : 'margin-top:2rem;margin: 0;left:10%;padding: 7rem;width: 35vw;overflow-x:hidden;'
                 }`"
                 class="card__collection clear-fix"
               >
@@ -124,34 +125,35 @@
                   :style="`${
                     $device.isMobile
                       ? 'margin: 0;width: 100%;left:0;right:0;margin-bottom: .5rem;'
-                      : 'margin: -2.5;'
+                      : 'margin: -2.5rem;'
                   }`"
-                  class="cards cards--three"
+                  class="cards cards--two"
                 >
-                  <img :src="item.image.url" class="img-responsive" alt="" />
-                  <span class="cards--three__rect-1">
-                    <span class="shadow-1"> </span>
-                    <p>{{ item.name }}</p>
-                    <p class="ml-1">
-                      <b>{{ item.price.formatted_with_symbol }}</b>
-                    </p>
-                  </span>
-                  <span class="cards--three__rect-2">
-                    <span class="shadow-2"></span>
-                  </span>
-                  <span class="cards--three__circle">
+                  <img
+                    :src="item.image.url"
+                    class="img-responsive"
+                    alt="Cards Image"
+                  />
+
+                  <span class="cards--two__rect"></span>
+                  <span class="cards--two__tri"></span>
+                  <p>
+                    {{ item.name }} <br />
+                    <b>{{ item.price.formatted_with_symbol }}</b>
+                    <br />
                     <center>
                       <a
                         :href="`/detail/${item.permalink}`"
-                        class="btn btn-success btn-lg mt-5"
+                        class="btn btn-success btn-lg"
                       >
                         Pesan Sekarang
                       </a>
                     </center>
-                  </span>
-                  <ul class="cards--three__list">
+                  </p>
+                  <ul class="cards__list">
                     <li><i class="fab fa-facebook-f"></i></li>
                     <li><i class="fab fa-twitter"></i></li>
+                    <li><i class="fab fa-instagram"></i></li>
                     <li><i class="fab fa-linkedin-in"></i></li>
                   </ul>
                 </div>
