@@ -1,9 +1,8 @@
 <template>
   <div>
-    <h1>Detail package</h1>
-    <pre>
-      {{ $route.params.permalink }}
-    </pre>
+    <home-hero />
+
+    <package-detail :product="product" />
   </div>
 </template>
 
@@ -11,5 +10,16 @@
 export default {
   name: "detail-permalink",
   layout: "default",
+
+  async asyncData({ $commerce, route, params }) {
+    const { permalink } = params;
+    const product = await $commerce.products.retrieve(permalink, {
+      type: "permalink",
+    });
+
+    return {
+      product,
+    };
+  },
 };
 </script>

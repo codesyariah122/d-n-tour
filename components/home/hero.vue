@@ -15,7 +15,7 @@
         style="margin-top: -4rem"
         class="row no-gutters slider-text justify-content-end align-items-center"
       >
-        <div class="col-lg-6 ftco-animate">
+        <div v-if="!params" class="col-lg-6 ftco-animate">
           <div class="text w-100 text-center mb-md-5 pb-md-5">
             <h1 class="mb-4" style="font-family: 'Rubik Bubbles', cursive">
               {{ hero.captionHead }}
@@ -52,6 +52,26 @@
             </a>
           </div>
         </div>
+        <div v-else class="col-lg-6">
+          <div class="text w-100 text-center mb-md-5 pb-md-5">
+            <a
+              href="/#pricing"
+              class="icon-wrap popup-vimeo d-flex align-items-center mt-4 justify-content-center"
+            >
+              <div
+                class="icon d-flex align-items-center justify-content-center"
+              >
+                <span
+                  class="ion-ios-arrow-dropleft"
+                  style="font-size: 34px"
+                ></span>
+              </div>
+              <div class="heading-title ml-5">
+                <span>Kembali ke Home</span>
+              </div>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -59,14 +79,26 @@
 
 <script>
 export default {
+  data() {
+    return {
+      params: null,
+    };
+  },
   mounted() {
     // console.log(this.hero);
     this.heroAnimate();
     this.popupVideo();
     this.popupVideoMobile();
+    this.detectRouteParams();
   },
 
   methods: {
+    detectRouteParams() {
+      const params = this.$route.params.permalink;
+      if (params) {
+        this.params = true;
+      }
+    },
     popupVideoMobile() {
       $(".popup-youtube, .popup-vimeo").magnificPopup({
         disableOn: false,
@@ -130,3 +162,9 @@ export default {
   },
 };
 </script>
+
+<style lang="css" scoped>
+ion-icon {
+  font-size: 64px;
+}
+</style>

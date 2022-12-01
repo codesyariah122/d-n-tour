@@ -3,7 +3,7 @@
     <layout-header :isActive="isActive" />
     <Nuxt />
     <layout-footer />
-    <layout-backtotop />
+    <!-- <layout-backtotop /> -->
   </div>
 </template>
 

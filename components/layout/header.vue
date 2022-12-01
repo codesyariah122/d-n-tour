@@ -1,5 +1,6 @@
 <template>
   <nav
+    v-if="!params"
     class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light"
     id="ftco-navbar"
   >
@@ -120,6 +121,7 @@ export default {
   data() {
     return {
       scrolling: false,
+      params: null,
     };
   },
 
@@ -128,9 +130,14 @@ export default {
   mounted() {
     this.bodyScroll();
     this.scrollSpy();
+    this.detectRouteParams();
   },
 
   methods: {
+    detectRouteParams() {
+      const params = this.$route.params.permalink;
+      if (params) this.params = true;
+    },
     bodyScroll() {
       document.addEventListener("scroll", (e) => {
         const scroll = window.scrollY;
