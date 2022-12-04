@@ -57,7 +57,7 @@
           </div>
         </div>
 
-        <div v-if="posts.length <= 1" class="col-md-4 d-flex ftco-animate">
+        <div v-if="posts.length <= 1" class="col-md-4 d-flex">
           <div class="blog-entry justify-content-end">
             <a
               href="blog-single.html"
@@ -83,7 +83,7 @@
           </div>
         </div>
 
-        <div v-if="posts.length <= 1" class="col-md-4 d-flex ftco-animate">
+        <div v-if="posts.length <= 1" class="col-md-4 d-flex">
           <div class="blog-entry">
             <a
               href="blog-single.html"

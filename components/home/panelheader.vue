@@ -8,10 +8,7 @@
         <div class="col-md-12 featured-top">
           <div class="row no-gutters">
             <div class="col-md-4 d-flex align-items-center">
-              <form
-                @submit.prevent="pickUp"
-                class="request-form ftco-animate bg-primary"
-              >
+              <form @submit.prevent="pickUp" class="request-form bg-primary">
                 <h2>Make your trip</h2>
                 <div class="form-group">
                   <label for="" class="label">Lokasi Penjemputan</label>
@@ -42,9 +39,12 @@
                     @change="changePackage($event)"
                   >
                     <option value="">Pilih Paket Trip</option>
+                    <option :value="input.package">
+                      {{ input.package }}
+                    </option>
+
                     <option
-                      v-for="(item, idx) in input.package"
-                      :value="item"
+                      v-for="(item, idx) in input.childPackage"
                       :key="idx"
                     >
                       {{ item }}
@@ -98,7 +98,7 @@
                   Pilihan Terbaik Bagi Perjalanan Anda
                 </h3>
                 <div class="row d-flex mb-4">
-                  <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                  <div class="col-md-4 d-flex align-self-stretch">
                     <div class="services w-100 text-center">
                       <div
                         class="icon d-flex align-items-center justify-content-center"
@@ -112,7 +112,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                  <div class="col-md-4 d-flex align-self-stretch">
                     <div class="services w-100 text-center">
                       <div
                         class="icon d-flex align-items-center justify-content-center"
@@ -124,7 +124,7 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                  <div class="col-md-4 d-flex align-self-stretch">
                     <div class="services w-100 text-center">
                       <div
                         class="icon d-flex align-items-center justify-content-center"
@@ -167,6 +167,7 @@ export default {
         your_city: null,
         destination: null,
         package: [],
+        childPackage: [],
         change: null,
         pickup_date: this.$moment().format("LL"),
         dropoff_date: this.$moment().format("LL"),
@@ -187,15 +188,17 @@ export default {
       this.$emit("booking-now");
     },
     changePackage(e) {
-      console.log(e.target.value);
       this.input.change = e.target.value;
     },
     activePackage() {
       let packages = this.categories.map((d) => d);
-      this.input.package = packages.map((d) => d.name);
+      let childPackage = packages.map((d) => d.children)[1];
+      this.input.package = packages.map((d) =>
+        d.name === "city tour" ? d.name : ""
+      )[0];
+      this.input.childPackage = childPackage.map((d) => d.name);
     },
     pickUp() {
-      console.log(Object.keys(this.input).length);
       if (Object.keys(this.input).length === 0) {
         alert("harap isi kolom input pemesanan");
       }

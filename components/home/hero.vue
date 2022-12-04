@@ -91,7 +91,6 @@ export default {
     this.popupVideoMobile();
     this.detectRouteParams();
   },
-
   methods: {
     detectRouteParams() {
       const params = this.$route.params.permalink;
@@ -146,13 +145,11 @@ export default {
         { offset: "95%" }
       );
     },
-
     getHeroBanner() {
       const hero = this.$store.state.hero;
       return hero;
     },
   },
-
   computed: {
     hero() {
       const contents = this.$store.state.hero.map((d) => d.fields);

@@ -11,7 +11,6 @@
 <script>
 import ParallaxImage from "~/assets/images/home/parallax.jpg";
 import ParallaxMobile from "~/assets/images/home/parallax-mobile.jpg";
-
 export default {
   data() {
     return {

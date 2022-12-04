@@ -26,10 +26,10 @@ export default {
 
   async asyncData({ $commerce }) {
     const { data: privateDropTrips } = await $commerce.products.list({
-      category_slug: ["private-drop-trip"],
+      category_slug: ["private"],
     });
     const { data: regulerDropTrips } = await $commerce.products.list({
-      category_slug: ["reguler-door-to-door"],
+      category_slug: ["reguler"],
     });
     const { data: cityTours } = await $commerce.products.list({
       category_slug: ["city-tour"],
@@ -76,7 +76,6 @@ export default {
       localStorage.setItem("book-now", JSON.stringify(book));
     },
     whatsappButton() {
-      console.log("Ok");
       const contextWa = encodeURIComponent(
         "Hello,D & N Tour saya ingin memesan paket perjalanan dari D & N Tour, bisa infokan saya harga terbaik dari D & N Tour."
       );

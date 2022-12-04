@@ -1,8 +1,10 @@
 @import "_variable.scss";
 @import "_mixins.scss";
 
-.parallax {
-  @include parallax_mobile;
+@media screen and (max-width: 745px) {
+  .parallax {
+    @include parallax_mobile;
+  }
 }
 @media only screen and (max-device-width: 812px) {
   .parallax {
