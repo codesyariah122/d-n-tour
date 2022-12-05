@@ -91,7 +91,7 @@
               <blockquote>
                 {{
                   privateDropTripCategory.name === "private"
-                    ? "Paket Private Trip Bandung - Jakarta (Bandara Soekarno Hatta)"
+                    ? "Melayani Penjemputan Untuk Perjalanan Bandung - Jakarta (Bandara Soekarno Hatta) Khususnya."
                     : ""
                 }}
               </blockquote>
@@ -273,7 +273,7 @@ export default {
                 : "";
             this.categoryContext.quote =
               this.privateDropTripCategory.name === "private"
-                ? "Private Paket Trip Bandung - Jakarta (Bandara Soekarno Hatta)"
+                ? "Melayani Penjemputan Untuk Perjalanan Bandung - Jakarta (Bandara Soekarno Hatta)"
                 : "";
           }, 1500);
           break;
@@ -288,7 +288,7 @@ export default {
                 : "";
             this.categoryContext.quote =
               this.regulerDropTripCategory.name === "reguler"
-                ? "Reguler Trip Bandung - Jakarta (Bandara Soekarno Hatta)"
+                ? "Melayani Perjalanan Reguler Bandung - Jakarta (Bandara Soekarno Hatta)"
                 : "";
           }, 1500);
           break;
