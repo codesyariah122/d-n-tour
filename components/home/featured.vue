@@ -95,16 +95,6 @@
               </blockquote>
             </div>
 
-            <div class="mt-4 mx-auto">
-              <h5 class="text-center">Sudah Termasuk :</h5>
-              <div class="d-flex flex-row bd-highlight mb-3">
-                <div class="p-2 bd-highlight">-Mobil</div>
-                <div class="p-2 bd-highlight">-Sopir / Driver</div>
-                <div class="p-2 bd-highlight">-BBM</div>
-                <div class="p-2 bd-highlight">-Parkir</div>
-              </div>
-            </div>
-
             <div class="col-lg-12 col-sm-12 mt-2">
               <div class="row justify-content-center">
                 <div
@@ -160,6 +150,16 @@
                 </div>
               </div>
             </div>
+
+            <div class="mt-4 mx-auto">
+              <h5 class="text-center">Sudah Termasuk :</h5>
+              <div class="d-flex flex-row bd-highlight mb-3">
+                <div class="p-2 bd-highlight">-Mobil</div>
+                <div class="p-2 bd-highlight">-Sopir / Driver</div>
+                <div class="p-2 bd-highlight">-BBM</div>
+                <div class="p-2 bd-highlight">-Parkir</div>
+              </div>
+            </div>
           </div>
         </div>
         <div v-else class="col-lg-12 col-sm-12 mt-2 text-center">
@@ -181,16 +181,6 @@
               <blockquote>
                 {{ categoryContext.quote }}
               </blockquote>
-            </div>
-
-            <div class="mt-4 mx-auto">
-              <h5 class="text-center">Sudah Termasuk :</h5>
-              <div class="d-flex flex-row bd-highlight mb-3">
-                <div class="p-2 bd-highlight">-Mobil</div>
-                <div class="p-2 bd-highlight">-Sopir / Driver</div>
-                <div class="p-2 bd-highlight">-BBM</div>
-                <div class="p-2 bd-highlight">-Parkir</div>
-              </div>
             </div>
 
             <div class="col-lg-12 col-sm-12 mt-5">
@@ -246,6 +236,16 @@
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+
+            <div class="mt-4 mx-auto">
+              <h5 class="text-center">Sudah Termasuk :</h5>
+              <div class="d-flex flex-row bd-highlight mb-3">
+                <div class="p-2 bd-highlight">-Mobil</div>
+                <div class="p-2 bd-highlight">-Sopir / Driver</div>
+                <div class="p-2 bd-highlight">-BBM</div>
+                <div class="p-2 bd-highlight">-Parkir</div>
               </div>
             </div>
           </div>
