@@ -116,7 +116,7 @@
 <script>
 export default {
   mounted() {
-    console.log(this.posts);
+    // console.log(this.posts);
   },
   computed: {
     posts() {

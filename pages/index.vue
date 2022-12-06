@@ -26,7 +26,7 @@ export default {
 
   async asyncData({ $commerce }) {
     const { data: privateDropTrips } = await $commerce.products.list({
-      category_slug: ["private"],
+      category_slug: ["private-charter"],
     });
     const { data: regulerDropTrips } = await $commerce.products.list({
       category_slug: ["reguler"],

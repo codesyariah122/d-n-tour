@@ -1,7 +1,6 @@
 <template>
   <div>
-    <home-hero />
-
+    <!-- <home-hero /> -->
     <package-detail :product="product" />
   </div>
 </template>

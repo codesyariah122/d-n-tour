@@ -1,6 +1,7 @@
 <style lang="scss" scoped>
 @import "~/assets/scss/card-price.scss";
 .featured-section {
+  margin-top: 2rem;
   margin-bottom: 8rem;
 }
 </style>
@@ -9,10 +10,7 @@
   <section class="ftco-section featured-section" id="pricing">
     <div class="container">
       <div class="row justify-content-end">
-        <div
-          class="col-lg-12 heading-section text-center ftco-animate mb-2"
-          style="margin-top: 3rem"
-        >
+        <div class="col-lg-12 heading-section text-center ftco-animate mb-2">
           <span class="subheading">What we offer</span>
           <h2>Feeatured Vehicles</h2>
         </div>
@@ -83,20 +81,31 @@
             <div class="col-lg-12 col-sm-12 mt-5 text-center">
               <h4>
                 {{
-                  privateDropTripCategory.name === "private"
+                  privateDropTripCategory.name === "private charter"
                     ? "Paket Private Trip Bandung - Jakarta (Bandara Soetta)"
                     : ""
                 }}
               </h4>
               <blockquote>
                 {{
-                  privateDropTripCategory.name === "private"
-                    ? "Melayani Penjemputan Untuk Perjalanan Bandung - Jakarta (Bandara Soekarno Hatta) Khususnya."
+                  privateDropTripCategory.name === "private charter"
+                    ? "Melayani Penjemputan Untuk Perjalanan Bandung - Jakarta (Bandara Soekarno Hatta) Khususnya secara private."
                     : ""
                 }}
               </blockquote>
             </div>
-            <div class="col-lg-12 col-sm-12 mt-5">
+
+            <div class="mt-4 mx-auto">
+              <h5 class="text-center">Sudah Termasuk :</h5>
+              <div class="d-flex flex-row bd-highlight mb-3">
+                <div class="p-2 bd-highlight">-Mobil</div>
+                <div class="p-2 bd-highlight">-Sopir / Driver</div>
+                <div class="p-2 bd-highlight">-BBM</div>
+                <div class="p-2 bd-highlight">-Parkir</div>
+              </div>
+            </div>
+
+            <div class="col-lg-12 col-sm-12 mt-2">
               <div class="row justify-content-center">
                 <div
                   v-for="item in privateDropTrips"
@@ -172,6 +181,16 @@
               <blockquote>
                 {{ categoryContext.quote }}
               </blockquote>
+            </div>
+
+            <div class="mt-4 mx-auto">
+              <h5 class="text-center">Sudah Termasuk :</h5>
+              <div class="d-flex flex-row bd-highlight mb-3">
+                <div class="p-2 bd-highlight">-Mobil</div>
+                <div class="p-2 bd-highlight">-Sopir / Driver</div>
+                <div class="p-2 bd-highlight">-BBM</div>
+                <div class="p-2 bd-highlight">-Parkir</div>
+              </div>
             </div>
 
             <div class="col-lg-12 col-sm-12 mt-5">
@@ -253,7 +272,7 @@ export default {
     };
   },
   mounted() {
-    console.log(this.privateDropTrips);
+    // console.log(this.privateDropTrips);
   },
 
   methods: {
@@ -263,17 +282,17 @@ export default {
       this.loadingPackage = true;
       this.notChange = false;
       switch (value) {
-        case "private":
+        case "private charter":
           setTimeout(() => {
             this.loadingPackage = false;
             this.packages = this.privateDropTrips;
             this.categoryContext.header =
-              this.privateDropTripCategory.name === "private"
+              this.privateDropTripCategory.name === "private charter"
                 ? "Private Bandung - Jakarta (Bandara Soetta)"
                 : "";
             this.categoryContext.quote =
-              this.privateDropTripCategory.name === "private"
-                ? "Melayani Penjemputan Untuk Perjalanan Bandung - Jakarta (Bandara Soekarno Hatta)"
+              this.privateDropTripCategory.name === "private charter"
+                ? "Melayani Penjemputan Untuk Perjalanan Bandung - Jakarta (Bandara Soekarno Hatta) Secara private."
                 : "";
           }, 1500);
           break;
@@ -305,10 +324,6 @@ export default {
           }, 1500);
           break;
 
-        case "charter":
-          console.log("Charter trip");
-          break;
-
         default:
           console.log("Pilih paket terlebih dahulu!!");
           setTimeout(() => {
@@ -338,7 +353,9 @@ export default {
     privateDropTripCategory() {
       const lists = this.categories.map((d) => d);
       const privates = lists.map((d) => d.children)[1];
-      const privateDropTrip = privates.filter((d) => d.name === "private")[0];
+      const privateDropTrip = privates.filter(
+        (d) => d.name === "private charter"
+      )[0];
       return privateDropTrip;
       // return lists.filter((d) => d.name === "private")[0];
     },

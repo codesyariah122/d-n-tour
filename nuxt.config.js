@@ -2,6 +2,15 @@ export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
+  serverMiddleware: [
+    {
+      path: "api",
+      handler: "~/server/api",
+    },
+  ],
+  router: {
+    middleware: [],
+  },
   loading: {
     color: "#01d28e",
     height: "11px",

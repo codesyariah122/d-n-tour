@@ -14,7 +14,7 @@
                   <label for="" class="label">Lokasi Penjemputan</label>
                   <input
                     required
-                    v-model="input.your_city"
+                    v-model="location.city"
                     type="text"
                     class="form-control"
                     placeholder="City, Airport, Station, etc"
@@ -163,6 +163,9 @@ export default {
   props: ["categories"],
   data() {
     return {
+      ip: null,
+      location: null,
+      location: {},
       input: {
         your_city: null,
         destination: null,
@@ -181,9 +184,32 @@ export default {
       easing: "slide",
     });
     this.activePackage();
+    this.userIpDetected();
   },
 
   methods: {
+    userIpDetected() {
+      const secret = process.env.NUXT_ENV_APP_SECRET_API;
+      const url = `${process.env.NUXT_ENV_APP_API_URL}/lookup/${secret}`;
+      this.$axios
+        .get(url)
+        .then(({ data }) => {
+          this.ip = data.data;
+          this.userLocationDetected(data.data);
+        })
+        .catch((err) => console.log(err));
+    },
+    userLocationDetected(ip) {
+      const secret = process.env.NUXT_ENV_APP_SECRET_API;
+      const url = `${process.env.NUXT_ENV_APP_API_URL}/locator/${ip}/${secret}`;
+      this.$axios
+        .get(url)
+        .then(({ data }) => {
+          console.log(data.data);
+          this.location = data.data;
+        })
+        .catch((err) => console.log(err));
+    },
     booking() {
       this.$emit("booking-now");
     },
@@ -202,10 +228,19 @@ export default {
       if (Object.keys(this.input).length === 0) {
         alert("harap isi kolom input pemesanan");
       }
+      console.log(this.input.your_city);
       const data = this.input;
       console.log(this.input);
       const url = "https://wa.me/6283165539138?text=";
-      const contextWa = `Hallo,Admin D&N Tour, saya ingin memesan paket trip D & N Tour, berikut data lengkap saya \n -kota penjemputan : ${this.input.your_city} , \n -paket trip : ${this.input.change}, \n -destinasi : ${this.input.destination} ,\n -tanggal penjemputan : ${this.input.pickup_date}, \n -jam : ${this.input.pickup_time}`;
+      const contextWa = `Hallo,Admin D&N Tour, saya ingin memesan paket trip D & N Tour, berikut data lengkap saya \n -kota penjemputan : ${
+        this.input.your_city !== null
+          ? this.input.your_city
+          : this.location.city
+      } , \n -paket trip : ${this.input.change}, \n -destinasi : ${
+        this.input.destination
+      } ,\n -tanggal penjemputan : ${this.input.pickup_date}, \n -jam : ${
+        this.input.pickup_time
+      }`;
 
       window.open(`${url}${encodeURIComponent(contextWa)}`);
 
