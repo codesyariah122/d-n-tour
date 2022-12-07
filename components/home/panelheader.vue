@@ -14,7 +14,7 @@
                   <label for="" class="label">Lokasi Penjemputan</label>
                   <input
                     required
-                    v-model="location.city"
+                    v-model="input.your_city"
                     type="text"
                     class="form-control"
                     placeholder="City, Airport, Station, etc"
