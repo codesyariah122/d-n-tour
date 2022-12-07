@@ -1,6 +1,12 @@
-# new-d-n-tour-static
+# new-d-n-tour with server side rendered
 
 ## Build Setup
+
+### First to setup .env file
+```bash
+cp .env.example .env
+
+```
 
 ```bash
 # install dependencies
@@ -15,7 +21,12 @@ $ yarn start
 
 # generate static project
 $ yarn generate
-```
+```  
+
+#### Start your code
+
+
+==========================================================================
 
 For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
 
