@@ -194,7 +194,7 @@ export default {
       console.log(isProduction);
       const localUrl = process.env.NUXT_ENV_APP_LOCAL_URL;
       const publicUrl = process.env.NUXT_ENV_APP_API_URL;
-      const url = `${localUrl}/lookup/${secret}`;
+      const url = `${publicUrl}/lookup/${secret}`;
       this.$axios
         .get(url)
         .then(({ data }) => {
@@ -208,7 +208,7 @@ export default {
       const isProduction = process.env.NUXT_ENV_APP_PRODUCTION;
       const localUrl = process.env.NUXT_ENV_APP_LOCAL_URL;
       const publicUrl = process.env.NUXT_ENV_APP_API_URL;
-      const url = `${localUrl}/locator/${ip}/${secret}`;
+      const url = `${publicUrl}/locator/${ip}/${secret}`;
       this.$axios
         .get(url)
         .then(({ data }) => {
