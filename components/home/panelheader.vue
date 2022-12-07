@@ -184,7 +184,6 @@ export default {
       easing: "slide",
     });
     this.activePackage();
-    this.userIpDetected();
   },
 
   methods: {
