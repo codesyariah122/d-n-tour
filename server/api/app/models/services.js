@@ -1,11 +1,11 @@
 // const fetch = (...args) =>
 //   import("node-fetch").then(({ default: fetch }) => fetch(...args));
-import * as fetch from "node-fetch";
+import fetch from "node-fetch";
 
 const lookupUserIp = async (url) => {
   try {
     return new Promise((resolve, reject) => {
-      fetch(`https://api.ipify.org?format=json`)
+      fetch(url)
         .then((data) => {
           resolve(data.json());
         })

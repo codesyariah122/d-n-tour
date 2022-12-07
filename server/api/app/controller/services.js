@@ -11,6 +11,7 @@ const lookUpUserIp = (req, res) => {
   const urlLookup = process.env.NUXT_ENV_APP_IP_DETECT_URL;
   lookupUserIp(urlLookup)
     .then((response) => {
+      // console.log(response);
       if (response.ip) {
         res
           .json({

@@ -191,9 +191,10 @@ export default {
     userIpDetected() {
       const secret = process.env.NUXT_ENV_APP_SECRET_API;
       const isProduction = process.env.NUXT_ENV_APP_PRODUCTION;
+      console.log(isProduction);
       const localUrl = process.env.NUXT_ENV_APP_LOCAL_URL;
       const publicUrl = process.env.NUXT_ENV_APP_API_URL;
-      const url = `${isProduction ? publicUrl : localUrl}/lookup/${secret}`;
+      const url = `${publicUrl}/lookup/${secret}`;
       this.$axios
         .get(url)
         .then(({ data }) => {
@@ -207,13 +208,11 @@ export default {
       const isProduction = process.env.NUXT_ENV_APP_PRODUCTION;
       const localUrl = process.env.NUXT_ENV_APP_LOCAL_URL;
       const publicUrl = process.env.NUXT_ENV_APP_API_URL;
-      const url = `${
-        isProduction ? publicUrl : localUrl
-      }/locator/${ip}/${secret}`;
+      const url = `${publicUrl}/locator/${ip}/${secret}`;
+      console.log(url);
       this.$axios
         .get(url)
         .then(({ data }) => {
-          // console.log(data.data);
           this.location = data.data;
         })
         .catch((err) => console.log(err));
