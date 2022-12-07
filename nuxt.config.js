@@ -1,7 +1,7 @@
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   // Target: https://go.nuxtjs.dev/config-target
-  // target: "static",
+  target: "static",
   // serverMiddleware: [
   //   {
   //     path: "api",
