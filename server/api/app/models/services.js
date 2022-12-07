@@ -1,5 +1,6 @@
-const fetch = (...args) =>
-  import("node-fetch").then(({ default: fetch }) => fetch(...args));
+// const fetch = (...args) =>
+//   import("node-fetch").then(({ default: fetch }) => fetch(...args));
+import * as fetch from "node-fetch";
 
 const lookupUserIp = async (url) => {
   try {
@@ -26,7 +27,9 @@ const userGeoLocation = async (url, apiKey) => {
   }
 };
 
-module.exports = {
-  lookupUserIp,
-  userGeoLocation,
-};
+// module.exports = {
+//   lookupUserIp,
+//   userGeoLocation,
+// };
+
+export { lookupUserIp, userGeoLocation };

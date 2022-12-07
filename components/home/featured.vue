@@ -68,10 +68,10 @@
           <img
             :src="require('~/assets/vector/loading-car.gif')"
             class="img-fluid rounded-circle"
-            :width="`${$device.isMobile ? '250' : '150'}`"
+            :width="`${$device.isMobile ? '350' : '450'}`"
           />
           <br />
-          <p class="text-secondary text-center mt-2">Loading ...</p>
+          <p class="text-secondary text-center">Loading ...</p>
         </div>
       </div>
 

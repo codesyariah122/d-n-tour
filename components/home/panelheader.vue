@@ -14,7 +14,7 @@
                   <label for="" class="label">Lokasi Penjemputan</label>
                   <input
                     required
-                    v-model="input.your_city"
+                    v-model="location.city"
                     type="text"
                     class="form-control"
                     placeholder="City, Airport, Station, etc"
@@ -184,12 +184,16 @@ export default {
       easing: "slide",
     });
     this.activePackage();
+    this.userIpDetected();
   },
 
   methods: {
     userIpDetected() {
       const secret = process.env.NUXT_ENV_APP_SECRET_API;
-      const url = `${process.env.NUXT_ENV_APP_API_URL}/lookup/${secret}`;
+      const isProduction = process.env.NUXT_ENV_APP_PRODUCTION;
+      const localUrl = process.env.NUXT_ENV_APP_LOCAL_URL;
+      const publicUrl = process.env.NUXT_ENV_APP_API_URL;
+      const url = `${isProduction ? publicUrl : localUrl}/lookup/${secret}`;
       this.$axios
         .get(url)
         .then(({ data }) => {
@@ -200,11 +204,16 @@ export default {
     },
     userLocationDetected(ip) {
       const secret = process.env.NUXT_ENV_APP_SECRET_API;
-      const url = `${process.env.NUXT_ENV_APP_API_URL}/locator/${ip}/${secret}`;
+      const isProduction = process.env.NUXT_ENV_APP_PRODUCTION;
+      const localUrl = process.env.NUXT_ENV_APP_LOCAL_URL;
+      const publicUrl = process.env.NUXT_ENV_APP_API_URL;
+      const url = `${
+        isProduction ? publicUrl : localUrl
+      }/locator/${ip}/${secret}`;
       this.$axios
         .get(url)
         .then(({ data }) => {
-          console.log(data.data);
+          // console.log(data.data);
           this.location = data.data;
         })
         .catch((err) => console.log(err));

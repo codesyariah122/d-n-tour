@@ -1,4 +1,5 @@
-const { lookupUserIp, userGeoLocation } = require("../models/services");
+// const { lookupUserIp, userGeoLocation } = require("../models/services");
+import { lookupUserIp, userGeoLocation } from "../models/services";
 
 const lookUpUserIp = (req, res) => {
   const secretKey = process.env.NUXT_ENV_APP_SECRET_API;
@@ -59,7 +60,9 @@ const userLocator = (req, res) => {
     .catch((err) => console.log(err));
 };
 
-module.exports = {
-  lookUpUserIp,
-  userLocator,
-};
+// module.exports = {
+//   lookUpUserIp,
+//   userLocator,
+// };
+
+export { lookUpUserIp, userLocator };
