@@ -76,14 +76,14 @@ h5 {
 
 @media screen and (max-width: 745px) {
   .card__price {
-    margin-top: -20rem;
+    margin-top: 2rem;
     margin-bottom: 7rem;
   }
 }
 
 @media (min-width: 992px) {
   .card__price {
-    margin-top: -15rem;
+    margin-top: 5rem;
     margin-bottom: 5rem;
   }
 }
