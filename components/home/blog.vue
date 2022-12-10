@@ -22,7 +22,6 @@
           :key="post.id"
           class="col-md-4 d-flex ftco-animate"
         >
-          >
           <div class="blog-entry justify-content-end">
             <a
               :href="post.fields.cover.fields.file.url"
