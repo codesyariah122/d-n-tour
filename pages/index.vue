@@ -24,6 +24,18 @@ export default {
   name: "IndexPage",
   layout: "default",
 
+  head() {
+    return {
+      meta: [
+        {
+          hid: "og:image",
+          property: "og:image",
+          content: require("~/assets/images/home/parallax.jpg"),
+        },
+      ],
+    };
+  },
+
   async asyncData({ $commerce }) {
     const { data: privateDropTrips } = await $commerce.products.list({
       category_slug: ["private-charter"],
