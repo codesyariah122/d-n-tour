@@ -48,12 +48,7 @@ export default {
       {
         hid: "og:url",
         property: "og:url",
-        content: "https://dntourtravel.com",
-      },
-      {
-        hid: "og:type",
-        property: "og:type",
-        content: "website",
+        content: "https://dntourtravel.com/",
       },
       {
         hid: "og:site_name",
@@ -72,9 +67,19 @@ export default {
           "D & N Tour Travel | Travel Bandung - Jakarta (Bandara Soekarno Hatta)",
       },
       {
+        hid: "og:type",
+        property: "og:type",
+        content: "website",
+      },
+      {
+        hid: "og:image:type",
+        property: "og:image:type",
+        content: "image/png",
+      },
+      {
         hid: "og:image",
         property: "og:image",
-        content: "/default-og-image.jpg",
+        content: "https://dntourtravel.com/icon.png",
       },
       {
         hid: "og:image:width",
@@ -91,7 +96,7 @@ export default {
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       {
         rel: "canonical",
-        href: "https://dntourtravel.com",
+        href: "https://dntourtravel.com/",
       },
       {
         rel: "stylesheet",
