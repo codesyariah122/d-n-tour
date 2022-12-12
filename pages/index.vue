@@ -16,6 +16,8 @@
     <home-introhome />
     <home-blog />
     <home-contact />
+
+    <globals-whatsappbutton />
   </div>
 </template>
 
@@ -59,7 +61,7 @@ export default {
   mounted() {
     this.checkBook();
     // this.whatsappButton();
-    this.newWhatsappButton();
+    // this.newWhatsappButton();
   },
 
   methods: {
