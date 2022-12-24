@@ -10,6 +10,6 @@ app.get("/hello", (req, res) => {
 });
 
 app.use("/v1", services_router);
-app.use("/v1/locator", services_router);
+// app.use("/v1/locator", services_router);
 
 export default app;

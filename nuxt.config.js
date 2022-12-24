@@ -2,28 +2,27 @@ export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
-  ssr: false,
   // mode: "universal",
   // ssr: true,
-  // serverMiddleware: [
-  //   {
-  //     path: "api",
-  //     handler: "~/server/api",
-  //   },
-  // ],
-  // router: {
-  //   middleware: [],
-  // },
+  serverMiddleware: [
+    {
+      path: "api",
+      handler: "~/server/api",
+    },
+  ],
+  router: {
+    middleware: [],
+  },
   loading: {
     color: "#01d28e",
     height: "11px",
   },
-  // generate: {
-  //   dir: "dist",
-  //   cache: {
-  //     ignore: ["docs"],
-  //   },
-  // },
+  generate: {
+    dir: "dist",
+    cache: {
+      ignore: ["docs"],
+    },
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: "D & N Tour Travel - Travel Bandung - Jakarta(Bandara Soetta)",
