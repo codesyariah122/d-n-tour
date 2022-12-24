@@ -1,6 +1,10 @@
 <template>
   <div>
-    <a href="#" @click="sendingWhatsappMessage('6283165539138')" class="float">
+    <a
+      href="javascript.void(0)"
+      @click="sendingWhatsappMessage('6283165539138')"
+      class="float"
+    >
       <i class="fa fa-whatsapp my-float"></i>
     </a>
   </div>

@@ -21,7 +21,9 @@
           <div class="row justify-content-center">
             <div
               class="col-lg-8 col-sm-8 mb-2"
-              :style="`${$device.isMobile ? 'width: 90%;' : ''}`"
+              :style="`${
+                $device.isMobile ? 'width: 90%;' : 'margin-left: 3rem;'
+              }`"
             >
               <blockquote class="text-danger blockquote-footer">
                 Pilih daftar paket trip lainnya dibawah ini ....
@@ -31,7 +33,9 @@
               <div
                 class="input-group"
                 :style="`${
-                  $device.isMobile ? 'width: 70%; margin-left: 3rem;' : ''
+                  $device.isMobile
+                    ? 'width: 70%; margin-left: 3rem;'
+                    : 'margin-left: 3rem;'
                 }`"
               >
                 <select

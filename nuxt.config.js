@@ -79,7 +79,7 @@ export default {
       {
         hid: "og:image",
         property: "og:image",
-        content: "https://dntourtravel.com/icon.png",
+        content: "https://dntourtravel.com/default-og-image.jpg",
       },
       {
         hid: "og:image:width",
@@ -156,6 +156,10 @@ export default {
       },
     ],
     script: [
+      {
+        src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3269967595614450",
+        crossorigin: "anonymous",
+      },
       {
         src: "/assets/js/jquery.min.js",
         body: true,

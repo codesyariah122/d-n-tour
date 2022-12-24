@@ -60,8 +60,6 @@ export default {
 
   mounted() {
     this.checkBook();
-    // this.whatsappButton();
-    // this.newWhatsappButton();
   },
 
   methods: {
