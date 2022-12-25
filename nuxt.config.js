@@ -7,7 +7,7 @@ export default {
   serverMiddleware: [
     {
       path: "api",
-      handler: "~/server/api",
+      handler: "~/server/api/index.js",
     },
   ],
   router: {
