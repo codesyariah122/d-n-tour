@@ -95,6 +95,10 @@ export default {
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       {
+        rel: "amphtml",
+        href: process.env.NUXT_ENV_APP_ORIGIN_URL,
+      },
+      {
         rel: "canonical",
         href: "https://dntourtravel.com/",
       },
@@ -157,8 +161,18 @@ export default {
     ],
     script: [
       {
-        src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3269967595614450",
+        src: "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
+        client: process.env.NUXT_ENV_GOOGLE_ADS_CA,
         crossorigin: "anonymous",
+        async: true,
+      },
+      {
+        src: "https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js",
+        "custom-element": "amp-auto-ads",
+        async: true,
+      },
+      {
+        src: "/assets/scripts/g-tag-manager.js",
       },
       {
         src: "/assets/js/jquery.min.js",
@@ -242,7 +256,15 @@ export default {
     // https://go.nuxtjs.dev/pwa
     "@nuxtjs/pwa",
     "@nuxtjs/markdownit",
+    "@nuxtjs/amp",
   ],
+  amp: {
+    origin: "https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js",
+    "custom-element": "amp-auto-ads",
+    async: true,
+    mode: "hybrid",
+  },
+
   markdownit: {
     injected: true,
   },

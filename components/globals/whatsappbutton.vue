@@ -1,11 +1,7 @@
 <template>
   <div>
-    <a
-      href="javascript.void(0)"
-      @click="sendingWhatsappMessage('6283165539138')"
-      class="float"
-    >
-      <i class="fa fa-whatsapp my-float"></i>
+    <a @click="sendingWhatsappMessage('6283165539138')" class="float">
+      <i class="fa fa-whatsapp my-float text-white"></i>
     </a>
   </div>
 </template>
@@ -44,12 +40,13 @@ export default {
 <style lang="css" scoped>
 @media screen and (max-width: 745px) {
   .float {
+    cursor: pointer;
     position: fixed;
     width: 60px;
     height: 60px;
     bottom: 25px;
     right: 20px;
-    background-color: #25d366;
+    background-color: #0fec60;
     color: #fff;
     border-radius: 50px;
     text-align: center;
@@ -64,12 +61,13 @@ export default {
 }
 @media (min-width: 992px) {
   .float {
+    cursor: pointer;
     position: fixed;
     width: 60px;
     height: 60px;
     bottom: 40px;
     right: 40px;
-    background-color: #25d366;
+    background-color: #0fec60;
     color: #fff;
     border-radius: 50px;
     text-align: center;

@@ -143,12 +143,6 @@
                           </a>
                         </center>
                       </p>
-                      <ul class="cards__list">
-                        <li><i class="fab fa-facebook-f"></i></li>
-                        <li><i class="fab fa-twitter"></i></li>
-                        <li><i class="fab fa-instagram"></i></li>
-                        <li><i class="fab fa-linkedin-in"></i></li>
-                      </ul>
                     </div>
                   </div>
                 </div>

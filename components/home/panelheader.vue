@@ -13,29 +13,28 @@
                 <div class="form-group">
                   <label for="" class="label">Lokasi Penjemputan</label>
                   <input
-                    required
                     v-model="location.city"
                     type="text"
                     class="form-control"
                     placeholder="City, Airport, Station, etc"
                   />
+                  <small class="text-danger">Wajib diisi *</small>
                 </div>
                 <div class="form-group">
                   <label for="" class="label">Tujuan Destinasi</label>
                   <input
-                    required
                     v-model="input.destination"
                     type="text"
                     class="form-control"
                     placeholder="City, Airport, Station, etc"
                   />
+                  <small class="text-danger">Wajib diisi *</small>
                 </div>
-                <div class="form-group">
+                <div class="form-group mt-3">
                   <label for="paket" class="label">Pilih Paket Trip</label>
                   <select
                     id="paket"
                     class="custom-select"
-                    required
                     @change="changePackage($event)"
                   >
                     <option value="">Pilih Paket Trip</option>
@@ -51,11 +50,13 @@
                     </option>
                   </select>
                 </div>
-                <div class="d-flex">
+                <div class="d-flex mt-3">
+                  <div class="col-lg-12">
+                    <small class="text-success mb-2">Optional *</small>
+                  </div>
                   <div class="form-group mr-2">
                     <label for="" class="label">Tanggal Keberangkatan</label>
                     <input
-                      required
                       v-model="input.pickup_date"
                       type="date"
                       class="form-control"
@@ -65,7 +66,6 @@
                   <div class="form-group ml-2">
                     <label for="" class="label">Tanggal Kembali</label>
                     <input
-                      required
                       v-model="input.dropoff_date"
                       type="date"
                       class="form-control"
@@ -76,7 +76,6 @@
                 <div class="form-group">
                   <label for="" class="label">Waktu Penjemputan</label>
                   <input
-                    required
                     v-model="input.pickup_time"
                     type="time"
                     class="form-control"
@@ -164,8 +163,9 @@ export default {
   data() {
     return {
       ip: null,
-      location: null,
-      location: {},
+      location: {
+        city: null,
+      },
       input: {
         your_city: null,
         destination: null,
@@ -184,34 +184,30 @@ export default {
       easing: "slide",
     });
     this.activePackage();
+    this.userIpDetected();
   },
 
   methods: {
     userIpDetected() {
-      const secret = process.env.NUXT_ENV_APP_SECRET_API;
-      const isProduction = process.env.NUXT_ENV_APP_PRODUCTION;
-      console.log(isProduction);
-      const localUrl = process.env.NUXT_ENV_APP_LOCAL_URL;
-      const publicUrl = process.env.NUXT_ENV_APP_API_URL;
-      const url = `${publicUrl}/lookup/${secret}`;
+      const publicUrl = process.env.NUXT_ENV_APP_IP_DETECT_URL;
+      const url = `${publicUrl}`;
       this.$axios
         .get(url)
         .then(({ data }) => {
-          this.ip = data.data;
-          this.userLocationDetected(data.data);
+          this.ip = data?.data;
+          this.userLocationDetected(data?.ip);
         })
         .catch((err) => console.log(err));
     },
     userLocationDetected(ip) {
       const secret = process.env.NUXT_ENV_APP_SECRET_API;
-      const isProduction = process.env.NUXT_ENV_APP_PRODUCTION;
-      const localUrl = process.env.NUXT_ENV_APP_LOCAL_URL;
       const publicUrl = process.env.NUXT_ENV_APP_API_URL;
-      const url = `${publicUrl}/locator/${ip}/${secret}`;
+      const url = `${publicUrl}/${secret}/${ip}`;
       this.$axios
         .get(url)
         .then(({ data }) => {
-          this.location = data.data;
+          this.location = data?.data;
+          this.location.city = `${data?.data?.city} - ${data?.data?.district}`;
         })
         .catch((err) => console.log(err));
     },
@@ -223,9 +219,9 @@ export default {
     },
     activePackage() {
       let packages = this.categories.map((d) => d);
-      let childPackage = packages.map((d) => d.children)[1];
+      let childPackage = packages.map((d) => d?.children)[1];
       this.input.package = packages.map((d) =>
-        d.name === "city tour" ? d.name : ""
+        d.name === "city tour" ? d?.name : ""
       )[0];
       this.input.childPackage = childPackage.map((d) => d.name);
     },

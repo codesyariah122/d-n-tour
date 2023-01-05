@@ -1,9 +1,27 @@
 <template>
   <div>
     <layout-header :isActive="isActive" />
+    <noscript
+      ><iframe
+        :src="`https://www.googletagmanager.com/ns.html?id=${g_tag}`"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
     <Nuxt />
+    <amp-auto-ads type="adsense" :data-ad-client="ca_pub">
+      <div fallback>No ad appeared</div>
+    </amp-auto-ads>
     <layout-footer />
-    <!-- <layout-backtotop /> -->
+    <layout-backtotop />
+
+    <iframe
+      id="google_esf"
+      name="google_esf"
+      src="https://googleads.g.doubleclick.net/pagead/html/r20230104/r20190131/zrt_lookup.html"
+      style="display: none"
+    ></iframe>
   </div>
 </template>
 
@@ -12,6 +30,8 @@ export default {
   data() {
     return {
       isActive: false,
+      ca_pub: process.env.NUXT_ENV_GOOGLE_ADS_CA,
+      g_tag: process.env.NUXT_ENV_G_TAG_MANAGER,
     };
   },
 

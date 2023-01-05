@@ -15,6 +15,9 @@ export default {
 
       window.open(`${url}${encodeURIComponent(contextWa)}`);
     },
+    back() {
+      this.$router.go(-1);
+    },
   },
 };
 </script>
@@ -56,6 +59,15 @@ export default {
                 type="button"
               >
                 Pesan
+              </button>
+            </div>
+            <div class="d-flex flex-column mt-4">
+              <button
+                @click="back()"
+                class="btn btn-success btn-sm"
+                type="button"
+              >
+                Kembali
               </button>
             </div>
           </div>

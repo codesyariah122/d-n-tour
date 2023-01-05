@@ -26,7 +26,7 @@
                   <span class="icon-mobile-phone"></span>
                 </div>
                 <p>
-                  <span>Phone:</span>
+                  <span>Pesan Via Phone:</span>
                   <a href="tel://6283165539138">+62 831 6553 9138</a>
                 </p>
               </div>
@@ -37,9 +37,9 @@
                   <span class="icon-envelope-o"></span>
                 </div>
                 <p>
-                  <span>Email:</span>
-                  <a href="mailto:Derrysettiawan@gmail.com"
-                    >Derrysettiawan@gmail.com</a
+                  <span>Pesan Via Email:</span>
+                  <a href="mailto:dntourtr@dntourtravel.com"
+                    >dntourtr@dntourtravel.com</a
                   >
                 </p>
               </div>
