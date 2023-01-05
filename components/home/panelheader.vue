@@ -51,9 +51,6 @@
                   </select>
                 </div>
                 <div class="d-flex mt-3">
-                  <div class="col-lg-12">
-                    <small class="text-success mb-2">Optional *</small>
-                  </div>
                   <div class="form-group mr-2">
                     <label for="" class="label">Tanggal Keberangkatan</label>
                     <input
