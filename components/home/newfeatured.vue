@@ -91,7 +91,7 @@ li > .hover {
                           />
                         </div>
                         <div
-                          class="col-md-4 col-sm-12"
+                          class="col-md-4 col-sm-12 mb-5"
                           v-for="item in menus.length"
                           :key="item"
                         >
@@ -181,6 +181,15 @@ li > .hover {
                                   >
                                 </div>
                               </div>
+                            </div>
+                          </div>
+                          <div class="row justify-center">
+                            <div class="col-lg-12 col-sm-12">
+                              <ul>
+                                <li class="fw-bold font-monospace">
+                                  Termasuk : mobil + sopir + bbm + tol + parkir
+                                </li>
+                              </ul>
                             </div>
                           </div>
                         </div>
