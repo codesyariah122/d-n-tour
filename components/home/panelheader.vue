@@ -50,7 +50,7 @@
                     </option>
                   </select>
                 </div>
-                <div class="d-flex mt-3">
+                <!-- <div class="d-flex mt-3">
                   <div class="form-group mr-2">
                     <label for="" class="label">Tanggal Keberangkatan</label>
                     <input
@@ -78,7 +78,7 @@
                     class="form-control"
                     placeholder="Time"
                   />
-                </div>
+                </div> -->
                 <div class="form-group">
                   <input
                     type="submit"
@@ -236,8 +236,6 @@ export default {
           : this.location.city
       } , \n -paket trip : ${this.input.change}, \n -destinasi : ${
         this.input.destination
-      } ,\n -tanggal penjemputan : ${this.input.pickup_date}, \n -jam : ${
-        this.input.pickup_time
       }`;
 
       window.open(`${url}${encodeURIComponent(contextWa)}`);

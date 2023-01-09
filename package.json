@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@chec/commerce.js": "^2.8.0",
-    "@nuxtjs/amp": "^0.5.4",
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/markdownit": "^2.0.0",
     "@nuxtjs/pwa": "^3.3.5",
@@ -23,6 +22,7 @@
     "vue": "^2.7.10",
     "vue-server-renderer": "^2.7.10",
     "vue-sweetalert2": "^5.0.5",
+    "vue-tel-input": "^5.12.0",
     "vue-template-compiler": "^2.7.10"
   },
   "devDependencies": {

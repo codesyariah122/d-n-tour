@@ -4,7 +4,7 @@
   background: #071112;
   height: 50px;
   width: 50px;
-  right: 30px;
+  right: 10px;
   bottom: 25%;
   position: fixed;
   color: #fff;

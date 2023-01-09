@@ -1,18 +1,27 @@
 <template>
   <div>
     <home-hero />
+
     <home-panelheader @booking-now="bookNow" :categories="categories" />
 
-    <home-testimoni />
-
-    <home-about />
-    <home-services />
-    <home-featured
+    <home-newfeatured
       :privateDropTrips="privateDropTrips"
       :regulerDropTrips="regulerDropTrips"
       :cityTours="cityTours"
       :categories="categories"
     />
+
+    <home-about />
+
+    <home-services />
+
+    <!-- <home-featured
+      :privateDropTrips="privateDropTrips"
+      :regulerDropTrips="regulerDropTrips"
+      :cityTours="cityTours"
+      :categories="categories"
+    /> -->
+    <home-testimoni />
     <home-introhome />
     <home-blog />
     <home-contact />

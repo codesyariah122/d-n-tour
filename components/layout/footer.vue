@@ -77,16 +77,16 @@
                   >
                 </li>
                 <li>
-                  <a href="#"
+                  <a href="telp:6283165539138"
                     ><span class="icon icon-phone"></span
                     ><span class="text">+62 831 6553 9138</span></a
                   >
                 </li>
                 <li>
-                  <a href="#"
+                  <a href="mailto:dntourtr@dntourtravel.com"
                     ><span class="icon icon-envelope"></span
                     ><span class="text"
-                      >&nbsp;&nbsp;Derrysettiawan@gmail.com</span
+                      >&nbsp;&nbsp;dntourtr@dntourtravel.com</span
                     ></a
                   >
                 </li>
@@ -102,7 +102,10 @@
             Copyright &copy; {{ $moment().year() }}
             All rights reserved | This template is made with
             <i class="icon-heart color-danger" aria-hidden="true"></i> by
-            <a href="https://d-n-tour.vercel.app" target="_blank">D & N</a> Team
+            <a href="https://api.store.dntourtravel.com/" target="_blank"
+              >D & N</a
+            >
+            Team
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
           </p>
         </div>

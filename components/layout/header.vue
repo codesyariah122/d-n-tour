@@ -63,12 +63,13 @@
           <li :class="`nav-item ${isActive ? 'active' : ''}`">
             <a
               :href="`${
-                $route.name === 'news-slug' ? '../#testimoni' : '#testimoni'
+                $route.name === 'news-slug' ? '../#pricing' : '#pricing'
               }`"
               class="nav-link"
-              >Testimoni</a
+              >Pricing</a
             >
           </li>
+
           <li :class="`nav-item ${isActive ? 'active' : ''}`">
             <a
               :href="`${$route.name === 'news-slug' ? '../#about' : '#about'}`"
@@ -85,15 +86,17 @@
               >Services</a
             >
           </li>
+
           <li :class="`nav-item ${isActive ? 'active' : ''}`">
             <a
               :href="`${
-                $route.name === 'news-slug' ? '../#pricing' : '#pricing'
+                $route.name === 'news-slug' ? '../#testimoni' : '#testimoni'
               }`"
               class="nav-link"
-              >Pricing</a
+              >Testimoni</a
             >
           </li>
+
           <li
             v-if="$route.name !== 'news-slug'"
             :class="`nav-item ${isActive ? 'active' : ''}`"

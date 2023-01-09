@@ -1,3 +1,9 @@
+<style lang="css">
+body.swal2-shown > [aria-hidden="true"] {
+  transition: 0.1s filter;
+  filter: blur(10px);
+}
+</style>
 <template>
   <div>
     <layout-header :isActive="isActive" />
@@ -10,9 +16,7 @@
       ></iframe
     ></noscript>
     <Nuxt />
-    <amp-auto-ads type="adsense" :data-ad-client="ca_pub">
-      <div fallback>No ad appeared</div>
-    </amp-auto-ads>
+
     <layout-footer />
     <layout-backtotop />
 

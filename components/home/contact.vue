@@ -27,7 +27,7 @@
                 </div>
                 <p>
                   <span>Pesan Via Phone:</span>
-                  <a href="tel://6283165539138">+62 831 6553 9138</a>
+                  <a href="tel:+6283165539138">+62 831 6553 9138</a>
                 </p>
               </div>
             </div>
@@ -47,6 +47,17 @@
           </div>
         </div>
         <div class="col-md-8 block-9 mb-md-5">
+          <div class="row justify-center">
+            <div class="col-lg-12 col-sm-12">
+              <blockquote class="blockquote-footer">
+                Kirim pesan kepada admin kami, beri kami masukan untuk
+                perkembangan web application D & N Tour Travel. Kami senang
+                menerima masukan membangun untuk perkembangan website kami dari
+                kalian para travelers.
+              </blockquote>
+              <img src="/D_N-Logo.png" width="200" alt="" />
+            </div>
+          </div>
           <form @submit.prevent="sendEmail" class="bg-light p-5 contact-form">
             <div class="form-group">
               <input
@@ -55,9 +66,11 @@
                 class="form-control"
                 placeholder="Your Name"
               />
-              <small v-if="validasi.name.status" class="text-danger">
-                {{ validasi.name.msg }}
-              </small>
+            </div>
+            <div class="form-group">
+              <client-only>
+                <vue-tel-input v-model="form.phone"></vue-tel-input>
+              </client-only>
             </div>
             <div class="form-group">
               <input
@@ -66,9 +79,6 @@
                 class="form-control"
                 placeholder="Your Email"
               />
-              <small v-if="validasi.email.status" class="text-danger">
-                {{ validasi.email.msg }}
-              </small>
             </div>
             <div class="form-group">
               <input
@@ -77,9 +87,6 @@
                 class="form-control"
                 placeholder="Subject"
               />
-              <small v-if="validasi.subject.status" class="text-danger">
-                {{ validasi.subject.msg }}
-              </small>
             </div>
             <div class="form-group">
               <textarea
@@ -91,9 +98,6 @@
                 class="form-control"
                 placeholder="Message"
               ></textarea>
-              <small v-if="validasi.message.status" class="text-danger">
-                {{ validasi.message.msg }}
-              </small>
             </div>
             <div class="form-group">
               <input
@@ -117,139 +121,64 @@ export default {
     return {
       form: {
         name: null,
+        phone: null,
         email: null,
         subject: null,
         message: null,
-      },
-      validasi: {
-        name: {
-          status: null,
-          msg: null,
-        },
-        email: {
-          status: null,
-          msg: null,
-        },
-        subject: {
-          status: null,
-          msg: null,
-        },
-        message: {
-          status: null,
-          msg: null,
-        },
       },
     };
   },
   mounted() {},
 
   methods: {
-    checkEmpty(form) {
-      this.validasi.name.status = null;
-      this.validasi.name.msg = null;
-      this.validasi.email.status = null;
-      this.validasi.email.msg = null;
-      this.validasi.subject.status = null;
-      this.validasi.subject.msg = null;
-      this.validasi.message.status = null;
-      this.validasi.message.msg = null;
-      if (
-        form.name === null &&
-        form.email === null &&
-        form.subject === null &&
-        form.message === null
-      ) {
-        this.validasi.name.status = true;
-        this.validasi.name.msg = "Kolom input nama wajib di isi*";
-        this.validasi.email.status = true;
-        this.validasi.email.msg = "Kolom input email wajib di isi*";
-        this.validasi.subject.status = true;
-        this.validasi.subject.msg = "Kolom input subject wajib di isi*";
-        this.validasi.message.status = true;
-        this.validasi.message.msg = "Kolom input message wajib di isi*";
-        this.$swal({
-          icon: "error",
-          title: "Oops...",
-          text: "Harap isi semua kolom input tersedia!",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      } else {
-        if (form.name === null) {
-          this.validasi.name.status = true;
-          this.validasi.name.msg = "Kolom input nama wajib di isi*";
-          this.$swal({
-            icon: "error",
-            title: "Oops...",
-            text: "Kolom input nama wajib di isi!",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        } else if (form.email === null) {
-          this.validasi.email.status = true;
-          this.validasi.email.msg = "Kolom input email wajib di isi*";
-          this.$swal({
-            icon: "error",
-            title: "Oops...",
-            text: "Kolom input email wajib di isi!",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        } else if (form.subject === null) {
-          this.validasi.subject.status = true;
-          this.validasi.subject.msg = "Kolom input subject wajib di isi*";
-          this.$swal({
-            icon: "error",
-            title: "Oops...",
-            text: "Kolom input subject wajib di isi!",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        } else if (form.message === null) {
-          this.validasi.message.status = true;
-          this.validasi.message.msg = "Kolom input message wajib di isi*";
-          this.$swal({
-            icon: "error",
-            title: "Oops...",
-            text: "Kolom input message wajib di isi!",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        } else {
+    sendEmail() {
+      const isNull = Object.values(this.form).every((val) => {
+        console.log(val);
+        if (val === null || val === "") {
           return true;
         }
-      }
+      });
+      if (isNull) this.alertError();
+
+      this.nextSendingMessage();
     },
-    sendEmail(e) {
-      if (this.checkEmpty(this.form)) {
-        try {
-          emailjs.sendForm(
-            process.env.NUXT_ENV_APP_SERVICE_ID_EMAILJS,
-            process.env.NUXT_ENV_APP_TEMPLATE_ID_EMAILJS,
-            e.target,
-            process.env.NUXT_ENV_APP_USER_ID_EMAILJS,
-            {
-              name: this.form.name,
-              email: this.form.email,
-              subject: this.form.subject,
-              message: this.form.message,
-            }
-          );
-          this.$swal({
-            position: "top-end",
-            icon: "success",
-            title: `Terima kasih ${this.form.name}, pesan anda akan segera di proses team admin kami.`,
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        } catch (err) {
-          console.log({ err });
-        }
-        this.form.name = null;
-        this.form.email = null;
-        this.form.subject = null;
-        this.form.message = null;
-      }
+
+    nextSendingMessage() {
+      const endPoint = `${process.env.NUXT_ENV_API_ENDPOINT}/sending-message/${process.env.NUXT_ENV_APP_SECRET_API}`;
+      this.$axios
+        .post(endPoint, this.form)
+        .then(({ data }) => {
+          if (data.success) {
+            this.alertSuccess(data.data);
+            this.backToNull();
+          }
+        })
+        .catch((err) => console.log(err.message));
+    },
+
+    backToNull() {
+      this.form.name = "";
+      this.form.phone = "";
+      this.form.email = "";
+      this.form.subject = "";
+      this.form.message = "";
+    },
+
+    alertError() {
+      this.$swal({
+        icon: "error",
+        title: "Oops...",
+        text: "Kolom input message belum diisi, Harap isi terlebih dahulu!",
+      });
+    },
+    alertSuccess(data) {
+      this.$swal({
+        position: "top-end",
+        icon: "success",
+        title: `Terima kasih, ${data.name} pesan anda akan kami respon segera.`,
+        showConfirmButton: false,
+        timer: 3500,
+      });
     },
   },
 };

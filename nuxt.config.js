@@ -2,8 +2,6 @@ export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
-  // mode: "universal",
-  // ssr: true,
   serverMiddleware: [
     {
       path: "api",
@@ -108,6 +106,11 @@ export default {
         href: "https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap",
       },
       {
+        href: "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css",
+        rel: "stylesheet",
+        type: "text/css",
+      },
+      {
         rel: "stylesheet",
         type: "text/css",
         href: "/assets/css/bootstrap.min.css",
@@ -166,10 +169,9 @@ export default {
         crossorigin: "anonymous",
         async: true,
       },
+
       {
-        src: "https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js",
-        "custom-element": "amp-auto-ads",
-        async: true,
+        src: "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js",
       },
       {
         src: "/assets/scripts/g-tag-manager.js",
@@ -239,8 +241,9 @@ export default {
     { src: "~/plugins/blog" },
     { src: "~/plugins/testimoni" },
     { src: "~/plugins/commerce" },
-    // { src: "~/plugins/emailservice" },
     { src: "~/plugins/sweetalert" },
+    { src: "~/plugins/tel-input" },
+    { src: "~/plugins/currency" },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -256,14 +259,7 @@ export default {
     // https://go.nuxtjs.dev/pwa
     "@nuxtjs/pwa",
     "@nuxtjs/markdownit",
-    "@nuxtjs/amp",
   ],
-  amp: {
-    origin: "https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js",
-    "custom-element": "amp-auto-ads",
-    async: true,
-    mode: "hybrid",
-  },
 
   markdownit: {
     injected: true,

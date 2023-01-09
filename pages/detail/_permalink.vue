@@ -16,6 +16,8 @@ export default {
       type: "permalink",
     });
 
+    console.log(product);
+
     return {
       product,
     };

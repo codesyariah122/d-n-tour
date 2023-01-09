@@ -66,7 +66,7 @@ export default {
     width: 60px;
     height: 60px;
     bottom: 40px;
-    right: 40px;
+    right: 10px;
     background-color: #0fec60;
     color: #fff;
     border-radius: 50px;
