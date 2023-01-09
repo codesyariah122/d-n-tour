@@ -77,7 +77,7 @@
                   >
                 </li>
                 <li>
-                  <a href="telp:6283165539138"
+                  <a href="tel:+6283165539138"
                     ><span class="icon icon-phone"></span
                     ><span class="text">+62 831 6553 9138</span></a
                   >
