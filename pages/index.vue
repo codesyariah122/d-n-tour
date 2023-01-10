@@ -15,12 +15,6 @@
 
     <home-services />
 
-    <!-- <home-featured
-      :privateDropTrips="privateDropTrips"
-      :regulerDropTrips="regulerDropTrips"
-      :cityTours="cityTours"
-      :categories="categories"
-    /> -->
     <home-testimoni />
     <home-introhome />
     <home-blog />

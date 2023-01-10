@@ -144,6 +144,7 @@ li > .hover {
                           <h4>
                             {{ categoryContext.header }}
                           </h4>
+
                           <blockquote>
                             {{ categoryContext.quote }}
                           </blockquote>
@@ -171,14 +172,22 @@ li > .hover {
                                 />
                                 <div class="card-body">
                                   <h5 class="card-title">{{ item.name }}</h5>
-                                  <p class="card-text">
+
+                                  <p class="card-text mb-2">
                                     {{ $format(item.price.raw) }}
                                   </p>
                                   <a
-                                    :href="`/detail/${item.permalink}`"
+                                    :href="`/details/${item.permalink}`"
                                     class="btn btn-primary btn-block"
-                                    >Order Now</a
+                                    >Detail</a
                                   >
+                                  <button
+                                    @click="pickUp(item)"
+                                    class="btn btn-outline-primary btn-block btn-sm mt-3"
+                                    type="button"
+                                  >
+                                    Order Now
+                                  </button>
                                 </div>
                               </div>
                             </div>
@@ -230,6 +239,12 @@ export default {
   },
 
   methods: {
+    pickUp(item) {
+      const url = `https://wa.me/${process.env.NUXT_ENV_DNTOUR_CONTACT_PHONE}?text=`;
+      const contextWa = `Hallo,Admin D&N Tour, saya ingin memesan paket trip ${item?.categories[0]?.name} - Armada ${item?.name} Dari D & N Tour `;
+
+      window.open(`${url}${encodeURIComponent(contextWa)}`);
+    },
     selectedPackage(value, index) {
       this.showSelected = true;
       this.loadingPackage = true;

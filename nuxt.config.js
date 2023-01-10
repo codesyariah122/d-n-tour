@@ -1,7 +1,11 @@
+import axios from "axios";
+
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
+  // mode: "universal",
+  // ssr: true,
   serverMiddleware: [
     {
       path: "api",
@@ -17,8 +21,11 @@ export default {
   },
   generate: {
     dir: "dist",
+    // exclude: ["/details"],
+    // routes: ["/details/*"],
+    fallback: "404.html",
     cache: {
-      ignore: ["docs"],
+      ignore: ["renovate.json"],
     },
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -171,6 +178,12 @@ export default {
       },
 
       {
+        src: "https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js",
+        "custom-element": "amp-auto-ads",
+        async: true,
+      },
+
+      {
         src: "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js",
       },
       {
@@ -259,7 +272,13 @@ export default {
     // https://go.nuxtjs.dev/pwa
     "@nuxtjs/pwa",
     "@nuxtjs/markdownit",
+    "@nuxtjs/amp",
   ],
+
+  amp: {
+    origin: process.env.NUXT_ENV_APP_ORIGIN_URL || "http://localhost:3000",
+    mode: "hybrid",
+  },
 
   markdownit: {
     injected: true,

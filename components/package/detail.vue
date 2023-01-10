@@ -4,7 +4,7 @@ export default {
 
   head() {
     return {
-      title: `D & N Tour - Package | ${this.product.categories[0].name} - Armada ${this.product?.name}`,
+      title: `D & N | Detail Package |${this.product?.permalink} - ${this.product?.name}`,
     };
   },
 
@@ -45,7 +45,7 @@ export default {
                 {{ product?.categories[0]?.name }}
               </span>
             </div>
-            <p class="text-justify mt-3 mb-0" v-html="product.description"></p>
+            <p class="text-justify mt-3 mb-0" v-html="product?.description"></p>
           </div>
           <div
             class="align-items-center align-content-center col-md-3 border-left mt-1"

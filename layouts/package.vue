@@ -6,8 +6,6 @@ body.swal2-shown > [aria-hidden="true"] {
 </style>
 <template>
   <div>
-    <layout-header :isActive="isActive" />
-
     <noscript
       ><iframe
         :src="`https://www.googletagmanager.com/ns.html?id=${g_tag}`"
