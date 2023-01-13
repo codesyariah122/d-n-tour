@@ -256,6 +256,7 @@ export default {
     { src: "~/plugins/sweetalert" },
     { src: "~/plugins/tel-input" },
     { src: "~/plugins/currency" },
+    { src: "~/plugins/vue-tiny-mce", mode: "client", ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

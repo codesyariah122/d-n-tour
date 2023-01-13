@@ -61,6 +61,7 @@
           <form @submit.prevent="sendEmail" class="bg-light p-5 contact-form">
             <div class="form-group">
               <input
+                @keyup="resetAlert"
                 v-model="form.name"
                 type="text"
                 class="form-control"
@@ -76,7 +77,10 @@
             </div>
             <div class="form-group">
               <client-only>
-                <vue-tel-input v-model="form.phone"></vue-tel-input>
+                <vue-tel-input
+                  v-model="form.phone"
+                  @keyup="resetAlert"
+                ></vue-tel-input>
               </client-only>
               <div
                 v-if="validation.phone"
@@ -88,6 +92,7 @@
             </div>
             <div class="form-group">
               <input
+                @keyup="resetAlert"
                 v-model="form.email"
                 type="text"
                 class="form-control"
@@ -103,6 +108,7 @@
             </div>
             <div class="form-group">
               <input
+                @keyup="resetAlert"
                 v-model="form.subject"
                 type="text"
                 class="form-control"
@@ -117,7 +123,11 @@
               </div>
             </div>
             <div class="form-group">
-              <textarea
+              <blockquote class="blockquote-footer text-muted mt-2">
+                Write your message in this textarea bellow!
+              </blockquote>
+              <!-- <textarea
+                @keyup="resetAlert"
                 v-model="form.message"
                 name=""
                 id=""
@@ -125,7 +135,16 @@
                 rows="7"
                 class="form-control"
                 placeholder="Message"
-              ></textarea>
+              ></textarea> -->
+              <client-only>
+                <tinymce
+                  @keyup="resetAlert"
+                  name="message"
+                  id="d1"
+                  v-model="form.message"
+                  :other_options="options"
+                ></tinymce>
+              </client-only>
               <div
                 v-if="validation.message"
                 class="alert alert-warning mt-2"
@@ -155,8 +174,6 @@
 </template>
 
 <script>
-import emailjs from "emailjs-com";
-
 export default {
   data() {
     return {
@@ -169,11 +186,17 @@ export default {
       },
       loadingContact: null,
       validation: {},
+      options: {
+        menubar: false,
+      },
     };
   },
   mounted() {},
 
   methods: {
+    resetAlert() {
+      this.validation = {};
+    },
     sendEmail() {
       this.loadingContact = true;
       this.validation = {};
