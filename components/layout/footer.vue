@@ -45,7 +45,9 @@
               <li><a href="#" class="py-2 d-block">Term and Conditions</a></li>
               <li><a href="#" class="py-2 d-block">Best Price Guarantee</a></li>
               <li>
-                <a href="#" class="py-2 d-block"
+                <a
+                  href="https://api.store.dntourtravel.com/privacy-policy"
+                  class="py-2 d-block"
                   >Privacy &amp; Cookies Policy</a
                 >
               </li>

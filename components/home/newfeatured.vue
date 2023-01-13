@@ -65,12 +65,12 @@ li > .hover {
                   $device.isDesktop ? 'col-md-4' : 'col-md-4 border-bottom mb-5'
                 }`"
               >
-                <ul class="list-group">
+                <ul class="list-group border border-5">
                   <li
                     v-for="(item, index) in menus"
                     :key="item.id"
                     :class="activeIndex === index ? 'current' : 'hover'"
-                    class="list-group-item border-0 text-capitalize mb-3 fs-2"
+                    class="list-group-item border-0 text-capitalize fs-4"
                     role="button"
                     @click="selectedPackage(item.name, index)"
                   >

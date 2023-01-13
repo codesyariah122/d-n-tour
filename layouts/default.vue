@@ -23,6 +23,8 @@ body.swal2-shown > [aria-hidden="true"] {
       <div fallback>No ad appeared</div>
     </amp-auto-ads>
 
+    <globals-cookie-box />
+
     <layout-footer />
     <layout-backtotop />
 

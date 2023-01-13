@@ -21,6 +21,8 @@
     "nuxt-mail": "^3.0.23",
     "v-owl-carousel": "^1.0.8",
     "vue": "^2.7.10",
+    "vue-cookieconsent-component": "^1.2.0",
+    "vue-if-bot": "^1.2.0",
     "vue-server-renderer": "^2.7.10",
     "vue-sweetalert2": "^5.0.5",
     "vue-tel-input": "^5.12.0",
