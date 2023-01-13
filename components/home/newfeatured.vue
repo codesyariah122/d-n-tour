@@ -218,7 +218,7 @@ li > .hover {
 
                       <!-- modal detail -->
 
-                      <div class="row justify-center">
+                      <div class="row">
                         <div class="col-lg-12">
                           <div
                             class="modal fade"
@@ -247,10 +247,10 @@ li > .hover {
                                 </div>
                                 <div class="modal-body">
                                   <div
-                                    class="card mb-3"
+                                    class="card mb-3 border-0"
                                     style="max-width: 100%"
                                   >
-                                    <div class="row g-0">
+                                    <div class="row g-0 justify-start">
                                       <div class="col-md-4">
                                         <img
                                           :src="detailImage"
@@ -260,24 +260,24 @@ li > .hover {
                                       </div>
                                       <div class="col-md-8">
                                         <div class="card-body">
-                                          <h5 class="card-title text-bold">
-                                            {{ detail.name }}
-                                          </h5>
-                                          <span
-                                            class="badge bg-primary text-capitalize"
+                                          <h6 class="text-muted float-left">
+                                            {{ $format(detailPrice) }}
+                                          </h6>
+                                          <br />
+                                          <div
+                                            class="float-start bd-highlight mb-3"
                                           >
-                                            {{ detailCategory }}
-                                          </span>
-
+                                            <span
+                                              class="badge bg-primary text-capitalize"
+                                            >
+                                              {{ detailCategory }}
+                                            </span>
+                                          </div>
+                                          <br />
                                           <p
                                             class="card-text text-left"
                                             v-html="detail.description"
                                           ></p>
-                                          <p class="card-text">
-                                            <small class="text-muted">
-                                              {{ $format(detailPrice) }}
-                                            </small>
-                                          </p>
                                         </div>
                                       </div>
                                     </div>

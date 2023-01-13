@@ -23,7 +23,6 @@ export default {
     dir: "dist",
     // exclude: ["/details"],
     // routes: ["/details/*"],
-    fallback: "404.html",
     cache: {
       ignore: ["renovate.json"],
     },
