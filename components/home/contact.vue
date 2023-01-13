@@ -176,6 +176,7 @@ export default {
   methods: {
     sendEmail() {
       this.loadingContact = true;
+      this.validation = {};
       const endPoint = `${process.env.NUXT_ENV_API_ENDPOINT}/sending-message/${process.env.NUXT_ENV_APP_SECRET_API}`;
       this.$axios
         .post(endPoint, this.form)
