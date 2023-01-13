@@ -66,11 +66,25 @@
                 class="form-control"
                 placeholder="Your Name"
               />
+              <div
+                v-if="validation.name"
+                class="alert alert-warning mt-2"
+                role="alert"
+              >
+                {{ validation.name[0] }}
+              </div>
             </div>
             <div class="form-group">
               <client-only>
                 <vue-tel-input v-model="form.phone"></vue-tel-input>
               </client-only>
+              <div
+                v-if="validation.phone"
+                class="alert alert-warning mt-2"
+                role="alert"
+              >
+                {{ validation.phone[0] }}
+              </div>
             </div>
             <div class="form-group">
               <input
@@ -79,6 +93,13 @@
                 class="form-control"
                 placeholder="Your Email"
               />
+              <div
+                v-if="validation.email"
+                class="alert alert-warning mt-2"
+                role="alert"
+              >
+                {{ validation.email[0] }}
+              </div>
             </div>
             <div class="form-group">
               <input
@@ -87,6 +108,13 @@
                 class="form-control"
                 placeholder="Subject"
               />
+              <div
+                v-if="validation.subject"
+                class="alert alert-warning mt-2"
+                role="alert"
+              >
+                {{ validation.subject[0] }}
+              </div>
             </div>
             <div class="form-group">
               <textarea
@@ -98,13 +126,26 @@
                 class="form-control"
                 placeholder="Message"
               ></textarea>
+              <div
+                v-if="validation.message"
+                class="alert alert-warning mt-2"
+                role="alert"
+              >
+                {{ validation.message[0] }}
+              </div>
             </div>
             <div class="form-group">
-              <input
-                type="submit"
-                value="Send Message"
-                class="btn btn-primary py-3 px-5"
-              />
+              <button type="submit" class="btn btn-primary py-3 px-5">
+                <div v-if="loadingContact">
+                  <span
+                    class="spinner-border spinner-border-sm"
+                    role="status"
+                    aria-hidden="true"
+                  ></span>
+                  Loading...
+                </div>
+                <span v-else> Send Message </span>
+              </button>
             </div>
           </form>
         </div>
@@ -126,34 +167,36 @@ export default {
         subject: null,
         message: null,
       },
+      loadingContact: null,
+      validation: {},
     };
   },
   mounted() {},
 
   methods: {
     sendEmail() {
-      const isNull = Object.values(this.form).every((val) => {
-        console.log(val);
-        if (val === null || val === "") {
-          return true;
-        }
-      });
-      if (isNull) this.alertError();
-
-      this.nextSendingMessage();
-    },
-
-    nextSendingMessage() {
+      this.loadingContact = true;
       const endPoint = `${process.env.NUXT_ENV_API_ENDPOINT}/sending-message/${process.env.NUXT_ENV_APP_SECRET_API}`;
       this.$axios
         .post(endPoint, this.form)
         .then(({ data }) => {
           if (data.success) {
-            this.alertSuccess(data.data);
-            this.backToNull();
+            setTimeout(() => {
+              this.alertSuccess(data.data);
+              this.backToNull();
+              this.loadingContact = false;
+            }, 1500);
           }
         })
-        .catch((err) => console.log(err.message));
+        .catch((err) => {
+          if (err) {
+            this.alertError();
+            this.validation = err.response.data;
+            setTimeout(() => {
+              this.loadingContact = false;
+            }, 1500);
+          }
+        });
     },
 
     backToNull() {
