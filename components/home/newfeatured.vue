@@ -260,7 +260,7 @@ li > .hover {
                                       </div>
                                       <div class="col-md-8">
                                         <div class="card-body">
-                                          <h5 class="card-title">
+                                          <h5 class="card-title text-bold">
                                             {{ detail.name }}
                                           </h5>
                                           <span
@@ -270,7 +270,7 @@ li > .hover {
                                           </span>
 
                                           <p
-                                            class="card-text"
+                                            class="card-text text-left"
                                             v-html="detail.description"
                                           ></p>
                                           <p class="card-text">
