@@ -60,7 +60,11 @@ li > .hover {
         <div class="col-lg-12">
           <div class="card mb-3 border-0" style="max-width: 100%">
             <div class="row g-0">
-              <div class="col-md-4">
+              <div
+                :class="`${
+                  $device.isDesktop ? 'col-md-4' : 'col-md-4 border-bottom mb-5'
+                }`"
+              >
                 <ul class="list-group">
                   <li
                     v-for="(item, index) in menus"
@@ -176,11 +180,19 @@ li > .hover {
                                   <p class="card-text mb-2">
                                     {{ $format(item.price.raw) }}
                                   </p>
-                                  <a
+                                  <!-- <a
                                     :href="`/details/${item.permalink}`"
                                     class="btn btn-primary btn-block"
                                     >Detail</a
+                                  > -->
+                                  <button
+                                    @click="showDetailPackage(item)"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#staticBackdrop"
+                                    class="btn btn-primary btn-block"
                                   >
+                                    Detail
+                                  </button>
                                   <button
                                     @click="pickUp(item)"
                                     class="btn btn-outline-primary btn-block btn-sm mt-3"
@@ -199,6 +211,95 @@ li > .hover {
                                   Termasuk : mobil + sopir + bbm + tol + parkir
                                 </li>
                               </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- modal detail -->
+
+                      <div class="row justify-center">
+                        <div class="col-lg-12">
+                          <div
+                            class="modal fade"
+                            id="staticBackdrop"
+                            data-bs-backdrop="static"
+                            data-bs-keyboard="false"
+                            tabindex="-1"
+                            aria-labelledby="staticBackdropLabel"
+                            aria-hidden="true"
+                          >
+                            <div class="modal-dialog modal-dialog-scrollable">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5
+                                    class="modal-title text-capitalize"
+                                    id="staticBackdropLabel"
+                                  >
+                                    {{ detail.name }}
+                                  </h5>
+                                  <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                                  ></button>
+                                </div>
+                                <div class="modal-body">
+                                  <div
+                                    class="card mb-3"
+                                    style="max-width: 100%"
+                                  >
+                                    <div class="row g-0">
+                                      <div class="col-md-4">
+                                        <img
+                                          :src="detailImage"
+                                          class="img-fluid rounded-start"
+                                          :alt="detail.name"
+                                        />
+                                      </div>
+                                      <div class="col-md-8">
+                                        <div class="card-body">
+                                          <h5 class="card-title">
+                                            {{ detail.name }}
+                                          </h5>
+                                          <span
+                                            class="badge bg-primary text-capitalize"
+                                          >
+                                            {{ detailCategory }}
+                                          </span>
+
+                                          <p
+                                            class="card-text"
+                                            v-html="detail.description"
+                                          ></p>
+                                          <p class="card-text">
+                                            <small class="text-muted">
+                                              {{ $format(detailPrice) }}
+                                            </small>
+                                          </p>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="modal-footer">
+                                  <button
+                                    type="button"
+                                    class="btn btn-secondary"
+                                    data-bs-dismiss="modal"
+                                  >
+                                    Close
+                                  </button>
+                                  <button
+                                    @click="pickUp(detail)"
+                                    class="btn btn-primary"
+                                    type="button"
+                                  >
+                                    Order Now !
+                                  </button>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -228,6 +329,10 @@ export default {
         header: null,
         quote: null,
       },
+      detail: {},
+      detailImage: "",
+      detailCategory: "",
+      detailPrice: "",
       activeIndex: 0,
       active: false,
       current: null,
@@ -239,6 +344,13 @@ export default {
   },
 
   methods: {
+    showDetailPackage(item) {
+      console.log(item);
+      this.detail = item;
+      this.detailImage = item?.image?.url;
+      this.detailCategory = item?.categories.map((d) => d.name)[0];
+      this.detailPrice = item?.price?.raw;
+    },
     pickUp(item) {
       const url = `https://wa.me/${process.env.NUXT_ENV_DNTOUR_CONTACT_PHONE}?text=`;
       const contextWa = `Hallo,Admin D&N Tour, saya ingin memesan paket trip ${item?.categories[0]?.name} - Armada ${item?.name} Dari D & N Tour `;
