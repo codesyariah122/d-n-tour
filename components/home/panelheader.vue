@@ -11,14 +11,6 @@
               <form @submit.prevent="pickUp" class="request-form bg-primary">
                 <h2>Make your trip</h2>
                 <div class="form-group">
-                  <!-- <label for="" class="label">Lokasi Penjemputan</label> -->
-                  <!-- <input
-                    v-model="location.city"
-                    type="text"
-                    class="form-control"
-                    placeholder="City, Airport, Station, etc"
-                  />
-                  <small class="text-danger">Wajib diisi *</small> -->
                   <label for="paket" class="label">Berangkat Dari</label>
                   <select
                     id="paket"
@@ -34,6 +26,7 @@
                       <option
                         v-for="(district, idx) in item.districts"
                         :key="idx"
+                        :value="[item.id, district.name]"
                       >
                         {{ district.name }}
                       </option>
@@ -41,14 +34,27 @@
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="" class="label">Tujuan Destinasi</label>
-                  <input
-                    v-model="input.destination"
-                    type="text"
-                    class="form-control"
-                    placeholder="City, Airport, Station, etc"
-                  />
-                  <small class="text-danger">Wajib diisi *</small>
+                  <label for="paket" class="label">Tujuan Ke</label>
+                  <select
+                    id="paket"
+                    class="custom-select"
+                    @change="changePickDestination($event)"
+                  >
+                    <option selected disabled>Pilih Destinasi</option>
+                    <optgroup
+                      v-for="(item, idx) in goes"
+                      :key="idx"
+                      :label="item.parent_name"
+                    >
+                      <option
+                        v-for="(district, idx) in item.districts"
+                        :key="idx"
+                        :value="[item.id, district.name]"
+                      >
+                        {{ district.name }}
+                      </option>
+                    </optgroup>
+                  </select>
                 </div>
                 <div class="form-group mt-3">
                   <label for="paket" class="label">Pilih Paket Trip</label>
@@ -70,35 +76,18 @@
                     </option>
                   </select>
                 </div>
-                <!-- <div class="d-flex mt-3">
+                <div class="d-flex mt-3">
                   <div class="form-group mr-2">
                     <label for="" class="label">Tanggal Keberangkatan</label>
                     <input
                       v-model="input.pickup_date"
+                      :date="input.pickup_date"
                       type="date"
                       class="form-control"
-                      placeholder="Date"
-                    />
-                  </div>
-                  <div class="form-group ml-2">
-                    <label for="" class="label">Tanggal Kembali</label>
-                    <input
-                      v-model="input.dropoff_date"
-                      type="date"
-                      class="form-control"
-                      placeholder="Date"
                     />
                   </div>
                 </div>
-                <div class="form-group">
-                  <label for="" class="label">Waktu Penjemputan</label>
-                  <input
-                    v-model="input.pickup_time"
-                    type="time"
-                    class="form-control"
-                    placeholder="Time"
-                  />
-                </div> -->
+
                 <div class="form-group">
                   <input
                     type="submit"
@@ -186,13 +175,16 @@ export default {
         city: null,
       },
       points: [],
+      goes: [],
+      show_destination: false,
+      current_date: this.$moment().format("LLL"),
       input: {
-        your_city: null,
+        penjemputan: null,
         destination: null,
         package: [],
         childPackage: [],
         change: null,
-        pickup_date: this.$moment().format("LL"),
+        pickup_date: new Date().toISOString().substr(0, 10),
         dropoff_date: this.$moment().format("LL"),
         pickup_time: this.$moment().hours(),
       },
@@ -211,11 +203,29 @@ export default {
   methods: {
     dropPickupPoints() {
       this.points = pickpoints;
-      // console.log(this.points);
-      // pickpoints.map();
-      pickpoints.map((data) => {
-        console.log(data.districts);
-      });
+    },
+
+    changePickPoints(e) {
+      const split = e.target.value.split(",");
+      const parent_city = parseInt(split[0]);
+      this.input.penjemputan = split[1];
+      this.show_destination = true;
+      if (parent_city % 2 === 1) {
+        this.loadDistrict(2);
+      } else {
+        this.loadDistrict(1);
+      }
+    },
+
+    changePickDestination(e) {
+      const split = e.target.value.split(",");
+      const parent_city = parseInt(split[0]);
+      this.input.destination = split[1];
+      this.loadDistrict(parent_city);
+    },
+
+    loadDistrict(id) {
+      this.goes = pickpoints.map((data) => data).filter((val) => val.id === id);
     },
 
     userIpDetected() {
@@ -259,15 +269,15 @@ export default {
       if (Object.keys(this.input).length === 0) {
         alert("harap isi kolom input pemesanan");
       }
-      console.log(this.input.your_city);
+      console.log(this.input.penjemputan);
       const data = this.input;
 
       const url = "https://wa.me/6283165539138?text=";
-      const contextWa = `Hallo,Admin D&N Tour, saya ingin memesan paket trip D & N Tour, berikut data lengkap saya \n -kota penjemputan : ${
-        this.input.your_city !== null
-          ? this.input.your_city
+      const contextWa = `Hallo,Admin D&N Tour, saya ingin memesan paket trip D & N Tour, berikut data lengkap saya \n -Berangkat Dari : ${
+        this.input.penjemputan !== null
+          ? this.input.penjemputan
           : this.location.city
-      } , \n -paket trip : ${this.input.change}, \n -destinasi : ${
+      } , \n -Paket Trip : ${this.input.change}, \n -Tujuan Ke : ${
         this.input.destination
       }`;
 

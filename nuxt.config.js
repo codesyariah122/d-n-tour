@@ -148,7 +148,7 @@ export default {
       {
         rel: "stylesheet",
         type: "text/css",
-        href: "/assets/css/bootstrap-datepicker.css",
+        href: "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css",
       },
       {
         rel: "stylesheet",
@@ -231,6 +231,9 @@ export default {
       {
         src: "/assets/js/scrollax.min.js",
         body: true,
+      },
+      {
+        src: "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js",
       },
       {
         src: "https://d2mpatx37cqexb.cloudfront.net/delightchat-whatsapp-widget/embeds/embed.min.js",
