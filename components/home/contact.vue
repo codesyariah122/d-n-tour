@@ -46,16 +46,31 @@
             </div>
           </div>
         </div>
-        <div class="col-md-8 block-9 mb-md-5">
+        <div
+          :class="`${
+            $device.isDesktop
+              ? 'col-md-8 block-9 mb-md-5'
+              : 'col-md-8 block-9 mb-md-5 mt-5'
+          }`"
+        >
           <div class="row justify-center">
             <div class="col-lg-12 col-sm-12">
               <blockquote class="blockquote-footer">
                 Kirim pesan kepada admin kami, beri kami masukan untuk
-                perkembangan web application D & N Tour Travel. Kami senang
-                menerima masukan membangun untuk perkembangan website kami dari
-                kalian para travelers.
+                perkembangan aplikasi web D & N Tour Travel. Kami senang
+                menerima masukan membangun untuk perkembangan website kami dan
+                fitur-fitur yang bermanfaat bagi perkembangan bisnis kami dan
+                perjalanan kalian para travelers.
               </blockquote>
-              <img src="/D_N-Logo.png" width="200" alt="" />
+              <img
+                v-if="$device.isDesktop"
+                src="/D_N-Logo.png"
+                width="200"
+                alt=""
+              />
+              <center v-else>
+                <img src="/D_N-Logo.png" width="200" alt="" />
+              </center>
             </div>
           </div>
           <form @submit.prevent="sendEmail" class="bg-light p-5 contact-form">

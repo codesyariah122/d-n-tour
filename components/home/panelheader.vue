@@ -11,14 +11,34 @@
               <form @submit.prevent="pickUp" class="request-form bg-primary">
                 <h2>Make your trip</h2>
                 <div class="form-group">
-                  <label for="" class="label">Lokasi Penjemputan</label>
-                  <input
+                  <!-- <label for="" class="label">Lokasi Penjemputan</label> -->
+                  <!-- <input
                     v-model="location.city"
                     type="text"
                     class="form-control"
                     placeholder="City, Airport, Station, etc"
                   />
-                  <small class="text-danger">Wajib diisi *</small>
+                  <small class="text-danger">Wajib diisi *</small> -->
+                  <label for="paket" class="label">Berangkat Dari</label>
+                  <select
+                    id="paket"
+                    class="custom-select"
+                    @change="changePickPoints($event)"
+                  >
+                    <option selected disabled>Pilih Keberangkatan</option>
+                    <optgroup
+                      v-for="(item, idx) in points"
+                      :key="idx"
+                      :label="item.parent_name"
+                    >
+                      <option
+                        v-for="(district, idx) in item.districts"
+                        :key="idx"
+                      >
+                        {{ district.name }}
+                      </option>
+                    </optgroup>
+                  </select>
                 </div>
                 <div class="form-group">
                   <label for="" class="label">Tujuan Destinasi</label>
@@ -37,7 +57,7 @@
                     class="custom-select"
                     @change="changePackage($event)"
                   >
-                    <option value="">Pilih Paket Trip</option>
+                    <option value="" disabled selected>Pilih Paket Trip</option>
                     <option :value="input.package">
                       {{ input.package }}
                     </option>
@@ -155,6 +175,8 @@
 </template>
 
 <script>
+import { pickpoints } from "~/data/pickups";
+
 export default {
   props: ["categories"],
   data() {
@@ -163,6 +185,7 @@ export default {
       location: {
         city: null,
       },
+      points: [],
       input: {
         your_city: null,
         destination: null,
@@ -182,9 +205,19 @@ export default {
     });
     this.activePackage();
     this.userIpDetected();
+    this.dropPickupPoints();
   },
 
   methods: {
+    dropPickupPoints() {
+      this.points = pickpoints;
+      // console.log(this.points);
+      // pickpoints.map();
+      pickpoints.map((data) => {
+        console.log(data.districts);
+      });
+    },
+
     userIpDetected() {
       const publicUrl = process.env.NUXT_ENV_APP_IP_DETECT_URL;
       const url = `${publicUrl}`;
@@ -228,7 +261,7 @@ export default {
       }
       console.log(this.input.your_city);
       const data = this.input;
-      console.log(this.input);
+
       const url = "https://wa.me/6283165539138?text=";
       const contextWa = `Hallo,Admin D&N Tour, saya ingin memesan paket trip D & N Tour, berikut data lengkap saya \n -kota penjemputan : ${
         this.input.your_city !== null
@@ -241,6 +274,12 @@ export default {
       window.open(`${url}${encodeURIComponent(contextWa)}`);
 
       console.log(encodeURIComponent(contextWa));
+    },
+  },
+
+  computed: {
+    cities() {
+      return this.$store.getters["pickups/GetCityDrop"];
     },
   },
 };

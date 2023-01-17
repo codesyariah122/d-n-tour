@@ -19,9 +19,13 @@ body.swal2-shown > [aria-hidden="true"] {
 
     <Nuxt />
 
-    <amp-auto-ads type="adsense" :data-ad-client="ca_pub">
-      <div fallback>No ad appeared</div>
-    </amp-auto-ads>
+    <div class="container">
+      <no-ssr>
+        <amp-auto-ads type="adsense" :data-ad-client="ca_pub">
+          <div fallback>No ad appeared</div>
+        </amp-auto-ads>
+      </no-ssr>
+    </div>
 
     <globals-cookie-box />
 

@@ -1,5 +1,19 @@
+<style lang="scss" scoped>
+.ftco-about {
+  margin-top: -3rem;
+  margin-bottom: 5rem;
+}
+
+@media (min-width: 992px) {
+  .ftco-about {
+    margin-top: -5rem;
+    margin-bottom: 3rem;
+  }
+}
+</style>
+
 <template>
-  <section class="ftco-section ftco-about" id="about">
+  <section class="ftco-section ftco-about ftco-about" id="about">
     <div class="container">
       <div class="row no-gutters">
         <div

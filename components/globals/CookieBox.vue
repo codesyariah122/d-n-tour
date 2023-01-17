@@ -20,13 +20,13 @@
           <div
             class="row justify-center"
             :style="`${
-              $device.isDesktop ? '' : 'width: 25px; margin-left: -35px'
+              $device.isDesktop ? '' : 'width: 25px; margin-left: -30px'
             }`"
           >
-            <div class="col-lg-12 col-sm-4">
+            <div class="col-lg-12 col-sm-4 mb-5">
               <a
                 href="https://api.store.dntourtravel.com/privacy-policy"
-                class="btn btn-link mt-5 fs-5"
+                class="btn btn-link fs-5"
                 >D & N Tour Travel - Travel bandung Bandara</a
               >
             </div>

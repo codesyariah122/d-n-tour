@@ -1,5 +1,3 @@
-import axios from "axios";
-
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   // Target: https://go.nuxtjs.dev/config-target
@@ -178,8 +176,8 @@ export default {
 
       {
         src: "https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js",
-        "custom-element": "amp-auto-ads",
         async: true,
+        "custom-element": "amp-auto-ads",
       },
 
       {

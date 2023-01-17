@@ -17,6 +17,7 @@
     "@nuxtjs/pwa": "^3.3.5",
     "@nuxtjs/vercel-builder": "^0.24.0",
     "core-js": "^3.25.3",
+    "fs": "^0.0.1-security",
     "nuxt": "^2.15.8",
     "nuxt-mail": "^3.0.23",
     "v-owl-carousel": "^1.0.8",

@@ -1,7 +1,14 @@
 <style lang="scss" scoped>
 .featured-section {
-  margin-top: 2rem;
-  margin-bottom: 8rem;
+  margin-top: -3rem;
+  margin-bottom: 5rem;
+}
+
+@media (min-width: 992px) {
+  .featured-section {
+    margin-top: -10rem;
+    margin-bottom: 3rem;
+  }
 }
 </style>
 
@@ -61,9 +68,7 @@ li > .hover {
           <div class="card mb-3 border-0" style="max-width: 100%">
             <div class="row g-0">
               <div
-                :class="`${
-                  $device.isDesktop ? 'col-md-4' : 'col-md-4 border-bottom mb-5'
-                }`"
+                :class="`${$device.isDesktop ? 'col-md-4' : 'col-md-4 mb-5'}`"
               >
                 <ul class="list-group border border-5">
                   <li
@@ -364,7 +369,7 @@ export default {
       this.activeIndex = index;
 
       switch (value) {
-        case "private charter":
+        case "private carter":
           setTimeout(() => {
             this.loadingPackage = false;
             this.packages = this.privateDropTrips;

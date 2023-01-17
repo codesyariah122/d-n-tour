@@ -25,13 +25,19 @@
               class="ftco-footer-social list-unstyled float-md-left float-lft mt-5"
             >
               <li class="ftco-animate">
-                <a href="#"><span class="icon-twitter"></span></a>
+                <a href="https://sites.google.com/view/dntourtravel?pli=1"
+                  ><span class="icon-twitter"></span
+                ></a>
               </li>
               <li class="ftco-animate">
-                <a href="#"><span class="icon-facebook"></span></a>
+                <a href="https://sites.google.com/view/dntourtravel?pli=1"
+                  ><span class="icon-facebook"></span
+                ></a>
               </li>
               <li class="ftco-animate">
-                <a href="#"><span class="icon-instagram"></span></a>
+                <a href="https://www.instagram.com/dntour01/"
+                  ><span class="icon-instagram"></span
+                ></a>
               </li>
             </ul>
           </div>
@@ -40,10 +46,34 @@
           <div class="ftco-footer-widget mb-4 ml-md-5">
             <h2 class="ftco-heading-2">Information</h2>
             <ul class="list-unstyled">
-              <li><a href="#" class="py-2 d-block">About</a></li>
-              <li><a href="#" class="py-2 d-block">Services</a></li>
-              <li><a href="#" class="py-2 d-block">Term and Conditions</a></li>
-              <li><a href="#" class="py-2 d-block">Best Price Guarantee</a></li>
+              <li>
+                <a
+                  href="https://sites.google.com/view/dntourtravel/sejarah"
+                  class="py-2 d-block"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://sites.google.com/view/dntourtravel"
+                  class="py-2 d-block"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://sites.google.com/view/dntourtravel"
+                  class="py-2 d-block"
+                  >Term and Conditions</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://sites.google.com/view/dntourtravel"
+                  class="py-2 d-block"
+                  >Best Price Guarantee</a
+                >
+              </li>
               <li>
                 <a
                   href="https://api.store.dntourtravel.com/privacy-policy"
@@ -58,11 +88,41 @@
           <div class="ftco-footer-widget mb-4">
             <h2 class="ftco-heading-2">Customer Support</h2>
             <ul class="list-unstyled">
-              <li><a href="#" class="py-2 d-block">FAQ</a></li>
-              <li><a href="#" class="py-2 d-block">Payment Option</a></li>
-              <li><a href="#" class="py-2 d-block">Booking Tips</a></li>
-              <li><a href="#" class="py-2 d-block">How it works</a></li>
-              <li><a href="#" class="py-2 d-block">Contact Us</a></li>
+              <li>
+                <a
+                  href="https://sites.google.com/view/dntourtravel/faq"
+                  class="py-2 d-block"
+                  >FAQ</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://sites.google.com/view/dntourtravel"
+                  class="py-2 d-block"
+                  >Payment Option</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://sites.google.com/view/dntourtravel"
+                  class="py-2 d-block"
+                  >Booking Tips</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://sites.google.com/view/dntourtravel"
+                  class="py-2 d-block"
+                  >How it works</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://sites.google.com/view/dntourtravel"
+                  class="py-2 d-block"
+                  >Contact Us</a
+                >
+              </li>
             </ul>
           </div>
         </div>
@@ -115,3 +175,14 @@
     </div>
   </footer>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      ca_pub: process.env.NUXT_ENV_GOOGLE_ADS_CA,
+      g_tag: process.env.NUXT_ENV_G_TAG_MANAGER,
+    };
+  },
+};
+</script>

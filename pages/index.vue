@@ -60,7 +60,7 @@ export default {
 
   async asyncData({ $commerce }) {
     const { data: privateDropTrips } = await $commerce.products.list({
-      category_slug: ["private-charter"],
+      category_slug: ["private-carter"],
     });
     const { data: regulerDropTrips } = await $commerce.products.list({
       category_slug: ["reguler"],
@@ -80,9 +80,40 @@ export default {
 
   mounted() {
     this.checkBook();
+    this.notification();
   },
 
   methods: {
+    async notification() {
+      const currentToken = await this.$fire.messaging.getToken();
+      const data = JSON.stringify({
+        notification: {
+          title: "firebase",
+          body: "firebase is awesome",
+          click_action: "http://localhost:3000/",
+          icon: "http://localhost:3000/icon.png",
+        },
+        to: currentToken,
+      });
+      const config = {
+        method: "post",
+        url: "https://fcm.googleapis.com/fcm/send",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `key=${process.env.NUXT_ENV_FIREBASE_KEYPAIR}`,
+        },
+        data,
+      };
+      const response = await this.axios(config);
+      this.$fire.messaging.onMessage((payload) => {
+        console.info("Message received: ", payload);
+      });
+      this.$fire.messaging.onTokenRefresh(async () => {
+        const refreshToken = await this.$fire.messaging.getToken();
+        console.log("Token Refreshed", refreshToken);
+      });
+    },
+
     checkBook() {
       const check = localStorage.getItem("book-now")
         ? JSON.parse(localStorage.getItem("book-now"))

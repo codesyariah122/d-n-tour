@@ -1,4 +1,3 @@
-// const { lookupUserIp, userGeoLocation } = require("../models/services");
 import { lookupUserIp, userGeoLocation } from "../models/services";
 
 const lookUpUserIp = (req, res) => {
@@ -11,7 +10,6 @@ const lookUpUserIp = (req, res) => {
   const urlLookup = process.env.NUXT_ENV_APP_IP_DETECT_URL;
   lookupUserIp(urlLookup)
     .then((response) => {
-      // console.log(response);
       if (response.ip) {
         res
           .json({
@@ -60,10 +58,5 @@ const userLocator = (req, res) => {
     })
     .catch((err) => console.log(err));
 };
-
-// module.exports = {
-//   lookUpUserIp,
-//   userLocator,
-// };
 
 export { lookUpUserIp, userLocator };
