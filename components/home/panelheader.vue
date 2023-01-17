@@ -269,9 +269,6 @@ export default {
       if (Object.keys(this.input).length === 0) {
         alert("harap isi kolom input pemesanan");
       }
-      console.log(this.input.penjemputan);
-      const data = this.input;
-
       const url = "https://wa.me/6283165539138?text=";
       const contextWa = `Hallo,Admin D&N Tour, saya ingin memesan paket trip D & N Tour, berikut data lengkap saya \n -Berangkat Dari : ${
         this.input.penjemputan !== null
@@ -279,7 +276,7 @@ export default {
           : this.location.city
       } , \n -Paket Trip : ${this.input.change}, \n -Tujuan Ke : ${
         this.input.destination
-      }`;
+      } \n -Tanggal Berangkat: ${this.pickup_date}`;
 
       window.open(`${url}${encodeURIComponent(contextWa)}`);
 
