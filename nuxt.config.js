@@ -145,11 +145,7 @@ export default {
         type: "text/css",
         href: "/assets/css/ionicons.min.css",
       },
-      {
-        rel: "stylesheet",
-        type: "text/css",
-        href: "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css",
-      },
+
       {
         rel: "stylesheet",
         type: "text/css",
@@ -232,9 +228,7 @@ export default {
         src: "/assets/js/scrollax.min.js",
         body: true,
       },
-      {
-        src: "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js",
-      },
+
       {
         src: "https://d2mpatx37cqexb.cloudfront.net/delightchat-whatsapp-widget/embeds/embed.min.js",
         body: true,
@@ -351,10 +345,10 @@ export default {
       title: "D & N Tour Travel",
       author: "D & N",
       icon: true,
-      canonical: "https://dntour.vercel.app/",
+      canonical: "https://dntourtravel.com/",
       description: "Travel Bandung Bandara.",
       keywords: "D & N Tour Travel | Travel Bandung Bandara",
-      ogUrl: "https://dntour.vercel.app/",
+      ogUrl: "https://dntourtravel.com/",
       ogType: "website",
       ogSiteName: "D & N Tour Travel",
       ogTitle: "D & N Tour Travel",

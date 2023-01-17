@@ -1,13 +1,12 @@
 <style lang="scss" scoped>
 .featured-section {
-  margin-top: -3rem;
+  margin-top: -2rem;
   margin-bottom: 5rem;
 }
 
 @media (min-width: 992px) {
   .featured-section {
-    margin-top: -5rem;
-    margin-bottom: 3rem;
+    margin-top: -2rem;
   }
 }
 </style>
