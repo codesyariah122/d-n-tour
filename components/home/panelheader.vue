@@ -17,6 +17,7 @@
                     :options="points"
                     :settings="{
                       placeholder: 'Pilih Keberangkatan',
+                      searchInputPlaceholder: 'Ketik Disini ...',
                     }"
                     @change="changePickPoints($event)"
                     @select="selectedPickPoints($event)"
