@@ -12,8 +12,17 @@
                 <h2>Make your trip</h2>
                 <div class="form-group">
                   <label for="paket" class="label">Berangkat Dari</label>
-                  <select
-                    id="paket"
+                  <Select2
+                    style="width: 100%"
+                    :options="points"
+                    :settings="{
+                      placeholder: 'Pilih Keberangkatan',
+                    }"
+                    @change="changePickPoints($event)"
+                    @select="selectedPickPoints($event)"
+                  />
+                  <!-- <select
+                    id="select-box"
                     class="custom-select"
                     @change="changePickPoints($event)"
                   >
@@ -31,7 +40,7 @@
                         {{ district.name }}
                       </option>
                     </optgroup>
-                  </select>
+                  </select> -->
                 </div>
                 <div class="form-group">
                   <label for="paket" class="label">Tujuan Ke</label>
@@ -44,14 +53,14 @@
                     <optgroup
                       v-for="(item, idx) in goes"
                       :key="idx"
-                      :label="item.parent_name"
+                      :label="item.text"
                     >
                       <option
-                        v-for="(district, idx) in item.districts"
+                        v-for="(district, idx) in item.children"
                         :key="idx"
-                        :value="[item.id, district.name]"
+                        :value="[item.text, district.text]"
                       >
-                        {{ district.name }}
+                        {{ district.text }}
                       </option>
                     </optgroup>
                   </select>
@@ -178,9 +187,10 @@ export default {
       goes: [],
       show_destination: false,
       current_date: this.$moment().format("LLL"),
+      myValue: "",
       input: {
-        penjemputan: null,
-        destination: null,
+        penjemputan: "",
+        destination: "",
         package: [],
         childPackage: [],
         change: null,
@@ -196,7 +206,6 @@ export default {
       easing: "slide",
     });
     this.activePackage();
-    this.userIpDetected();
     this.dropPickupPoints();
   },
 
@@ -205,52 +214,41 @@ export default {
       this.points = pickpoints;
     },
 
-    changePickPoints(e) {
-      const split = e.target.value.split(",");
-      const parent_city = parseInt(split[0]);
-      this.input.penjemputan = split[1];
-      this.show_destination = true;
-      if (parent_city % 2 === 1) {
-        this.loadDistrict(2);
+    selectedPickPoints({ id, city_id, parent, text }) {
+      const data = { id, city_id, parent, text };
+      this.myValue = data.text;
+      this.input.penjemputan = data.text;
+      if (data.parent === "Bandung") {
+        this.loadDistrict("Jabodetabek");
       } else {
-        this.loadDistrict(1);
+        this.loadDistrict("Bandung");
       }
+    },
+
+    changePickPoints(e) {
+      const id = parseInt(e);
+      pickpoints.map((d) => {
+        d.children.map((n) => {
+          if (n.id === id) {
+            this.myValue = n.text;
+            this.input.penjemputan = n.text;
+          }
+        });
+      });
+      this.show_destination = true;
     },
 
     changePickDestination(e) {
       const split = e.target.value.split(",");
-      const parent_city = parseInt(split[0]);
+      const parent_city = split[0];
       this.input.destination = split[1];
       this.loadDistrict(parent_city);
     },
 
-    loadDistrict(id) {
-      this.goes = pickpoints.map((data) => data).filter((val) => val.id === id);
+    loadDistrict(value) {
+      this.goes = pickpoints.map((d) => d).filter((f) => f.text === value);
     },
 
-    userIpDetected() {
-      const publicUrl = process.env.NUXT_ENV_APP_IP_DETECT_URL;
-      const url = `${publicUrl}`;
-      this.$axios
-        .get(url)
-        .then(({ data }) => {
-          this.ip = data?.data;
-          this.userLocationDetected(data?.ip);
-        })
-        .catch((err) => console.log(err));
-    },
-    userLocationDetected(ip) {
-      const secret = process.env.NUXT_ENV_APP_SECRET_API;
-      const publicUrl = process.env.NUXT_ENV_APP_API_URL;
-      const url = `${publicUrl}/${secret}/${ip}`;
-      this.$axios
-        .get(url)
-        .then(({ data }) => {
-          this.location = data?.data;
-          this.location.city = `${data?.data?.city} - ${data?.data?.district}`;
-        })
-        .catch((err) => console.log(err));
-    },
     booking() {
       this.$emit("booking-now");
     },

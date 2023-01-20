@@ -3,7 +3,7 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
   // mode: "universal",
-  // ssr: true,
+  // ssr: false,
   serverMiddleware: [
     {
       path: "api",
@@ -114,6 +114,7 @@ export default {
         rel: "stylesheet",
         type: "text/css",
       },
+
       {
         rel: "stylesheet",
         type: "text/css",
@@ -129,7 +130,6 @@ export default {
         type: "text/css",
         href: "/assets/css/animate.css",
       },
-
       {
         rel: "stylesheet",
         type: "text/css",
@@ -179,6 +179,7 @@ export default {
       {
         src: "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js",
       },
+
       {
         src: "/assets/scripts/g-tag-manager.js",
       },
@@ -253,6 +254,7 @@ export default {
     { src: "~/plugins/currency" },
     { src: "~/plugins/vue-tiny-mce", mode: "client", ssr: false },
     { src: "~/plugins/cookie-consent", mode: "client", ssr: false },
+    { src: "~/plugins/vue-select2-component", mode: "client", ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
