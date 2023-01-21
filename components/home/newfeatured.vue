@@ -380,7 +380,7 @@ export default {
               this.privateDropTripCategory.name === "private carter"
                 ? "Melayani Penjemputan Untuk Perjalanan Bandung - Jakarta (Bandara Soekarno Hatta) Secara private."
                 : "";
-          }, 5000);
+          }, 1000);
           break;
 
         case "reguler":
@@ -427,13 +427,15 @@ export default {
         this.loadingPackage = true;
         setTimeout(() => {
           this.loadingPackage = false;
-          this.packages = this.cityTours;
+          this.packages = this.privateDropTrips;
           this.categoryContext.header =
-            this.cityTourCategory.name === "city tour"
-              ? "City Tour Destinasi Wisata Di Kota Kembang"
+            this.privateDropTripCategory.name === "private carter"
+              ? "Private Bandung - Jakarta (Bandara Soetta)"
               : "";
-          this.categoryContext.quote = this.cityTourCategory.description;
-        }, 2500);
+          console.log(this.privateDropTripCategory.description);
+          this.categoryContext.quote =
+            "Melayani Penjemputan Untuk Perjalanan Bandung - Jakarta (Bandara Soekarno Hatta) Secara private";
+        }, 1000);
       }
     },
   },
@@ -441,16 +443,18 @@ export default {
   computed: {
     parentCategories() {
       const lists = this.categories.map((d) => d);
-      const parents = lists.map((d) => (d.name === "city tour" ? d : 0))[0];
+      // const parents = lists.map((d) => (d.name === "city tour" ? d : 0))[0];
+      const parents = lists.map((d) =>
+        d.name === "private carter" ? d : 0
+      )[0];
       return parents;
     },
     menus() {
       const lists = this.categories.map((d) => d);
-      const listsMenu = [];
       const childs = lists.map((d) =>
         d.children.length > 0 ? d.children : d
       )[1];
-      const parents = lists.map((d) => d).filter((d) => d.name === "city tour");
+      // const parents = lists.map((d) => d).filter((d) => d.name === "city tour");
       const menus = childs;
       return menus;
     },
@@ -469,10 +473,10 @@ export default {
       const regulerDropTrip = regulers.filter((d) => d.name === "reguler")[0];
       return regulerDropTrip;
     },
-    // cityTourCategory() {
-    //   const lists = this.categories.map((d) => d);
-    //   return lists.filter((d) => d.name === "city tour")[0];
-    // },
+    cityTourCategory() {
+      const lists = this.categories.map((d) => d);
+      return lists.filter((d) => d.name === "city tour")[0];
+    },
   },
 };
 </script>

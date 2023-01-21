@@ -4,8 +4,8 @@
       <cookie-consent>
         <template slot="message">
           <div class="container">
-            <div class="d-flex">
-              <div class="col-lg-12 col-sm-12 mt-5 px-2 py-3">
+            <div class="d-flex justify-content-center">
+              <div class="col-lg-10 col-sm-10 mt-5 px-2 py-3">
                 <h5 v-if="$device.isDesktop" class="text-bold text-white">
                   D & N Tour Travel Website menggunakan cookie untuk memberikan
                   pengalaman browsing yang lebih baik bagi Anda, dengan
@@ -21,16 +21,24 @@
               </div>
             </div>
             <div
-              class="row justify-center"
+              class="row justify-content-center"
               :style="`${
                 $device.isDesktop ? '' : 'width: 25px; margin-left: -30px'
               }`"
             >
-              <div class="col-lg-12 col-sm-4 mb-5">
+              <div class="col-lg-6 col-sm-4 mb-5">
                 <a
+                  v-if="$device.isDesktop"
                   href="https://api.store.dntourtravel.com/privacy-policy"
                   class="btn btn-link fs-5"
                   >D & N Tour Travel - Travel bandung Bandara</a
+                >
+                <a
+                  v-else
+                  href="https://api.store.dntourtravel.com/privacy-policy"
+                  class="btn btn-link fs-5"
+                  >D & N Tour Travel - <br />
+                  Travel bandung Bandara</a
                 >
               </div>
             </div>

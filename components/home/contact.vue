@@ -2,9 +2,9 @@
   <section class="ftco-section contact-section" id="contact">
     <div class="container">
       <div class="row d-flex mb-5 contact-info">
-        <div class="col-md-4">
+        <div class="col-md-4 col-sm-12">
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 col-sm-12">
               <div class="border w-100 p-4 rounded mb-2 d-flex">
                 <div class="icon mr-3">
                   <span class="icon-map-o"></span>
@@ -15,12 +15,12 @@
                 </p>
               </div>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-12 col-sm-12">
               <div class="border w-100 p-4 rounded mb-2 d-flex">
                 <home-map />
               </div>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-12 col-sm-12">
               <div class="border w-100 p-4 rounded mb-2 d-flex">
                 <div class="icon mr-3">
                   <span class="icon-mobile-phone"></span>
@@ -31,7 +31,7 @@
                 </p>
               </div>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-12 col-sm-12">
               <div class="border w-100 p-4 rounded mb-2 d-flex">
                 <div class="icon mr-3">
                   <span class="icon-envelope-o"></span>
@@ -50,10 +50,10 @@
           :class="`${
             $device.isDesktop
               ? 'col-md-8 block-9 mb-md-5'
-              : 'col-md-8 block-9 mb-md-5 mt-5'
+              : 'col-sm-12 block-9 mb-md-5 mt-5'
           }`"
         >
-          <div class="row justify-center">
+          <div class="row justify-content-center">
             <div class="col-lg-12 col-sm-12">
               <blockquote class="blockquote-footer">
                 Kirim pesan kepada admin kami, beri kami masukan untuk

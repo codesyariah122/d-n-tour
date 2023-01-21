@@ -57,6 +57,15 @@ export default {
   },
 
   methods: {
+    setAnalytics() {
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-HH5V2NGB9C");
+    },
     navSmoothLink() {
       const navLinks = document.querySelectorAll(".nav-link");
 

@@ -121,7 +121,17 @@
                   </div>
                 </div>
                 <div class="row justify-content-center mt-5">
-                  <div class="col-lg-4 col-sm-12">
+                  <div v-if="$device.isDesktop" class="col-lg-4">
+                    <a @click="booking" class="btn btn-primary btn-rounded">
+                      <i
+                        class="icon-bookmark color-white"
+                        size="large"
+                        aria-hidden="true"
+                      ></i>
+                      Konsultasi - 24/jam
+                    </a>
+                  </div>
+                  <div v-else class="d-grid gap-2">
                     <a @click="booking" class="btn btn-primary btn-rounded">
                       <i
                         class="icon-bookmark color-white"

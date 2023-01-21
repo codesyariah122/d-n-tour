@@ -171,6 +171,11 @@ export default {
       },
 
       {
+        src: `https://www.googletagmanager.com/gtag/js?id=${process.env.NUXT_ENV_GOOGLE_ANALYTIC_TRACKING}`,
+        async: true,
+      },
+
+      {
         src: "https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js",
         async: true,
         "custom-element": "amp-auto-ads",
@@ -334,7 +339,6 @@ export default {
       },
     ],
   },
-  // PWA module configuration: https://go.nuxtjs.dev/pwa
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     meta: {

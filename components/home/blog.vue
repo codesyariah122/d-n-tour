@@ -12,7 +12,9 @@
         <div
           v-for="postIndex in postToShow"
           :key="posts[postIndex - 1]?.id"
-          class="col-md-4 d-flex"
+          :class="`${
+            $device.isDesktop ? 'col-md-4 d-flex' : 'col-md-4 d-flex mb-3'
+          }`"
         >
           <div class="blog-entry justify-content-end">
             <a
@@ -43,13 +45,20 @@
                   posts[postIndex - 1]?.fields?.title
                 }}</a>
               </h3>
-              <p>
+              <p v-if="$device.isDesktop">
                 <a
                   :href="`/news/${posts[postIndex - 1].fields.slug}`"
                   class="btn btn-primary"
                   >Read more</a
                 >
               </p>
+              <div v-else class="d-grid gap-2">
+                <a
+                  :href="`/news/${posts[postIndex - 1].fields.slug}`"
+                  class="btn btn-primary btn-sm"
+                  >Read more</a
+                >
+              </div>
             </div>
           </div>
         </div>
@@ -64,8 +73,27 @@
           </div>
         </div>
       </div>
-      <div class="row justify-content-center">
+      <div v-if="$device.isDesktop" class="row justify-content-center">
         <div v-if="postToShow < 6" class="col-lg-1 col-sm-12">
+          <button
+            @click="ShowPost"
+            class="btn btn-primary rounded-pill btn-lg"
+            type="button"
+          >
+            <div v-if="loadingPost">
+              <span
+                class="spinner-border spinner-border-md"
+                role="status"
+                aria-hidden="true"
+              ></span>
+              Loading...
+            </div>
+            <span v-else> Load More ... </span>
+          </button>
+        </div>
+      </div>
+      <div v-else class="row justify-content-center">
+        <div v-if="postToShow < 6" class="d-grid gap-2">
           <button
             @click="ShowPost"
             class="btn btn-primary rounded-pill btn-lg"
@@ -97,7 +125,7 @@ export default {
     };
   },
   mounted() {
-    console.log(this.posts);
+    // console.log(this.posts);
   },
   methods: {
     ShowPost() {
