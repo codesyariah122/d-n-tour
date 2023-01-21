@@ -77,6 +77,14 @@
               >About</a
             >
           </li>
+
+          <li
+            v-if="$route.name !== 'news-slug'"
+            :class="`nav-item ${isActive ? 'active' : ''}`"
+          >
+            <a href="#blog" class="nav-link">Blog</a>
+          </li>
+
           <li :class="`nav-item ${isActive ? 'active' : ''}`">
             <a
               :href="`${
@@ -97,12 +105,6 @@
             >
           </li>
 
-          <li
-            v-if="$route.name !== 'news-slug'"
-            :class="`nav-item ${isActive ? 'active' : ''}`"
-          >
-            <a href="#blog" class="nav-link">Blog</a>
-          </li>
           <li :class="`nav-item ${isActive ? 'active' : ''}`">
             <a
               :href="`${

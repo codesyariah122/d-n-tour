@@ -40,7 +40,7 @@ export const actions = {
       const response = await client.getEntries({
         content_type: "news",
         order: "-sys.createdAt",
-        limit: 3,
+        limit: 100,
       });
       if (response.items.length > 0) commit("updatePosts", response.items);
     } catch (err) {

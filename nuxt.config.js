@@ -98,7 +98,7 @@ export default {
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       {
         rel: "amphtml",
-        href: process.env.NUXT_ENV_APP_ORIGIN_URL,
+        href: process.env.NUXT_ENV_APP_LOCAL_URL,
       },
       {
         rel: "canonical",
@@ -224,14 +224,8 @@ export default {
         src: "/assets/js/jquery.animateNumber.min.js",
         body: true,
       },
-
       {
         src: "/assets/js/scrollax.min.js",
-        body: true,
-      },
-
-      {
-        src: "https://d2mpatx37cqexb.cloudfront.net/delightchat-whatsapp-widget/embeds/embed.min.js",
         body: true,
       },
     ],
@@ -274,7 +268,7 @@ export default {
   ],
 
   amp: {
-    origin: process.env.NUXT_ENV_APP_ORIGIN_URL || "http://localhost:3000",
+    origin: process.env.NUXT_ENV_APP_LOCAL_URLL || "http://localhost:3000",
     mode: "hybrid",
   },
 

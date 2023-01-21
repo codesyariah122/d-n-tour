@@ -1,111 +1,86 @@
 <template>
   <section class="ftco-section" id="blog">
-    <!-- <div class="container">
-      <div class="row">
-        <div v-for="post in posts" :key="post.id" class="col-md-4">
-          <pre>
-            {{ post }}
-          </pre>
-        </div>
-      </div>
-    </div> -->
     <div class="container">
-      <div class="row justify-content-center mb-5">
+      <div class="row justify-content-center mb-2">
         <div class="col-md-7 heading-section text-center ftco-animate">
           <span class="subheading">Blog</span>
           <h2>Recent Blog</h2>
         </div>
       </div>
+
       <div class="row d-flex">
         <div
-          v-for="post in posts"
-          :key="post.id"
-          class="col-md-4 d-flex ftco-animate"
+          v-for="postIndex in postToShow"
+          :key="posts[postIndex - 1]?.id"
+          class="col-md-4 d-flex"
         >
           <div class="blog-entry justify-content-end">
             <a
-              :href="post.fields.cover.fields.file.url"
+              :href="posts[postIndex - 1]?.fields?.cover?.fields?.file.url"
               class="block-20"
-              :style="`background-image: url(https:${post.fields.cover.fields.file.url})`"
+              :style="`background-image: url(https:${
+                posts[postIndex - 1]?.fields?.cover?.fields?.file?.url
+              })`"
             >
             </a>
             <div class="text pt-4">
               <div class="meta mb-3">
                 <div>
                   <a href="#">{{
-                    $moment(post.fields.createdAt).format("LL")
+                    $moment(posts[postIndex - 1]?.fields?.createdAt).format(
+                      "LL"
+                    )
                   }}</a>
                 </div>
                 <div>
                   <a href="#">
-                    {{ post.fields.authorName.fields.name }}
+                    {{ posts[postIndex - 1]?.fields?.authorName?.fields?.name }}
                   </a>
                 </div>
               </div>
               <h3 class="heading mt-2">
-                <a :href="`/news/${post.fields.slug}`">{{
-                  post.fields.title
+                <a :href="`/news/${posts[postIndex - 1]?.fields?.slug}`">{{
+                  posts[postIndex - 1]?.fields?.title
                 }}</a>
               </h3>
               <p>
-                <a :href="`/news/${post.fields.slug}`" class="btn btn-primary"
+                <a
+                  :href="`/news/${posts[postIndex - 1].fields.slug}`"
+                  class="btn btn-primary"
                   >Read more</a
                 >
               </p>
             </div>
           </div>
         </div>
-
-        <div v-if="posts.length <= 1" class="col-md-4 d-flex">
-          <div class="blog-entry justify-content-end">
-            <a
-              href="blog-single.html"
-              class="block-20"
-              :style="`background-image: url(${require('~/assets/images/default/image_2.jpg')})`"
-            >
-            </a>
-            <div class="text pt-4">
-              <div class="meta mb-3">
-                <div><a href="#">Oct. 29, 2019</a></div>
-                <div><a href="#">Admin</a></div>
-                <div>
-                  <a href="#" class="meta-chat"
-                    ><span class="icon-chat"></span> 3</a
-                  >
-                </div>
-              </div>
-              <h3 class="heading mt-2">
-                <a href="#">Why Lead Generation is Key for Business Growth</a>
-              </h3>
-              <p><a href="#" class="btn btn-primary">Read more</a></p>
-            </div>
+        <div v-if="loadingPost" class="row justify-content-center">
+          <div class="col-lg-6 col-sm-12">
+            <h4 class="text-lead text-bold">Wait loading ...</h4>
+            <img
+              :src="require('~/assets/vector/loading-car.gif')"
+              class="img-fluid rounded-circle"
+              :width="`${$device.isMobile ? '250' : '150'}`"
+            />
           </div>
         </div>
-
-        <div v-if="posts.length <= 1" class="col-md-4 d-flex">
-          <div class="blog-entry">
-            <a
-              href="blog-single.html"
-              class="block-20"
-              :style="`background-image: url(${require('~/assets/images/default/image_3.jpg')})`"
-            >
-            </a>
-            <div class="text pt-4">
-              <div class="meta mb-3">
-                <div><a href="#">Oct. 29, 2019</a></div>
-                <div><a href="#">Admin</a></div>
-                <div>
-                  <a href="#" class="meta-chat"
-                    ><span class="icon-chat"></span> 3</a
-                  >
-                </div>
-              </div>
-              <h3 class="heading mt-2">
-                <a href="#">Why Lead Generation is Key for Business Growth</a>
-              </h3>
-              <p><a href="#" class="btn btn-primary">Read more</a></p>
+      </div>
+      <div class="row justify-content-center">
+        <div v-if="postToShow < 6" class="col-lg-1 col-sm-12">
+          <button
+            @click="ShowPost"
+            class="btn btn-primary rounded-pill btn-lg"
+            type="button"
+          >
+            <div v-if="loadingPost">
+              <span
+                class="spinner-border spinner-border-md"
+                role="status"
+                aria-hidden="true"
+              ></span>
+              Loading...
             </div>
-          </div>
+            <span v-else> Load More ... </span>
+          </button>
         </div>
       </div>
     </div>
@@ -114,8 +89,24 @@
 
 <script>
 export default {
+  data() {
+    return {
+      postToShow: 3,
+      loadingFirst: null,
+      loadingPost: null,
+    };
+  },
   mounted() {
-    // console.log(this.posts);
+    console.log(this.posts);
+  },
+  methods: {
+    ShowPost() {
+      this.loadingPost = true;
+      setTimeout(() => {
+        this.loadingPost = false;
+        this.postToShow += 3;
+      }, 1500);
+    },
   },
   computed: {
     posts() {

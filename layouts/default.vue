@@ -8,15 +8,6 @@ body.swal2-shown > [aria-hidden="true"] {
   <div>
     <layout-header :isActive="isActive" />
 
-    <noscript
-      ><iframe
-        :src="`https://www.googletagmanager.com/ns.html?id=${g_tag}`"
-        height="0"
-        width="0"
-        style="display: none; visibility: hidden"
-      ></iframe
-    ></noscript>
-
     <Nuxt />
 
     <div class="container">
@@ -27,10 +18,14 @@ body.swal2-shown > [aria-hidden="true"] {
       </no-ssr>
     </div>
 
-    <globals-cookie-box />
-
-    <layout-footer />
-    <layout-backtotop />
+    <noscript
+      ><iframe
+        :src="`https://www.googletagmanager.com/ns.html?id=${g_tag}`"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
 
     <iframe
       id="google_esf"
@@ -38,6 +33,12 @@ body.swal2-shown > [aria-hidden="true"] {
       src="https://googleads.g.doubleclick.net/pagead/html/r20230104/r20190131/zrt_lookup.html"
       style="display: none"
     ></iframe>
+
+    <globals-cookie-box />
+
+    <layout-footer />
+
+    <layout-backtotop />
   </div>
 </template>
 
@@ -69,6 +70,19 @@ export default {
           });
         }
       }
+    },
+
+    gtmStart() {
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", this.g_tag);
     },
 
     startMainJs() {

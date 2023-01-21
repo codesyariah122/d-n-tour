@@ -89,7 +89,7 @@ li > .hover {
                       v-if="loadingPackage"
                       class="col-lg-12 col-sm-12 mt-2 text-center"
                     >
-                      <div class="row justify-center">
+                      <div class="row justify-content-center">
                         <div class="col-lg-12 col-sm-12">
                           <h2 class="text-lead text-bold">Wait loading ...</h2>
                           <img
@@ -240,7 +240,7 @@ li > .hover {
                                     class="modal-title text-capitalize"
                                     id="staticBackdropLabel"
                                   >
-                                    {{ detail.name }}
+                                    {{ detailCategory }} - {{ detail.name }}
                                   </h5>
                                   <button
                                     type="button"
@@ -373,11 +373,11 @@ export default {
             this.loadingPackage = false;
             this.packages = this.privateDropTrips;
             this.categoryContext.header =
-              this.privateDropTripCategory.name === "private charter"
+              this.privateDropTripCategory.name === "private carter"
                 ? "Private Bandung - Jakarta (Bandara Soetta)"
                 : "";
             this.categoryContext.quote =
-              this.privateDropTripCategory.name === "private charter"
+              this.privateDropTripCategory.name === "private carter"
                 ? "Melayani Penjemputan Untuk Perjalanan Bandung - Jakarta (Bandara Soekarno Hatta) Secara private."
                 : "";
           }, 5000);
@@ -451,14 +451,14 @@ export default {
         d.children.length > 0 ? d.children : d
       )[1];
       const parents = lists.map((d) => d).filter((d) => d.name === "city tour");
-      const menus = parents.concat(childs);
+      const menus = childs;
       return menus;
     },
     privateDropTripCategory() {
       const lists = this.categories.map((d) => d);
       const privates = lists.map((d) => d.children)[1];
       const privateDropTrip = privates.filter(
-        (d) => d.name === "private charter"
+        (d) => d.name === "private carter"
       )[0];
       return privateDropTrip;
       // return lists.filter((d) => d.name === "private")[0];
@@ -469,10 +469,10 @@ export default {
       const regulerDropTrip = regulers.filter((d) => d.name === "reguler")[0];
       return regulerDropTrip;
     },
-    cityTourCategory() {
-      const lists = this.categories.map((d) => d);
-      return lists.filter((d) => d.name === "city tour")[0];
-    },
+    // cityTourCategory() {
+    //   const lists = this.categories.map((d) => d);
+    //   return lists.filter((d) => d.name === "city tour")[0];
+    // },
   },
 };
 </script>

@@ -13,74 +13,39 @@
                 <div class="form-group">
                   <label for="paket" class="label">Berangkat Dari</label>
                   <Select2
+                    class="js-example-placeholder-single"
                     style="width: 100%"
                     :options="points"
-                    :settings="{
-                      placeholder: 'Pilih Keberangkatan',
-                      searchInputPlaceholder: 'Ketik Disini ...',
-                    }"
+                    :settings="settings"
                     @change="changePickPoints($event)"
                     @select="selectedPickPoints($event)"
                   />
-                  <!-- <select
-                    id="select-box"
-                    class="custom-select"
-                    @change="changePickPoints($event)"
-                  >
-                    <option selected disabled>Pilih Keberangkatan</option>
-                    <optgroup
-                      v-for="(item, idx) in points"
-                      :key="idx"
-                      :label="item.parent_name"
-                    >
-                      <option
-                        v-for="(district, idx) in item.districts"
-                        :key="idx"
-                        :value="[item.id, district.name]"
-                      >
-                        {{ district.name }}
-                      </option>
-                    </optgroup>
-                  </select> -->
                 </div>
                 <div class="form-group">
                   <label for="paket" class="label">Tujuan Ke</label>
-                  <select
-                    id="paket"
-                    class="custom-select"
+
+                  <Select2
+                    class="js-example-placeholder-single"
+                    style="width: 100%"
+                    :options="goes"
+                    :settings="settings"
                     @change="changePickDestination($event)"
-                  >
-                    <option selected disabled>Pilih Destinasi</option>
-                    <optgroup
-                      v-for="(item, idx) in goes"
-                      :key="idx"
-                      :label="item.text"
-                    >
-                      <option
-                        v-for="(district, idx) in item.children"
-                        :key="idx"
-                        :value="[item.text, district.text]"
-                      >
-                        {{ district.text }}
-                      </option>
-                    </optgroup>
-                  </select>
+                    @select="selectedPickDestination($event)"
+                  />
                 </div>
                 <div class="form-group mt-3">
                   <label for="paket" class="label">Pilih Paket Trip</label>
                   <select
                     id="paket"
-                    class="custom-select"
+                    class="custom-select text-capitalize"
                     @change="changePackage($event)"
                   >
-                    <option value="" disabled selected>Pilih Paket Trip</option>
-                    <option :value="input.package">
-                      {{ input.package }}
-                    </option>
+                    <option disabled selected>Pilih Paket Trip</option>
 
                     <option
                       v-for="(item, idx) in input.childPackage"
                       :key="idx"
+                      class="text-capitalize"
                     >
                       {{ item }}
                     </option>
@@ -90,6 +55,7 @@
                   <div class="form-group mr-2">
                     <label for="" class="label">Tanggal Keberangkatan</label>
                     <input
+                      role="button"
                       v-model="input.pickup_date"
                       :date="input.pickup_date"
                       type="date"
@@ -155,14 +121,16 @@
                   </div>
                 </div>
                 <div class="row justify-content-center mt-5">
-                  <a @click="booking" class="btn btn-primary btn-rounded">
-                    <i
-                      class="icon-bookmark color-white"
-                      size="large"
-                      aria-hidden="true"
-                    ></i>
-                    Booking Sekarang
-                  </a>
+                  <div class="col-lg-4 col-sm-12">
+                    <a @click="booking" class="btn btn-primary btn-rounded">
+                      <i
+                        class="icon-bookmark color-white"
+                        size="large"
+                        aria-hidden="true"
+                      ></i>
+                      Konsultasi - 24/jam
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -174,21 +142,20 @@
 </template>
 
 <script>
-import { pickpoints } from "~/data/pickups";
-
 export default {
   props: ["categories"],
   data() {
     return {
-      ip: null,
-      location: {
-        city: null,
-      },
-      points: [],
+      api_url: process.env.NUXT_ENV_API_ENDPOINT,
+      points: null,
       goes: [],
       show_destination: false,
       current_date: this.$moment().format("LLL"),
       myValue: "",
+      settings: {
+        placeholder: "Pilih Keberangkatan",
+        allowClear: true,
+      },
       input: {
         penjemputan: "",
         destination: "",
@@ -207,31 +174,22 @@ export default {
       easing: "slide",
     });
     this.activePackage();
-    this.dropPickupPoints();
+    this.getShelterData();
   },
 
   methods: {
-    dropPickupPoints() {
-      this.points = pickpoints;
-    },
-
     selectedPickPoints({ id, city_id, parent, text }) {
       const data = { id, city_id, parent, text };
-      this.myValue = data.text;
       this.input.penjemputan = data.text;
-      if (data.parent === "Bandung") {
-        this.loadDistrict("Jabodetabek");
-      } else {
-        this.loadDistrict("Bandung");
-      }
+      this.loadDistrict(data.parent);
     },
 
     changePickPoints(e) {
       const id = parseInt(e);
-      pickpoints.map((d) => {
+      this.points.map((d) => {
         d.children.map((n) => {
           if (n.id === id) {
-            this.myValue = n.text;
+            console.log(n);
             this.input.penjemputan = n.text;
           }
         });
@@ -239,15 +197,56 @@ export default {
       this.show_destination = true;
     },
 
+    selectedPickDestination({ id, city_id, parent, text }) {
+      const data = { id, city_id, parent, text };
+      this.myValue = data.text;
+      console.log(data.text);
+      this.input.destination = data.text;
+      // this.loadDistrict(data.parent);
+    },
+
     changePickDestination(e) {
-      const split = e.target.value.split(",");
-      const parent_city = split[0];
-      this.input.destination = split[1];
-      this.loadDistrict(parent_city);
+      // const split = e.target.value.split(",");
+      // const parent_city = split[0];
+      // this.input.destination = split[1];
+      // this.loadDistrict(parent_city);
+      console.log(e);
+      const id = parseInt(e);
+      this.points.map((d) => {
+        d.children.map((n) => {
+          if (n.id === id) {
+            this.input.destination = n.text;
+          }
+        });
+      });
     },
 
     loadDistrict(value) {
-      this.goes = pickpoints.map((d) => d).filter((f) => f.text === value);
+      this.goes = this.points.map((d) => d).filter((f) => f.text !== value);
+    },
+
+    getShelterData() {
+      const endPoint = `${this.api_url}/shelter`;
+      const config = {
+        headers: {
+          Accept: "application/json",
+          "X-Header-DNTour": process.env.NUXT_ENV_APP_SECRET_API,
+        },
+      };
+      this.$axios
+        .get(endPoint, config)
+        .then(({ data }) => {
+          const lists = data.data;
+          let childrens = [];
+          for (const key in lists) {
+            childrens.push({
+              text: lists[key].text,
+              children: lists[key].districts,
+            });
+          }
+          this.points = childrens;
+        })
+        .catch((err) => console.log(err.response));
     },
 
     booking() {
@@ -262,7 +261,10 @@ export default {
       this.input.package = packages.map((d) =>
         d.name === "city tour" ? d?.name : ""
       )[0];
-      this.input.childPackage = childPackage.map((d) => d.name);
+      console.log(this.input.package);
+      this.input.childPackage = childPackage.map((d) =>
+        d.name !== "city_tour" ? d.name : ""
+      );
     },
     pickUp() {
       if (Object.keys(this.input).length === 0) {
@@ -289,6 +291,7 @@ export default {
     cities() {
       return this.$store.getters["pickups/GetCityDrop"];
     },
+    picks() {},
   },
 };
 </script>
