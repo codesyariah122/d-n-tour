@@ -45,17 +45,17 @@
                   posts[postIndex - 1]?.fields?.title
                 }}</a>
               </h3>
-              <p v-if="$device.isDesktop">
+              <!-- <p v-if="$device.isDesktop">
                 <a
                   :href="`/news/${posts[postIndex - 1].fields.slug}`"
                   class="btn btn-primary"
                   >Read more</a
                 >
-              </p>
-              <div v-else class="d-grid gap-2">
+              </p> -->
+              <div class="d-grid gap-2">
                 <a
                   :href="`/news/${posts[postIndex - 1].fields.slug}`"
-                  class="btn btn-primary btn-sm"
+                  class="btn btn-primary btn-sm rounded-md"
                   >Read more</a
                 >
               </div>

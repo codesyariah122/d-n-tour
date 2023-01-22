@@ -432,7 +432,7 @@ export default {
             this.privateDropTripCategory.name === "private carter"
               ? "Private Carter Bandung - Jakarta (Bandara Soetta)"
               : "";
-          console.log(this.privateDropTripCategory.description);
+          // console.log(this.privateDropTripCategory.description);
           this.categoryContext.quote =
             "Melayani Penjemputan Untuk Perjalanan Bandung - Jakarta (Bandara Soekarno Hatta) Secara private";
         }, 1000);

@@ -19,7 +19,12 @@
   <div>
     <home-hero />
 
-    <home-panelheader @booking-now="bookNow" :categories="categories" />
+    <home-panelheader
+      @booking-now="bookNow"
+      :categories="categories"
+      :privateDropTrips="privateDropTrips"
+      :regulerDropTrips="regulerDropTrips"
+    />
 
     <home-newfeatured
       :privateDropTrips="privateDropTrips"

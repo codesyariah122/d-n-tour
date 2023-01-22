@@ -34,6 +34,9 @@
                   />
                 </div>
                 <div class="form-group mt-3">
+                  <!-- <pre>
+                    {{ packages }}
+                  </pre> -->
                   <label for="paket" class="label">Pilih Paket Trip</label>
                   <select
                     id="paket"
@@ -42,13 +45,26 @@
                   >
                     <option disabled selected>Pilih Paket Trip</option>
 
-                    <option
-                      v-for="(item, idx) in input.childPackage"
+                    <optgroup
+                      v-for="(item, idx) in packages"
                       :key="idx"
-                      class="text-capitalize"
+                      :label="item.text"
                     >
-                      {{ item }}
-                    </option>
+                      <option
+                        v-for="packageIndex in showToPackage"
+                        :key="packageIndex - 1"
+                        :value="[
+                          item.text,
+                          item.childrens[packageIndex - 1].name,
+                          $format(item.childrens[packageIndex - 1].price.raw),
+                        ]"
+                      >
+                        {{ item.childrens[packageIndex - 1].name }} -
+                        {{
+                          $format(item.childrens[packageIndex - 1].price.raw)
+                        }}
+                      </option>
+                    </optgroup>
                   </select>
                 </div>
                 <div class="d-flex mt-3">
@@ -153,7 +169,7 @@
 
 <script>
 export default {
-  props: ["categories"],
+  props: ["categories", "privateDropTrips", "regulerDropTrips"],
   data() {
     return {
       api_url: process.env.NUXT_ENV_API_ENDPOINT,
@@ -165,6 +181,8 @@ export default {
       settings: {
         placeholder: "Pilih Keberangkatan",
       },
+      packages: null,
+      showToPackage: 3,
       input: {
         penjemputan: "",
         destination: "",
@@ -212,7 +230,6 @@ export default {
     },
 
     changePickDestination(e) {
-      console.log(e);
       const id = parseInt(e);
       this.points.map((d) => {
         d.children.map((n) => {
@@ -224,7 +241,6 @@ export default {
     },
 
     loadDistrict(shelter_id) {
-      console.log(shelter_id);
       // this.goes = this.points.map((d) => d).filter((f) => f.text !== value);
       const endPoint = `${this.api_url}/shelter/change/${shelter_id}`;
       const config = {
@@ -236,7 +252,6 @@ export default {
       this.$axios
         .get(endPoint, config)
         .then(({ data }) => {
-          console.log(data);
           const lists = data.data;
           let childrens = [];
           for (const key in lists) {
@@ -278,19 +293,29 @@ export default {
       this.$emit("booking-now");
     },
     changePackage(e) {
-      this.input.change = e.target.value;
+      this.input.change = e.target.value.split(",");
     },
     activePackage() {
       let packages = this.categories.map((d) => d);
       let childPackage = packages.map((d) => d?.children)[1];
-      this.input.package = packages.map((d) =>
-        d.name === "city tour" ? d?.name : ""
-      )[0];
-      console.log(this.input.package);
+      // this.input.package = packages.map((d) =>
+      //   d.name === "city tour" ? d?.name : ""
+      // )[0];
       this.input.childPackage = childPackage.map((d) =>
         d.name !== "city_tour" ? d.name : ""
       );
+      let lists = [];
+      let packageLists = [];
+      packageLists = this.privateDropTrips.concat(this.regulerDropTrips);
+      for (const key in packageLists) {
+        lists.push({
+          text: packageLists[key].categories.map((item) => item.name)[0],
+          childrens: packageLists,
+        });
+      }
+      this.packages = lists;
     },
+
     pickUp() {
       if (Object.keys(this.input).length === 0) {
         alert("harap isi kolom input pemesanan");
@@ -298,17 +323,19 @@ export default {
       const pickupDate = this.$moment(this.input.pickup_date).format("LL");
       console.log(pickupDate);
       const url = "https://wa.me/6283165539138?text=";
-      const contextWa = `Hallo,Admin D&N Tour, saya ingin memesan paket trip D & N Tour, berikut data lengkap saya \n -Berangkat Dari : ${
+      const contextWa = `Hallo,Admin D&N Tour, saya ingin memesan paket trip ${
+        this.input.change[0]
+      } D & N Tour, berikut data lengkap saya \n -Berangkat Dari : ${
         this.input.penjemputan !== null
           ? this.input.penjemputan
           : this.location.city
-      } , \n -Paket Trip : ${this.input.change}, \n -Tujuan Ke : ${
-        this.input.destination
-      } \n -Tanggal Berangkat: ${pickupDate}`;
+      } , \n -Tujuan Ke : ${this.input.destination}, \n -Paket Trip : ${
+        this.input.change[0]
+      }-${this.input.change[1]}(${
+        this.input.change[2]
+      }) \n -Tanggal Berangkat: ${pickupDate}`;
 
       window.open(`${url}${encodeURIComponent(contextWa)}`);
-
-      console.log(encodeURIComponent(contextWa));
     },
   },
 
