@@ -374,7 +374,7 @@ export default {
             this.packages = this.privateDropTrips;
             this.categoryContext.header =
               this.privateDropTripCategory.name === "private carter"
-                ? "Private Bandung - Jakarta (Bandara Soetta)"
+                ? "Private Carter Bandung - Jakarta (Bandara Soetta)"
                 : "";
             this.categoryContext.quote =
               this.privateDropTripCategory.name === "private carter"
@@ -390,7 +390,7 @@ export default {
             this.packages = this.regulerDropTrips;
             this.categoryContext.header =
               this.regulerDropTripCategory.name === "reguler"
-                ? "Reguler Trip Bandung - Jakarta (Bandara Soetta)"
+                ? "Reguler Drop Trip Bandung - Jakarta (Bandara Soetta)"
                 : "";
             this.categoryContext.quote =
               this.regulerDropTripCategory.name === "reguler"
@@ -430,7 +430,7 @@ export default {
           this.packages = this.privateDropTrips;
           this.categoryContext.header =
             this.privateDropTripCategory.name === "private carter"
-              ? "Private Bandung - Jakarta (Bandara Soetta)"
+              ? "Private Carter Bandung - Jakarta (Bandara Soetta)"
               : "";
           console.log(this.privateDropTripCategory.description);
           this.categoryContext.quote =

@@ -164,7 +164,6 @@ export default {
       myValue: "",
       settings: {
         placeholder: "Pilih Keberangkatan",
-        allowClear: true,
       },
       input: {
         penjemputan: "",
@@ -188,10 +187,10 @@ export default {
   },
 
   methods: {
-    selectedPickPoints({ id, city_id, parent, text }) {
-      const data = { id, city_id, parent, text };
+    selectedPickPoints({ id, shelter_id, parent, text }) {
+      const data = { id, shelter_id, parent, text };
       this.input.penjemputan = data.text;
-      this.loadDistrict(data.parent);
+      this.loadDistrict(data.shelter_id);
     },
 
     changePickPoints(e) {
@@ -199,7 +198,6 @@ export default {
       this.points.map((d) => {
         d.children.map((n) => {
           if (n.id === id) {
-            console.log(n);
             this.input.penjemputan = n.text;
           }
         });
@@ -210,16 +208,10 @@ export default {
     selectedPickDestination({ id, city_id, parent, text }) {
       const data = { id, city_id, parent, text };
       this.myValue = data.text;
-      console.log(data.text);
       this.input.destination = data.text;
-      // this.loadDistrict(data.parent);
     },
 
     changePickDestination(e) {
-      // const split = e.target.value.split(",");
-      // const parent_city = split[0];
-      // this.input.destination = split[1];
-      // this.loadDistrict(parent_city);
       console.log(e);
       const id = parseInt(e);
       this.points.map((d) => {
@@ -231,8 +223,31 @@ export default {
       });
     },
 
-    loadDistrict(value) {
-      this.goes = this.points.map((d) => d).filter((f) => f.text !== value);
+    loadDistrict(shelter_id) {
+      console.log(shelter_id);
+      // this.goes = this.points.map((d) => d).filter((f) => f.text !== value);
+      const endPoint = `${this.api_url}/shelter/change/${shelter_id}`;
+      const config = {
+        headers: {
+          Accept: "application/json",
+          "X-Header-DNTour": process.env.NUXT_ENV_APP_SECRET_API,
+        },
+      };
+      this.$axios
+        .get(endPoint, config)
+        .then(({ data }) => {
+          console.log(data);
+          const lists = data.data;
+          let childrens = [];
+          for (const key in lists) {
+            childrens.push({
+              text: lists[key].text,
+              children: lists[key].districts,
+            });
+          }
+          this.goes = childrens;
+        })
+        .catch((err) => console.log(err.response));
     },
 
     getShelterData() {
