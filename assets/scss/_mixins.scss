@@ -1,16 +1,11 @@
 // parallax home
 @mixin parallax_mobile {
+  min-height: 500px;
   background-attachment: fixed;
-  background-repeat: no-repeat;
   background-position: center;
-  background-size: 100% auto;
-  top: 15%;
-  height: vh;
-  width: 100vw;
-  position: fixed;
-  margin-left: -15rem;
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 0;
-  z-index: -1;
   .caption {
     background-image: linear-gradient(
       to top,
