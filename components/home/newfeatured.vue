@@ -100,7 +100,7 @@ li > .hover {
                         </div>
                         <div
                           class="col-md-4 col-sm-12 mb-5"
-                          v-for="item in menus.length"
+                          v-for="item in packages.length"
                           :key="item"
                         >
                           <div class="card" aria-hidden="true">
@@ -184,11 +184,7 @@ li > .hover {
                                   <p class="card-text mb-2">
                                     {{ $format(item.price.raw) }}
                                   </p>
-                                  <!-- <a
-                                    :href="`/details/${item.permalink}`"
-                                    class="btn btn-primary btn-block"
-                                    >Detail</a
-                                  > -->
+
                                   <button
                                     @click="showDetailPackage(item)"
                                     data-bs-toggle="modal"
