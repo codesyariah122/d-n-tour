@@ -11,6 +11,21 @@
               <form @submit.prevent="pickUp" class="request-form bg-primary">
                 <h2>Make your trip</h2>
                 <div class="form-group">
+                  <label for="nama" class="label">Nama Lengkap</label>
+                  <input
+                    type="text"
+                    id="nama"
+                    v-model="input.fullname"
+                    placeholder="Nama Lengkap"
+                    class="custom-input"
+                  />
+                </div>
+                <div class="form-group">
+                  <client-only>
+                    <vue-tel-input v-model="input.phone"></vue-tel-input>
+                  </client-only>
+                </div>
+                <div class="form-group">
                   <label for="paket" class="label">Berangkat Dari</label>
                   <Select2
                     class="js-example-placeholder-single"
@@ -34,9 +49,6 @@
                   />
                 </div>
                 <div class="form-group mt-3">
-                  <!-- <pre>
-                    {{ packages }}
-                  </pre> -->
                   <label for="paket" class="label">Pilih Paket Trip</label>
                   <select
                     id="paket"
@@ -46,23 +58,21 @@
                     <option disabled selected>Pilih Paket Trip</option>
 
                     <optgroup
-                      v-for="(item, idx) in packages"
+                      v-for="(item, idx) in products"
                       :key="idx"
-                      :label="item.text"
+                      :label="item.title"
                     >
                       <option
-                        v-for="packageIndex in showToPackage"
-                        :key="packageIndex - 1"
+                        v-for="(product, index) in item.products"
+                        :key="index"
                         :value="[
-                          item.text,
-                          item.childrens[packageIndex - 1].name,
-                          $format(item.childrens[packageIndex - 1].price.raw),
+                          item.title,
+                          product.title,
+                          $format(product.price),
                         ]"
                       >
-                        {{ item.childrens[packageIndex - 1].name }} -
-                        {{
-                          $format(item.childrens[packageIndex - 1].price.raw)
-                        }}
+                        {{ product.title }} -
+                        {{ $format(product.price) }}
                       </option>
                     </optgroup>
                   </select>
@@ -169,7 +179,7 @@
 
 <script>
 export default {
-  props: ["categories", "privateDropTrips", "regulerDropTrips"],
+  props: ["categories", "products"],
   data() {
     return {
       api_url: process.env.NUXT_ENV_API_ENDPOINT,
@@ -181,9 +191,9 @@ export default {
       settings: {
         placeholder: "Pilih Keberangkatan",
       },
-      packages: null,
-      showToPackage: 3,
       input: {
+        fullname: "",
+        phone: "",
         penjemputan: "",
         destination: "",
         package: [],
@@ -200,7 +210,6 @@ export default {
       duration: 800,
       easing: "slide",
     });
-    this.activePackage();
     this.getShelterData();
   },
 
@@ -230,14 +239,16 @@ export default {
     },
 
     changePickDestination(e) {
-      const id = parseInt(e);
-      this.points.map((d) => {
-        d.children.map((n) => {
-          if (n.id === id) {
-            this.input.destination = n.text;
-          }
+      if (e) {
+        const id = parseInt(e);
+        this.points.map((d) => {
+          d.children.map((n) => {
+            if (n.id === id) {
+              this.input.destination = n.text;
+            }
+          });
         });
-      });
+      }
     },
 
     loadDistrict(shelter_id) {
@@ -293,49 +304,58 @@ export default {
       this.$emit("booking-now");
     },
     changePackage(e) {
-      this.input.change = e.target.value.split(",");
-    },
-    activePackage() {
-      let packages = this.categories.map((d) => d);
-      let childPackage = packages.map((d) => d?.children)[1];
-      // this.input.package = packages.map((d) =>
-      //   d.name === "city tour" ? d?.name : ""
-      // )[0];
-      this.input.childPackage = childPackage.map((d) =>
-        d.name !== "city_tour" ? d.name : ""
-      );
-      let lists = [];
-      let packageLists = [];
-      packageLists = this.privateDropTrips.concat(this.regulerDropTrips);
-      for (const key in packageLists) {
-        lists.push({
-          text: packageLists[key].categories.map((item) => item.name)[0],
-          childrens: packageLists,
-        });
+      if (e.target.value) {
+        this.input.change = e.target.value.split(",");
       }
-      this.packages = lists;
     },
 
     pickUp() {
-      if (Object.keys(this.input).length === 0) {
-        alert("harap isi kolom input pemesanan");
-      }
-      const pickupDate = this.$moment(this.input.pickup_date).format("LL");
-      console.log(pickupDate);
-      const url = "https://wa.me/6283165539138?text=";
-      const contextWa = `Hallo,Admin D&N Tour, saya ingin memesan paket trip ${
-        this.input.change[0]
-      } D & N Tour, berikut data lengkap saya \n -Berangkat Dari : ${
-        this.input.penjemputan !== null
-          ? this.input.penjemputan
-          : this.location.city
-      } , \n -Tujuan Ke : ${this.input.destination}, \n -Paket Trip : ${
-        this.input.change[0]
-      }-${this.input.change[1]}(${
-        this.input.change[2]
-      }) \n -Tanggal Berangkat: ${pickupDate}`;
+      if (this.input.change === null) {
+        this.$swal({
+          icon: "error",
+          title: "Oops...",
+          text: "Anda belum memilih Paket Trip !",
+        });
+      } else {
+        if (this.input.fullname === "" || this.input.fullname === undefined) {
+          this.$swal({
+            icon: "error",
+            title: "Oops...",
+            text: "Harap lengkapi data Kamu ...",
+          });
+        } else {
+          if (this.input.penjemputan !== "" && this.input.destination !== "") {
+            if (Object.keys(this.input).length === 0) {
+              alert("harap isi kolom input pemesanan");
+            }
+            const pickupDate = this.$moment(this.input.pickup_date).format(
+              "LL"
+            );
+            const url = "https://wa.me/6283165539138?text=";
+            const contextWa = `Hallo,Admin D&N Tour, saya ingin memesan paket trip ${
+              this.input.change[0]
+            } D & N Tour, berikut data lengkap saya \n -Nama Lengkap : ${
+              this.input.fullname
+            }, \n -No Telephone: ${this.input.phone}, \n -Berangkat Dari : ${
+              this.input.penjemputan !== null
+                ? this.input.penjemputan
+                : this.location.city
+            } , \n -Tujuan Ke : ${this.input.destination}, \n -Paket Trip : ${
+              this.input.change[0]
+            }-${this.input.change[1]}(${
+              this.input.change[2]
+            }) \n -Tanggal Berangkat: ${pickupDate}`;
 
-      window.open(`${url}${encodeURIComponent(contextWa)}`);
+            window.open(`${url}${encodeURIComponent(contextWa)}`);
+          } else {
+            this.$swal({
+              icon: "error",
+              title: "Oops...",
+              text: "Harap pilih Lokasi Penjemputan - Destination ...",
+            });
+          }
+        }
+      }
     },
   },
 

@@ -22,8 +22,7 @@
     <home-panelheader
       @booking-now="bookNow"
       :categories="categories"
-      :privateDropTrips="privateDropTrips"
-      :regulerDropTrips="regulerDropTrips"
+      :products="products"
     />
 
     <home-newfeatured
@@ -66,6 +65,13 @@ export default {
     };
   },
 
+  data() {
+    return {
+      api_url: process.env.NUXT_ENV_API_ENDPOINT,
+      products: [],
+    };
+  },
+
   async asyncData({ $commerce }) {
     const { data: privateDropTrips } = await $commerce.products.list({
       category_slug: ["private-carter"],
@@ -88,9 +94,32 @@ export default {
 
   mounted() {
     this.checkBook();
+    this.getProductsData();
   },
 
   methods: {
+    getProductsData() {
+      try {
+        const endPoint = `${this.api_url}/products`;
+        const config = {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            "X-Header-DNTour": process.env.NUXT_ENV_APP_SECRET_API,
+          },
+        };
+        this.$axios
+          .get(endPoint, config)
+          .then(({ data }) => {
+            if (data.success) {
+              this.products = data.data;
+            }
+          })
+          .catch((err) => console.log(err.response));
+      } catch (err) {
+        console.log(err.message);
+      }
+    },
     checkBook() {
       const check = localStorage.getItem("book-now")
         ? JSON.parse(localStorage.getItem("book-now"))

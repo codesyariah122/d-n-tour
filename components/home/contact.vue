@@ -141,16 +141,6 @@
               <blockquote class="blockquote-footer text-muted mt-2">
                 Write your message in this textarea bellow!
               </blockquote>
-              <!-- <textarea
-                @keyup="resetAlert"
-                v-model="form.message"
-                name=""
-                id=""
-                cols="30"
-                rows="7"
-                class="form-control"
-                placeholder="Message"
-              ></textarea> -->
               <client-only>
                 <tinymce
                   @keyup="resetAlert"

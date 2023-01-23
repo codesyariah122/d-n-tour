@@ -273,7 +273,7 @@ export default {
   ],
 
   amp: {
-    origin: process.env.NUXT_ENV_APP_LOCAL_URLL || "http://localhost:3000",
+    origin: process.env.NUXT_ENV_APP_LOCAL_URL || "http://localhost:3000",
     mode: "hybrid",
   },
 
