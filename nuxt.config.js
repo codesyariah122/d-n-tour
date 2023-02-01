@@ -172,8 +172,13 @@ export default {
 
       {
         src: `https://www.googletagmanager.com/gtag/js?id=${process.env.NUXT_ENV_GOOGLE_ANALYTIC_TRACKING}`,
-        async: true,
+        async: true
       },
+
+      // {
+      //   src: `https://www.googletagmanager.com/gtag/js?id=${process.env.NUXT_ENV_G_TAG_MANAGER}`,
+      //   async: true,
+      // },
 
       {
         src: "https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js",
@@ -260,7 +265,12 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: ["@nuxtjs/dotenv", "@nuxtjs/device", "@nuxtjs/moment"],
+  buildModules: [
+    "@nuxtjs/dotenv", 
+    "@nuxtjs/device", 
+    "@nuxtjs/moment", 
+    '@nuxtjs/google-analytics'
+  ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -271,6 +281,10 @@ export default {
     "@nuxtjs/markdownit",
     "@nuxtjs/amp",
   ],
+
+  googleAnalytics: {
+    id: process.env.NUXT_ENV_GOOGLE_ANALYTIC_UA
+  },
 
   amp: {
     origin: process.env.NUXT_ENV_APP_LOCAL_URL || "http://localhost:3000",

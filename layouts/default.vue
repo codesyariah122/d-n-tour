@@ -49,6 +49,8 @@ export default {
       isActive: false,
       ca_pub: process.env.NUXT_ENV_GOOGLE_ADS_CA,
       g_tag: process.env.NUXT_ENV_G_TAG_MANAGER,
+      g_analytic_tracking: process.env.NUXT_ENV_GOOGLE_ANALYTIC_TRACKING,
+      g_analytic_ua: process.env.NUXT_ENV_GOOGLE_ANALYTIC_UA
     };
   },
 
@@ -59,13 +61,12 @@ export default {
   methods: {
     setAnalytics() {
       window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-      gtag("config", "G-HH5V2NGB9C");
+      gtag('config', this.g_analytic_tracking);
     },
+    
     navSmoothLink() {
       const navLinks = document.querySelectorAll(".nav-link");
 

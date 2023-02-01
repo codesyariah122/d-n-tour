@@ -209,6 +209,7 @@ export default {
       this.$axios
         .post(endPoint, this.form)
         .then(({ data }) => {
+          console.log(data)
           if (data.success) {
             setTimeout(() => {
               this.alertSuccess(data.data);
