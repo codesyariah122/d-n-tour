@@ -66,6 +66,14 @@ export default {
 
       gtag('config', this.g_analytic_tracking);
     },
+
+    setTagAnalytics() {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', this.g_analytic_ua);
+    },
     
     navSmoothLink() {
       const navLinks = document.querySelectorAll(".nav-link");

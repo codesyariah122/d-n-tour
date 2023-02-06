@@ -194,6 +194,9 @@ export default {
         src: "/assets/scripts/g-tag-manager.js",
       },
       {
+        src: `https://www.googletagmanager.com/gtag/js?id=${process.env.NUXT_ENV_GOOGLE_ANALYTIC_UA}`
+      },
+      {
         src: "/assets/js/jquery.min.js",
         body: true,
       },
